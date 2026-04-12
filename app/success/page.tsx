@@ -49,8 +49,8 @@ function SuccessContent() {
             </h1>
             <p className="text-zinc-500 text-lg md:text-xl font-medium leading-relaxed max-w-sm mx-auto">
               {isNew 
-                ? "Your strategic engine is provisioned. We just need to secure your account."
-                : `Your ${productType.toLowerCase()} features are live. Strategic intelligence awaits.`}
+                ? "Your financial tool is ready. We just need to secure your account."
+                : `Your ${productType.toLowerCase()} features are live. Decision support awaits.`}
             </p>
           </div>
           
@@ -100,7 +100,7 @@ function SuccessContent() {
           <div className="mt-12 flex items-center gap-2 opacity-10">
             <div className="w-8 h-px bg-[#111111]" />
             <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#111111]">
-              Precise Strategic Modeling
+               Precise Financial Modeling
             </span>
             <div className="w-8 h-px bg-[#111111]" />
           </div>

@@ -58,7 +58,7 @@ function PaywallContent() {
   useEffect(() => {
     const status = searchParams.get("checkout");
     if (status === "success") {
-      toast.success("Strategic Access Unlocked", {
+      toast.success("Full Access Unlocked", {
         description: "Your account has been upgraded. Head to your dashboard to start."
       });
       updateSession(); // Refresh session to get new access rights
@@ -105,62 +105,80 @@ function PaywallContent() {
 
   const tiers = [
     {
-      id: "ENTRY",
-      name: "Entry Strategy",
+      id: "SUBSCRIPTION",
+      name: "Strategic AI Advisor",
       price: "19",
-      period: "One-time",
-      description: "Baseline financial overview .",
+      period: "/month",
+      description: "Your strategic partner for the 14-month divorce journey. AI guidance from discovery to settlement.",
       features: [
-        { text: "Net Income Breakdown", included: true },
-        { text: "Full Expense Profile", included: true },
-        { text: "Expanded PDF Report", included: false },
-        { text: "Interactive Modeling", included: false },
-        { text: "Scenario Comparison", included: false },
-        { text: "AI Strategic Advisor", included: false },
+        { text: "24/7 Strategic AI Chat", included: true },
+        { text: "Complex Scenario Analysis", included: true },
+        { text: "Save unlimited Scenarios", included: true },
+        { text: "Draft Settlement Reports", included: true },
+        { text: "Deep Financial Insights", included: true },
+        { text: "Requires One-time Activation", included: true },
       ],
-      buttonText: isEntry ? "Active" : "Unlock Entry",
-      disabled: isEntry || isCore,
-      highlight: false
+      buttonText: isPro ? "Active" : "Secure AI Advisor",
+      disabled: isPro,
+      prerequisite: !isCore,
+      highlight: true,
+      badge: "The Hero Offer",
+      stage: "Active Journey Support"
     },
     {
       id: "CORE",
-      name: "Core Strategic Control",
+      name: "Full Control",
       price: "127",
       period: "One-time",
-      description: "Complete financial control system with full interactive modeling.",
+      description: "Complete financial control system with full interactive analysis.",
       features: [
-        { text: "Interactive Dashboard", included: true },
-        { text: "Reality Risk Score", included: true },
+        { text: "Reality Risk Score Engine", included: true },
         { text: "Full Financial Modeling", included: true },
-        { text: "Live Scenario Comparison", included: false },
-        { text: "AI Advisory", included: false },
-        { text: "Unlimited Modeling history", included: false },
-        { text: "AI Advisor Interaction", included: false },
+        { text: "Interactive Workbench", included: true },
+        { text: "Priority Support", included: true },
+        { text: "Lifetime Access", included: true },
+        { text: "Scenario Comparison", included: false },
+        { text: "AI Advisory Access", included: false },
       ],
       buttonText: isCore ? "Active" : isEntry ? "Complete Unlock" : "Unlock Everything",
       disabled: isCore,
-      highlight: true
+      highlight: false,
+      stage: "Strategic Foundation"
     },
     {
-      id: "SUBSCRIPTION",
-      name: "Subscription Plan",
+      id: "ENTRY",
+      name: "Quick Review",
       price: "19",
-      period: "/month",
-      description: "Add-on strategic intelligence powered by specialized AI.",
+      period: "One-time",
+      description: "Baseline financial overview for early-stage clarity.",
       features: [
-        { text: "Direct AI Chat Access", included: true },
-        { text: "Complex Scenario Analysis", included: true },
-        { text: "Save Scenarios", included: true },
-        { text: "PDF Reports", included: true },
-        { text: "Unlimited AI Queries", included: true },
-        { text: "Requires Core Unlock", included: true },
+        { text: "Net Income Breakdown", included: true },
+        { text: "Full Expense Profile", included: true },
+        { text: "Basic PDF Summary", included: true },
+        { text: "Interactive Modeling", included: false },
+        { text: "Goal Tracking", included: false },
+        { text: "AI Decision Support", included: false },
       ],
-      buttonText: isPro ? "Active" : "Activate Pro",
-      disabled: isPro,
-      prerequisite: !isCore,
-      highlight: false
+      buttonText: isEntry ? "Active" : "Unlock Entry",
+      disabled: isEntry || isCore,
+      highlight: false,
+      stage: "Initial Assessment"
     }
   ];
+
+  // COUNTDOWN LOGIC
+  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 54, seconds: 21 });
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
+        if (prev.minutes > 0) return { ...prev, minutes: 59, seconds: 59, minutes: prev.minutes - 1 };
+        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        return prev;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#111111] pt-20">
@@ -223,17 +241,23 @@ function PaywallContent() {
       <main className="flex-1 container max-w-6xl mx-auto px-4 py-16">
 
         {/* HEADER SECTION */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-50 border border-zinc-100 mb-6">
-              <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Secure Strategic Control</span>
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-rose-50 border border-rose-100 mb-8 shadow-sm animate-bounce-slow">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-rose-600">Urgent Access Required</span>
+              </div>
+              <div className="w-px h-3 bg-rose-200" />
+              <div className="text-[11px] font-black tabular-nums text-rose-600">
+                OFFER EXPIRES IN: {timeLeft.hours.toString().padStart(2, '0')}:{timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
-              Unlock Your <br className="hidden md:block" /> Financial Future
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8">
+              Strategic Insight for <br className="hidden md:block" /> Every Settlement Stage
             </h1>
             <p className="text-xl text-zinc-500 max-w-2xl mx-auto font-medium">
-              Eliminate uncertainty with precision tools. Choose the level of insight you need to navigate your settlement.
+               Your divorce will take <span className="text-[#111111] font-black">14 months on average</span>. Don't navigate it alone. Secure the tools you need for absolute financial clarity.
             </p>
           </FadeIn>
         </div>
@@ -241,7 +265,7 @@ function PaywallContent() {
         {/* STRATEGIC PREVIEW SECTION - NEW */}
         <FadeIn delay={0.3} className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4">Your Strategic Command Center</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4">Your Decision Dashboard</h2>
             <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">What's waiting behind the lock</p>
           </div>
 
@@ -258,7 +282,7 @@ function PaywallContent() {
                    </div>
                    <h3 className="text-2xl font-black mb-3 italic">"Stop Guessing, Start Modeling"</h3>
                    <p className="text-sm text-zinc-500 font-bold leading-relaxed mb-6">
-                     Access the full interactive engine. Model unlimited scenarios, get your Reality Score, and chat with your AI Strategic Advisor.
+                     Access the full interactive tool. Model unlimited scenarios, get your Reality Score, and chat with your AI Decision Guide.
                    </p>
                    <div className="flex items-center justify-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -329,14 +353,17 @@ function PaywallContent() {
                 : "bg-white border-zinc-100 hover:border-zinc-300 shadow-sm"
             )}>
               {tier.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#16A34A] text-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg flex items-center gap-2">
-                  <Zap className="w-3.5 h-3.5" /> Most Trusted
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#16A34A] text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl flex items-center gap-2 z-20">
+                  <Sparkles className="w-4 h-4" /> {tier.badge || "Hero Offer"}
                 </div>
               )}
 
               <div className="mb-8">
-                <h2 className={cn("text-2xl font-black mb-1", tier.highlight ? "text-white" : "text-[#111111]")}>{tier.name}</h2>
-                <p className={cn("text-xs font-medium", tier.highlight ? "text-zinc-400" : "text-zinc-500")}>{tier.description}</p>
+                <div className={cn("text-[9px] font-black uppercase tracking-[0.2em] mb-2 px-3 py-1 rounded-lg w-fit", tier.highlight ? "bg-white/10 text-emerald-400" : "bg-zinc-100 text-zinc-400")}>
+                  {tier.stage}
+                </div>
+                <h2 className={cn("text-3xl font-black mb-1", tier.highlight ? "text-white" : "text-[#111111]")}>{tier.name}</h2>
+                <p className={cn("text-[11px] font-bold leading-relaxed", tier.highlight ? "text-zinc-400" : "text-zinc-500")}>{tier.description}</p>
               </div>
 
               <div className="mb-8 flex items-baseline gap-1">
@@ -371,7 +398,7 @@ function PaywallContent() {
                   <div className="p-4 bg-zinc-50/50 border border-zinc-100/50 rounded-2xl mb-4 flex gap-3 items-start">
                     <Info className="w-4 h-4 text-zinc-400 shrink-0" />
                     <p className="text-[10px] font-bold text-zinc-400 leading-relaxed uppercase tracking-widest">
-                      Requires Strategic Core Unlock to Activate.
+                      Requires Full Access Unlock to Activate.
                     </p>
                   </div>
                 ) : null}
@@ -450,8 +477,8 @@ function PaywallContent() {
               <Link href="/contact" className="hover:text-[#111111] transition-colors">Contact</Link>
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#111111] mb-1">Costly Financial Modeling</p>
-              <p className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">© 2026 Precise Strategic Engine</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#111111] mb-1">Costly Financial Tools</p>
+              <p className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">© 2026 Precise Financial Software</p>
             </div>
           </div>
         </div>

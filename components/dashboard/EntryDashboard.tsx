@@ -24,7 +24,10 @@ import {
   TrendingUp,
   PieChart,
   History as HistoryIcon,
-  Loader2
+  Loader2,
+  AlertTriangle,
+  Sparkles,
+  Wallet
 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -105,11 +108,11 @@ export function EntryDashboard({ userName, isCore }: { userName: string; isCore:
   const formatter = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 
   return (
-    <div className="grid lg:grid-cols-12 gap-8 items-start px-4 lg:px-0 pb-20">
+    <div className="grid lg:grid-cols-12 gap-8 items-stretch px-4 lg:px-0 pb-20">
 
       {/* Left: Deep Data Input (The Engine) */}
-      <div className="lg:col-span-7 space-y-8">
-        <section className="bg-white rounded-[2rem] lg:rounded-3xl p-6 lg:p-8 border border-zinc-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+      <div className="lg:col-span-7 flex flex-col">
+        <section className="flex-1 bg-white rounded-[2rem] lg:rounded-3xl p-6 lg:p-8 border border-zinc-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div className="flex items-center gap-3 mb-8">
             <TrendingUp className="w-5 h-5 text-[#111111]" />
             <h3 className="text-xl font-black text-[#111111]">Detailed Financial Parameters</h3>
@@ -250,13 +253,58 @@ export function EntryDashboard({ userName, isCore }: { userName: string; isCore:
             </div>
           </div>
         </section>
+
+        {/* PREMIUM ADD-ONS PREVIEW - CONVERSION TRIGGER */}
+        <section className="bg-white rounded-[2rem] lg:rounded-3xl p-6 lg:p-8 border border-zinc-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group mt-8">
+           {/* Subtle glass overlay for locked feel */}
+           <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px] z-10 pointer-events-none" />
+           
+           <div className="flex items-center justify-between mb-8 relative z-20">
+              <div className="flex items-center gap-2">
+                 <Sparkles className="w-4 h-4 text-[#EAB308]" />
+                 <h4 className="text-[10px] uppercase font-black tracking-widest text-[#111111]">Strategic Expansion Modules</h4>
+              </div>
+              <div className="px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200">
+                 <span className="text-[8px] font-black uppercase tracking-widest text-zinc-400">Core Required</span>
+              </div>
+           </div>
+
+           <div className="grid sm:grid-cols-2 gap-4 relative z-20">
+              {[
+                 { id: "asset", label: "Asset Split modeling", icon: PieChart },
+                 { id: "retirement", label: "Retirement Analysis", icon: Wallet },
+                 { id: "va", label: "VA Disability Adjustment", icon: ShieldCheck },
+                 { id: "housing", label: "Housing Impact Scenarios", icon: Home }
+              ].map((addon) => (
+                 <div key={addon.id} className="p-5 rounded-2xl border border-zinc-100 bg-zinc-50/50 flex flex-col items-center text-center gap-3 group/item transition-all hover:bg-white hover:shadow-xl">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-zinc-300 group-hover/item:text-[#16A34A] transition-colors">
+                       <addon.icon className="w-5 h-5" />
+                    </div>
+                    <p className="text-[10px] font-black uppercase tracking-tight text-zinc-500">{addon.label}</p>
+                    <Button
+                       onClick={() => handleCheckout("CORE")}
+                       variant="outline"
+                       className="h-8 rounded-full text-[9px] font-black uppercase tracking-widest px-4 border-zinc-200 hover:bg-[#111111] hover:text-white transition-all cursor-pointer"
+                    >
+                       Upgrade for Access
+                    </Button>
+                 </div>
+              ))}
+           </div>
+
+           <div className="mt-8 pt-6 border-t border-zinc-50 text-center relative z-20">
+              <p className="text-[10px] font-bold text-zinc-400 max-w-[280px] mx-auto leading-relaxed italic">
+                 These advanced modules require the <span className="text-[#111111] font-black">Core Intelligence Engine</span> to process complex variables.
+              </p>
+           </div>
+        </section>
       </div>
 
       {/* Right: Summary & Upsell */}
-      <div className="lg:col-span-5 space-y-6">
+      <div className="lg:col-span-5 flex flex-col gap-6">
 
         {/* Expanded Summary Card */}
-        <section className="bg-[#111111] text-white rounded-[2rem] lg:rounded-[2.5rem] p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+        <section className="flex-1 bg-[#111111] text-white rounded-[2rem] lg:rounded-[2.5rem] p-6 lg:p-10 shadow-2xl relative overflow-hidden flex flex-col">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#16A34A]/20 blur-[60px] rounded-full -mr-16 -mt-16" />
 
           <div className="mb-10">
@@ -265,9 +313,14 @@ export function EntryDashboard({ userName, isCore }: { userName: string; isCore:
           </div>
 
           <div className="space-y-6">
-            <div className="flex justify-between items-center py-4 border-b border-white/10">
+            <div className="flex justify-between items-center py-4 border-b border-white/10 relative group">
               <span className="text-zinc-400 font-bold text-sm">Disposable Monthly Income</span>
               <span className="text-xl font-black text-[#16A34A]">{formatter.format(result?.disposableIncome || 0)}</span>
+              {!isCore && (
+                 <div className="absolute inset-x-0 inset-y-2 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-xl border border-white/5 pointer-events-none">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-[#16A34A]">Unlocked Preview</span>
+                 </div>
+              )}
             </div>
             <div className="flex justify-between items-center py-4 border-b border-white/10">
               <span className="text-zinc-400 font-bold text-sm">Monthly Child Support</span>
@@ -279,84 +332,134 @@ export function EntryDashboard({ userName, isCore }: { userName: string; isCore:
             </div>
           </div>
 
-          <div className="mt-8 pt-8 flex items-center gap-4 border-t border-white/10">
-            <div className="flex-1">
-              <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-1">Reality Risk Score</p>
-              <div className="flex items-center gap-2">
+          <div className="mt-auto">
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-1">Reality Risk Score</p>
+                  <p className="text-[8px] font-bold text-zinc-600 uppercase tracking-widest">Financial Safety Protocol</p>
+                </div>
+                {!isCore && (
+                  <div className="px-2 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center gap-1.5 animate-pulse">
+                    <div className="w-1 h-1 rounded-full bg-rose-500" />
+                    <span className="text-[8px] font-black text-rose-500 uppercase tracking-widest">Security Alert</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="relative h-24 flex flex-col items-center justify-center">
                 {isCore ? (
-                  <>
-                    <div className={cn(
-                      "w-2 h-2 rounded-full",
-                      result?.realityScoreStatus === "Green" ? "bg-[#16A34A]" :
-                        result?.realityScoreStatus === "Yellow" ? "bg-[#EAB308]" : "bg-[#DC2626]"
-                    )} />
-                    <span className="text-xl font-black text-white">
+                  <div className="text-center group">
+                    <span className={cn(
+                      "text-5xl font-black tracking-tighter transition-all duration-700",
+                      result?.realityScoreStatus === "Green" ? "text-[#16A34A]" :
+                        result?.realityScoreStatus === "Yellow" ? "text-[#EAB308]" : "text-[#DC2626]"
+                    )}>
                       {(result?.impactPercentage || 0 * 100).toFixed(1)}%
                     </span>
-                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                      ({result?.realityScoreLabel})
-                    </span>
-                  </>
+                    <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mt-1">{result?.realityScoreLabel}</p>
+                  </div>
                 ) : (
-                  <div className="flex items-center gap-3 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 backdrop-blur-sm shadow-inner">
-                    <Lock className="w-8 h-8 text-[#16A34A] animate-pulse" />
-                    <span className="text-[10px] font-black text-zinc-500 tracking-[0.1em] uppercase select-none flex items-center gap-2">
-                      <span className="blur-[3.5px] tabular-nums">88.88%</span>
-                      <span className="opacity-20 text-white">|</span>
-                      <span className="blur-[2.5px] opacity-60">Strategic Stability Locked</span>
-                    </span>
+                  <div className="w-full flex flex-col items-center gap-4">
+                     {/* PREMIUM GAUGE MOCK (Blurred) */}
+                     <div className="relative w-full max-w-[240px] h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-inner overflow-hidden">
+                        <div className="absolute left-0 top-0 bottom-0 w-[64%] bg-gradient-to-r from-emerald-500/20 to-amber-500/20 blur-md" />
+                        <span className="relative z-10 text-4xl font-black text-white/10 blur-[6px] tracking-tight tabular-nums">72.4%</span>
+                        <Lock className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 text-[#16A34A]" />
+                     </div>
+                     <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em] animate-pulse">Analyzing Stability Index...</p>
                   </div>
                 )}
               </div>
             </div>
+
+            {!isCore && (
+              <div className="mt-8 p-6 rounded-2xl bg-[#DC2626]/5 border border-[#DC2626]/10 flex gap-4 items-start">
+                 <AlertTriangle className="w-5 h-5 text-[#DC2626] shrink-0" />
+                 <div>
+                    <h5 className="text-[10px] font-black uppercase tracking-widest text-[#DC2626] mb-1">Critical Insight Alert</h5>
+                    <p className="text-[11px] text-zinc-500 font-bold leading-relaxed">
+                       We found <span className="text-white font-black underline underline-offset-4 decoration-[#DC2626]/30">3 strategic factors</span> in your profile that could significantly change this score. Unlock to reveal risks.
+                    </p>
+                 </div>
+              </div>
+            )}
+
             {!isCore && (
               <Button 
                 onClick={() => handleCheckout("CORE")}
                 disabled={!!isRedirecting}
-                variant="ghost" 
-                className="bg-white text-black font-black rounded-xl h-10 px-4 text-xs cursor-pointer hover:bg-zinc-100 hover:text-black min-w-[120px]"
+                className="w-full h-14 mt-8 rounded-2xl bg-[#16A34A] text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-[#16A34A]/20 transition-all hover:scale-[1.02] active:scale-[0.98] group"
               >
                 {isRedirecting === "CORE" ? (
-                  <Loader2 className="w-4 h-4 animate-spin text-black" />
+                  <Loader2 className="w-5 h-5 animate-spin text-white" />
                 ) : (
-                  <>Unlock Score <ArrowUpRight className="ml-1 w-3 h-3" /></>
+                  <>
+                    Upgrade to Reveal Full Report 
+                    <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </>
                 )}
               </Button>
             )}
           </div>
         </section>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className={cn(
-            "bg-white border border-zinc-100 p-6 rounded-[2rem] text-center transition-all",
-            !isCore && "opacity-70 group"
-          )}>
-            <div className="w-10 h-10 bg-zinc-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <PieChart className={cn("w-5 h-5", isCore ? "text-[#16A34A]" : "text-zinc-300")} />
-            </div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1">AI Advisory</p>
-            {!isCore && (
-              <div className="flex items-center justify-center gap-1.5 py-1 px-3 bg-zinc-100 rounded-full w-fit mx-auto">
-                <Lock className="w-3 h-3 text-zinc-400" />
-                <span className="text-[10px] font-bold text-zinc-400 uppercase">Core</span>
+        <div className="space-y-4">
+           {!isCore && (
+              <div className="p-6 rounded-[2rem] bg-zinc-50 border border-zinc-100">
+                 <div className="flex items-center gap-2 mb-4">
+                    <Sparkles className="w-4 h-4 text-[#EAB308]" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Tactical Alternatives Preview</span>
+                 </div>
+                 <div className="space-y-3">
+                    <div className="p-4 rounded-xl bg-white border border-zinc-100 flex items-center justify-between group pointer-events-none">
+                       <span className="text-[10px] font-bold text-zinc-800 uppercase">50/50 Shared Custody Model</span>
+                       <span className="text-[10px] font-black text-[#16A34A] blur-[4px]">+$840/mo</span>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white border border-zinc-100 flex items-center justify-between group pointer-events-none">
+                       <span className="text-[10px] font-bold text-zinc-800 uppercase">Sole Provider Tax Optimization</span>
+                       <span className="text-[10px] font-black text-[#16A34A] blur-[4px]">+$2,100/yr</span>
+                    </div>
+                 </div>
+                 <div className="mt-4 flex items-center justify-center gap-2">
+                    <Lock className="w-3 h-3 text-zinc-300" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-zinc-300">Upgrade to Model Alternatives</span>
+                 </div>
               </div>
-            )}
-          </div>
-          <div className={cn(
-            "bg-white border border-zinc-100 p-6 rounded-[2rem] text-center transition-all",
-            !isCore && "opacity-70 group"
-          )}>
-            <div className="w-10 h-10 bg-zinc-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <HistoryIcon className={cn("w-5 h-5", isCore ? "text-[rgb(79,70,229)]" : "text-zinc-300")} />
-            </div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1">Scenario History</p>
-            {!isCore && (
-              <div className="flex items-center justify-center gap-1.5 py-1 px-3 bg-zinc-100 rounded-full w-fit mx-auto">
-                <Lock className="w-3 h-3 text-zinc-400" />
-                <span className="text-[10px] font-bold text-zinc-400 uppercase">Core</span>
+           )}
+
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className={cn(
+                "bg-white border border-zinc-100 p-6 rounded-[2rem] text-center transition-all",
+                !isCore && "opacity-70 group"
+              )}>
+                <div className="w-10 h-10 bg-zinc-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <PieChart className={cn("w-5 h-5", isCore ? "text-[#16A34A]" : "text-zinc-300")} />
+                </div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1">AI Advisory</p>
+                {!isCore && (
+                  <div className="flex items-center justify-center gap-1.5 py-1 px-3 bg-zinc-100 rounded-full w-fit mx-auto">
+                    <Lock className="w-3 h-3 text-zinc-400" />
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase">Core</span>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+              <div className={cn(
+                "bg-white border border-zinc-100 p-6 rounded-[2rem] text-center transition-all",
+                !isCore && "opacity-70 group"
+              )}>
+                <div className="w-10 h-10 bg-zinc-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <HistoryIcon className={cn("w-5 h-5", isCore ? "text-[rgb(79,70,229)]" : "text-zinc-300")} />
+                </div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1">Scenario History</p>
+                {!isCore && (
+                  <div className="flex items-center justify-center gap-1.5 py-1 px-3 bg-zinc-100 rounded-full w-fit mx-auto">
+                    <Lock className="w-3 h-3 text-zinc-400" />
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase">Core</span>
+                  </div>
+                )}
+              </div>
+           </div>
         </div>
 
       </div>

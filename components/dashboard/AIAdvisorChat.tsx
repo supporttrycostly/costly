@@ -29,7 +29,7 @@ export function AIAdvisorChat({ currentModel }: AIAdvisorChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I'm your AI Strategic Advisor. I've analyzed your current financial model. How can I help you optimize your trajectory today?"
+      content: "Hello! I'm your AI decision guide. I've analyzed your current financial model. How can I help you today?"
     }
   ]);
   const [input, setInput] = useState("");
@@ -133,7 +133,7 @@ export function AIAdvisorChat({ currentModel }: AIAdvisorChatProps) {
             <BrainCircuit className="w-5 h-5 text-emerald-500" />
           </div>
           <div>
-            <h3 className="text-sm font-black tracking-widest uppercase">Trajectory Advisor</h3>
+            <h3 className="text-sm font-black tracking-widest uppercase">Decision Guide</h3>
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Active Intelligence V2.1</span>
@@ -250,7 +250,7 @@ export function AIAdvisorChat({ currentModel }: AIAdvisorChatProps) {
                <input
                  value={input}
                  onChange={(e) => setInput(e.target.value)}
-                 placeholder="Type your strategic question..."
+                 placeholder="Type your question..."
                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#111]/10 focus:bg-white transition-all group-hover:border-zinc-300"
                  disabled={isLoading}
                />
@@ -270,7 +270,7 @@ export function AIAdvisorChat({ currentModel }: AIAdvisorChatProps) {
             </button>
           </form>
           <p className="mt-3 text-center text-[9px] font-black uppercase tracking-widest text-zinc-400 select-none">
-            STRATEGIC ADVISORY SESSION • AUTHENTICATED & ENCRYPTED
+            DECISION SUPPORT SESSION • AUTHENTICATED & ENCRYPTED
           </p>
         </div>
       </div>

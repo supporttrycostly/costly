@@ -54,7 +54,7 @@ export default function PrivacyPage() {
 
       <footer className="border-t border-zinc-100 py-12 px-6">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">© 2026 Costly – Professional Strategic Modeling</p>
+          <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">© 2026 Costly – Professional Financial Modeling</p>
           <div className="flex gap-8">
              <a href="/" className="text-[10px] font-black uppercase tracking-widest text-[#111111] hover:text-zinc-500 transition-colors">Home</a>
              <a href="/contact" className="text-[10px] font-black uppercase tracking-widest text-[#111111] hover:text-zinc-500 transition-colors">Contact</a>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 import { useCalculator } from "@/lib/store/CalculatorContext";
 import { runCalculationEngine } from "@/lib/calculator";
@@ -63,8 +64,8 @@ export function CalculatorForm() {
     });
 
     toast.promise(promise, {
-      loading: 'Calibrating Strategic Data...',
-      success: 'Analysis Complete. Vision Ready.',
+      loading: 'Calculating Your Estimate...',
+      success: 'Estimate Ready.',
       error: 'Calculation mismatch. Please verify inputs.',
     });
 
@@ -113,7 +114,7 @@ export function CalculatorForm() {
                     <div className="flex items-center justify-center gap-2 mb-2">
                        <div className="px-4 py-1.5 bg-emerald-50 border border-emerald-100 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-[#16A34A] flex items-center gap-2">
                          <div className="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-pulse" />
-                         Engine Verified: {data.state || "US Default"}
+                         State Guidelines Applied: {data.state || "US Default"}
                        </div>
                     </div>
                     <div className="flex flex-col items-center gap-4">
@@ -151,7 +152,7 @@ export function CalculatorForm() {
                         />
                       </div>
                       <p className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest italic">
-                        Proprietary Financial Reality Index
+                        Financial impact assessment
                       </p>
                     </div>
                   </div>
@@ -232,7 +233,7 @@ export function CalculatorForm() {
                {/* Select State */}
                <div className="space-y-3">
                  <div className="flex items-center justify-between px-1">
-                   <Label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Your State</Label>
+                   <Label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Step 1: Your State</Label>
                    <MapPin className="w-3 h-3 text-zinc-300" />
                  </div>
                  <Select value={data.state || ""} onValueChange={(val) => updateData({ state: val })}>
@@ -252,7 +253,7 @@ export function CalculatorForm() {
                {/* Children Count */}
                <div className="space-y-3">
                  <div className="flex items-center justify-between px-1">
-                   <Label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Number of Children</Label>
+                   <Label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Step 2: Number of Children</Label>
                    <Users2 className="w-3 h-3 text-zinc-300" />
                  </div>
                  <Select value={data.childrenCount.toString()} onValueChange={(val) => updateData({ childrenCount: Number(val) })}>
@@ -348,7 +349,7 @@ export function CalculatorForm() {
             <div className="pt-4 space-y-6">
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#EAB308]">Strategic Scope</span>
-                <p className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest">Optional: Capture broader context for precise modeling</p>
+                <p className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest">Optional: Add for better accuracy</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -406,18 +407,18 @@ export function CalculatorForm() {
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Calculating Estimate...
+                    Generating Estimate...
                   </div>
                 ) : (
                   <>
-                    See My Analysis <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    See My Estimate <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </Button>
             </div>
 
             <p className="text-center text-[9px] text-zinc-400 font-black uppercase tracking-[0.2em] bg-zinc-50 py-4 rounded-2xl border border-zinc-100">
-              🔒 Standardized State Calculation Instance
+              🔒 Standardized State Calculation Tool
             </p>
           </form>
         </div>

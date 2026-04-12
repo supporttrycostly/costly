@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -17,7 +20,10 @@ import {
   Sparkles,
   LayoutDashboard,
   Users2,
-  X
+  X,
+  FileText,
+  AlertTriangle,
+  Info
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -37,20 +43,20 @@ export default function LandingPage() {
 
           <SlideUp yOffset={20}>
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-zinc-100 border border-zinc-200 text-sm font-medium text-zinc-600">
-              <span className="flex w-2 h-2 rounded-full bg-[#EAB308]"></span>
-              Financial Clarity for Divorcing Dads
+              <span className="flex w-2 h-2 rounded-full bg-[#DC2626]"></span>
+              Instant Financial Clarity
             </div>
           </SlideUp>
 
           <SlideUp yOffset={20} delay={0.1}>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.1]">
-              Get Instant Clarity on Your <span className="text-zinc-400">Child Support Liability</span>
+              See your estimated child support — <span className="text-zinc-400">and what you may have left each month.</span>
             </h1>
           </SlideUp>
 
           <SlideUp yOffset={20} delay={0.2}>
-            <p className="mt-6 text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto">
-              Calculate your estimated monthly child support in 60 seconds. Unlock full financial modeling for expenses, future income, and scenario testing.
+            <p className="mt-6 text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto font-medium">
+              Understand what divorce may really cost you before you make expensive decisions. Get a 60-second estimate, see your projected cash flow, and explore how custody, income, and expenses may change the outcome.
             </p>
           </SlideUp>
 
@@ -58,14 +64,23 @@ export default function LandingPage() {
             <div className="mt-12 flex flex-col sm:flex-row items-center gap-6 justify-center">
               <Button asChild size="lg" className="bg-[#111111] hover:bg-zinc-800 text-white rounded-2xl px-10 h-16 text-sm font-black uppercase tracking-widest w-full sm:w-auto group shadow-2xl shadow-black/10 transition-all active:scale-95">
                 <Link href="/run" className="flex items-center gap-3">
-                  Preview My Numbers
+                  Calculate My Remaining Cash Flow
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <div className="flex items-center gap-2 px-4 py-2 bg-zinc-50 border border-zinc-100 rounded-full">
                 <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Free Liability Vision</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Free Instant Cash Flow Estimate</p>
               </div>
+            </div>
+          </SlideUp>
+
+          <SlideUp yOffset={20} delay={0.4}>
+            <div className="mt-12 flex justify-center">
+              <Link href="/california-child-support" className="inline-flex items-center gap-2 group cursor-pointer transition-all hover:opacity-100">
+                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 group-hover:text-[#111111] transition-colors italic">Specialized: California Guidelines 2026</span>
+                 <ArrowRight className="w-3 h-3 text-zinc-300 group-hover:text-[#111111] group-hover:translate-x-1 transition-all" />
+              </Link>
             </div>
           </SlideUp>
         </section>
@@ -94,8 +109,8 @@ export default function LandingPage() {
                 <div className="text-left flex items-start gap-4">
                   <ShieldCheck className="w-10 h-10 text-[#16A34A] shrink-0" />
                   <div>
-                    <p className="font-bold text-lg">Industry-Grade Privacy</p>
-                    <p className="text-xs text-zinc-500 font-medium whitespace-nowrap">Secure handling of your data</p>
+                    <p className="font-bold text-lg">Total Discretion</p>
+                    <p className="text-xs text-zinc-500 font-medium whitespace-nowrap">Protected financial modeling</p>
                   </div>
                 </div>
               </div>
@@ -108,8 +123,8 @@ export default function LandingPage() {
           <div className="container">
             <SlideUp>
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Financial vision in 3 simple steps</h2>
-                <p className="mt-4 text-zinc-600 text-lg">Stop relying on expensive lawyer guesswork. Get high-fidelity estimates that show you where you stand.</p>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Stop guessing. Get clear in 3 simple steps.</h2>
+                <p className="mt-4 text-zinc-600 text-lg">Stop relying on expensive lawyer guesswork. Get high-fidelity estimates that show you exactly what's left after child support.</p>
               </div>
             </SlideUp>
 
@@ -118,24 +133,119 @@ export default function LandingPage() {
                 <div className="w-20 h-20 rounded-3xl bg-zinc-50 border border-zinc-100 shadow-sm flex items-center justify-center mb-8">
                   <Calculator className="w-8 h-8 text-[#111111]" />
                 </div>
-                <h3 className="text-xl font-black uppercase tracking-tight">1. Enter 3 Metrics</h3>
-                <p className="mt-4 text-sm text-zinc-500 font-medium leading-relaxed">Input your income, custody percentage, and basic expenses into our precision engine.</p>
+                <h3 className="text-xl font-black uppercase tracking-tight">1. Simple Input</h3>
+                <p className="mt-4 text-sm text-zinc-500 font-medium leading-relaxed">Enter your income, custody percentage, and monthly fixed costs into our precision calculator.</p>
               </SlideUp>
 
               <SlideUp delay={0.2} className="relative z-10 flex flex-col items-center text-center p-8 rounded-[2.5rem] bg-white border border-zinc-100 hover:border-zinc-300 transition-all shadow-sm hover:shadow-xl hover:-translate-y-1">
                 <div className="w-20 h-20 rounded-3xl bg-zinc-50 border border-zinc-100 flex items-center justify-center mb-8">
                   <Eye className="w-8 h-8 text-[#16A34A]" />
                 </div>
-                <h3 className="text-xl font-black uppercase tracking-tight">2. Support Vision</h3>
-                <p className="mt-4 text-sm text-zinc-500 font-medium leading-relaxed">Instantly view your estimated child support obligations — no credit card or login required.</p>
+                <h3 className="text-xl font-black uppercase tracking-tight">2. Instant Visibility</h3>
+                <p className="mt-4 text-sm text-zinc-500 font-medium leading-relaxed">Instantly view your estimated child support obligations and see how they impact your monthly bottom line.</p>
               </SlideUp>
 
               <SlideUp delay={0.3} className="relative z-10 flex flex-col items-center text-center p-8 rounded-[2.5rem] bg-[#111111] text-white transition-all shadow-2xl hover:-translate-y-1">
                 <div className="w-20 h-20 rounded-3xl bg-white/10 border border-white/10 flex items-center justify-center mb-8">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-black uppercase tracking-tight">3. Full Strategy</h3>
-                <p className="mt-4 text-sm text-zinc-400 font-medium leading-relaxed">Upgrade to unlock scenario modeling, spousal maintenance analysis, and your complete Reality Score.</p>
+                <h3 className="text-xl font-black uppercase tracking-tight">3. Protect What's Left</h3>
+                <p className="mt-4 text-sm text-zinc-400 font-medium leading-relaxed">Unlock scenario modeling and spousal maintenance analysis to ensure you don't overpay or leave yourself stranded.</p>
+              </SlideUp>
+            </div>
+          </div>
+        </section>
+
+        {/* REALITY SCORE & PDF PREVIEW - NEW SECTION */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="container max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* column 1: Reality Score Explanation */}
+              <SlideUp>
+                <div className="space-y-8">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#EAB308] mb-4 inline-block">Impact Severity Index</span>
+                    <h2 className="text-4xl font-black tracking-tight mb-6">Can you survive your settlement?</h2>
+                    <p className="text-zinc-500 text-lg leading-relaxed font-medium">
+                      Our proprietary Reality Score measures the severity of financial impact on your new life. Know exactly how much pressure your proposed settlement will create.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-100/50">
+                      <div className="w-10 h-10 rounded-full bg-[#16A34A] flex items-center justify-center text-white">
+                        <CheckCircle2 className="w-5 h-5" />
+                      </div>
+                      <div>
+                         <p className="font-black text-sm uppercase tracking-tight text-[#16A34A]">Sustainable</p>
+                         <p className="text-xs text-zinc-600 font-medium">Low financial risk. Your income covers your new lifestyle.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-yellow-50 border border-yellow-100/50">
+                      <div className="w-10 h-10 rounded-full bg-[#EAB308] flex items-center justify-center text-white">
+                        <Info className="w-5 h-5" />
+                      </div>
+                      <div>
+                         <p className="font-black text-sm uppercase tracking-tight text-[#EAB308]">Financial Pressure</p>
+                         <p className="text-xs text-zinc-600 font-medium">Significant awareness needed. Your margins are tightening.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-red-50 border border-red-100/50">
+                      <div className="w-10 h-10 rounded-full bg-[#DC2626] flex items-center justify-center text-white">
+                        <AlertTriangle className="w-5 h-5" />
+                      </div>
+                      <div>
+                         <p className="font-black text-sm uppercase tracking-tight text-[#DC2626]">Survival At Risk</p>
+                         <p className="text-xs text-zinc-600 font-medium">Urgent adjustment required. Settlement may be unsustainable.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SlideUp>
+
+              {/* column 2: PDF Preview */}
+              <SlideUp delay={0.2}>
+                <div className="relative group">
+                  {/* Decorative background for PDF */}
+                  <div className="absolute -inset-4 bg-zinc-100 rounded-[3rem] -z-10 group-hover:bg-zinc-200 transition-colors" />
+                  
+                  <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-2xl p-8 md:p-12 relative overflow-hidden">
+                    <div className="flex items-center justify-between mb-8">
+                       <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 rounded-xl bg-[#111111] flex items-center justify-center text-white">
+                             <FileText className="w-6 h-6" />
+                          </div>
+                          <div>
+                             <p className="font-black text-sm uppercase leading-tight">Impact Roadmap</p>
+                             <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">12-Page PDF Analysis</p>
+                          </div>
+                       </div>
+                       <Lock className="w-5 h-5 text-zinc-300" />
+                    </div>
+
+                    <div className="space-y-4">
+                       <div className="h-4 w-full bg-zinc-50 rounded-full" />
+                       <div className="h-4 w-3/4 bg-zinc-50 rounded-full" />
+                       <div className="h-20 w-full bg-zinc-50 rounded-2xl flex items-center justify-center">
+                          <span className="text-[10px] font-black text-zinc-300 uppercase tracking-[0.3em]">Quantitative Model</span>
+                       </div>
+                       <div className="grid grid-cols-2 gap-4">
+                          <div className="h-12 bg-zinc-50 rounded-xl" />
+                          <div className="h-12 bg-zinc-50 rounded-xl" />
+                       </div>
+                       <div className="h-4 w-1/2 bg-zinc-50 rounded-full" />
+                    </div>
+
+                    <div className="mt-10 pt-8 border-t border-zinc-100 flex items-center justify-between">
+                       <p className="text-xs font-bold text-zinc-500 max-w-[180px]">Legal-grade documentation of your financial scenario.</p>
+                       <div className="px-4 py-2 bg-zinc-50 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-400 border border-zinc-100">
+                          PDF Preview
+                       </div>
+                    </div>
+                  </div>
+                </div>
               </SlideUp>
             </div>
           </div>
@@ -147,108 +257,156 @@ export default function LandingPage() {
         <section className="py-24 bg-zinc-50 border-y border-zinc-100 relative overflow-hidden">
           {/* Decorative background glow */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-50/40 rounded-full blur-[120px] -z-10" />
-          
+
           <div className="container max-w-6xl">
             <FadeIn>
               <div className="text-center mb-16">
-                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-4 inline-block">The Strategic Framework</span>
-                <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">4 Pillars of Financial Modeling</h2>
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-4 inline-block">The Clarity Framework</span>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">Can you afford your post-divorce life?</h2>
                 <p className="text-zinc-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">
-                  Go beyond simple liability. Our engine calculates the four core components of a sustainable post-split life.
+                  Go beyond simple liability. Our tool calculates if your proposed settlement leaves you with enough to actually live on.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* PILLAR 1 */}
                 <div className="p-8 rounded-[2.5rem] bg-white border border-zinc-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group">
-                   <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
-                      <LayoutDashboard className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
-                   </div>
-                   <h4 className="font-black uppercase tracking-tight text-sm mb-3">Asset Split Ratios</h4>
-                   <p className="text-xs text-zinc-500 font-bold leading-relaxed">Model multiple division scenarios for marital assets, home equity, and retirement accounts.</p>
+                  <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
+                    <LayoutDashboard className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
+                  </div>
+                  <h4 className="font-black uppercase tracking-tight text-sm mb-3">Liquidity & Assets</h4>
+                  <p className="text-xs text-zinc-500 font-bold leading-relaxed">Model how asset division impacts your monthly cash flow and long-term liquidity.</p>
                 </div>
 
                 {/* PILLAR 2 */}
                 <div className="p-8 rounded-[2.5rem] bg-white border border-zinc-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group">
-                   <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
-                      <TrendingUp className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
-                   </div>
-                   <h4 className="font-black uppercase tracking-tight text-sm mb-3">Maintenance Risk</h4>
-                   <p className="text-xs text-zinc-500 font-bold leading-relaxed">Analyze spousal support exposure with high-fidelity projections based on income delta.</p>
+                  <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
+                    <TrendingUp className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
+                  </div>
+                  <h4 className="font-black uppercase tracking-tight text-sm mb-3">The Alimony Gap</h4>
+                  <p className="text-xs text-zinc-500 font-bold leading-relaxed">Analyze hidden maintenance risks and spousal support exposure that could drain your income.</p>
                 </div>
 
                 {/* PILLAR 3 */}
                 <div className="p-8 rounded-[2.5rem] bg-white border border-zinc-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all group">
-                   <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
-                      <Sparkles className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
-                   </div>
-                   <h4 className="font-black uppercase tracking-tight text-sm mb-3">Reality Score</h4>
-                   <p className="text-xs text-zinc-500 font-bold leading-relaxed">A proprietary sustainability index that measures your post-split financial survivability.</p>
+                  <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-6 group-hover:bg-emerald-50 transition-colors">
+                    <Sparkles className="w-6 h-6 text-[#111111] group-hover:text-emerald-600" />
+                  </div>
+                  <h4 className="font-black uppercase tracking-tight text-sm mb-3">Survival Score</h4>
+                  <p className="text-xs text-zinc-500 font-bold leading-relaxed">Our proprietary index that measures if your post-split income can cover your actual lifestyle costs.</p>
                 </div>
 
                 {/* PILLAR 4 */}
                 <div className="p-8 rounded-[2.5rem] bg-[#111111] text-white shadow-2xl hover:-translate-y-2 transition-all group">
-                   <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-                      <Users2 className="w-6 h-6 text-white" />
-                   </div>
-                   <h4 className="font-black uppercase tracking-tight text-sm mb-3">Scenario Tuning</h4>
-                   <p className="text-xs text-zinc-400 font-bold leading-relaxed">Compare 'Current Status' vs 'Ideal Outcome' side-by-side to find your optimal path.</p>
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
+                    <Users2 className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="font-black uppercase tracking-tight text-sm mb-3">Negotiation Leverage</h4>
+                  <p className="text-xs text-zinc-400 font-bold leading-relaxed">Compare scenarios side-by-side to find the optimal settlement that keeps you financially whole.</p>
                 </div>
               </div>
             </FadeIn>
           </div>
         </section>
 
-        {/* PRICING LIFECYCLE - NEW ADDITION */}
+        {/* FINANCIAL LIFECYCLE - REDESIGNED */}
         <section className="py-24 bg-white relative overflow-hidden">
-           <div className="container max-w-4xl">
-              <div className="text-center mb-16">
-                 <h2 className="text-3xl font-black tracking-tight mb-4">The Strategic Roadmap</h2>
-                 <p className="text-zinc-400 font-black uppercase tracking-[.3em] text-[10px]">Your 4-Stage Transition to Clarity</p>
+          <div className="container max-w-5xl">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl font-black tracking-tight mb-4">Your Roadmap to Clarity</h2>
+              <p className="text-zinc-500 font-bold uppercase tracking-[.4em] text-[10px]">A Data-Driven Path from Uncertainty to Control</p>
+            </div>
+
+            <div className="relative">
+              {/* Desktop Connection Line */}
+              <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-zinc-100 -z-10">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="h-full bg-emerald-500/30" 
+                />
               </div>
 
-              <div className="flex flex-col md:flex-row items-center gap-4 relative">
-                 {/* Step 1 */}
-                 <div className="flex-1 w-full p-6 lg:p-8 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-center">
-                    <span className="text-[10px] font-black text-zinc-400 block mb-2 uppercase tracking-widest">Stage 01</span>
-                    <h5 className="font-black text-sm uppercase">Free Vision</h5>
-                 </div>
-                 <ArrowRight className="hidden md:block w-4 h-4 text-zinc-200" />
-                 
-                 {/* Step 2 */}
-                 <div className="flex-1 w-full p-6 lg:p-8 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-center">
-                    <span className="text-[10px] font-black text-zinc-400 block mb-2 uppercase tracking-widest">Stage 02</span>
-                    <h5 className="font-black text-sm uppercase">Entry Review</h5>
-                 </div>
-                 <ArrowRight className="hidden md:block w-4 h-4 text-zinc-200" />
-
-                 {/* Step 3 */}
-                 <div className="flex-1 w-full p-6 lg:p-8 rounded-[2rem] bg-[#111111] text-white text-center shadow-xl">
-                    <span className="text-[10px] font-black text-zinc-500 block mb-2 uppercase tracking-widest">Stage 03</span>
-                    <h5 className="font-black text-sm uppercase italic underline decoration-emerald-500 decoration-2">Core Strategy</h5>
-                 </div>
-                 <ArrowRight className="hidden md:block w-4 h-4 text-zinc-200" />
-
-                 {/* Step 4 */}
-                 <div className="flex-1 w-full p-6 lg:p-8 rounded-[2rem] bg-zinc-50 border-2 border-dashed border-zinc-200 text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-2">
-                       <Sparkles className="w-3 h-3 text-emerald-500" />
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
+                {/* STAGE 1: FREE */}
+                <SlideUp delay={0.1} className="relative group text-center md:text-left">
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform bg-white relative">
+                      <Calculator className="w-6 h-6 text-zinc-400" />
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white" />
                     </div>
-                    <span className="text-[10px] font-black text-zinc-400 block mb-2 uppercase tracking-widest">Stage 04</span>
-                    <h5 className="font-black text-sm uppercase">AI Advisory</h5>
-                 </div>
+                    <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-2">Stage 01: Free</span>
+                    <h5 className="font-black text-sm uppercase mb-3">Instant Check</h5>
+                    <p className="text-[11px] text-zinc-500 font-medium leading-relaxed max-w-[200px] mx-auto md:mx-0">
+                      Baseline visibility into your child support estimates using standard state formulas.
+                    </p>
+                  </div>
+                </SlideUp>
+
+                {/* STAGE 2: ENTRY */}
+                <SlideUp delay={0.3} className="relative group text-center md:text-left">
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-50 border border-zinc-100 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform bg-white relative">
+                      <LayoutDashboard className="w-6 h-6 text-zinc-400" />
+                    </div>
+                    <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-2">Stage 02: Initial Review</span>
+                    <h5 className="font-black text-sm uppercase mb-3">Financial Clarity</h5>
+                    <p className="text-[11px] text-zinc-500 font-medium leading-relaxed max-w-[200px] mx-auto md:mx-0">
+                      Unlock net income and expense visibility. Understand your baseline survival numbers.
+                    </p>
+                  </div>
+                </SlideUp>
+
+                {/* STAGE 3: CORE */}
+                <SlideUp delay={0.5} className="relative group text-center md:text-left">
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="w-14 h-14 rounded-2xl bg-[#111111] flex items-center justify-center mb-6 shadow-2xl scale-110 relative">
+                      <Sparkles className="w-6 h-6 text-white" />
+                      <div className="absolute -inset-1 border border-[#111111]/20 rounded-2xl -z-10 animate-ping" />
+                    </div>
+                    <span className="text-[10px] font-black text-[#111111] uppercase tracking-widest mb-2">Stage 03: Full Access</span>
+                    <h5 className="font-black text-sm uppercase mb-3 italic underline decoration-[#16A34A] decoration-2 underline-offset-4">Decision Core</h5>
+                    <p className="text-[11px] text-zinc-600 font-bold leading-relaxed max-w-[200px] mx-auto md:mx-0">
+                      The pivot point. Unlimited simulations, scenario comparisons, and professional risk analysis.
+                    </p>
+                  </div>
+                </SlideUp>
+
+                {/* STAGE 4: SUBSCRIPTION */}
+                <SlideUp delay={0.7} className="relative group text-center md:text-left opacity-60 hover:opacity-100 transition-opacity">
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-50 border-2 border-dashed border-zinc-200 flex items-center justify-center mb-6 shadow-sm relative overflow-hidden">
+                      <BrainCircuit className="w-6 h-6 text-zinc-300" />
+                      <Lock className="absolute top-1 right-1 w-3 h-3 text-zinc-300" />
+                    </div>
+                    <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-2">Post-Full Access</span>
+                    <h5 className="font-black text-sm uppercase mb-3">Ongoing Tactical</h5>
+                    <p className="text-[11px] text-zinc-400 font-medium leading-relaxed max-w-[180px] mx-auto md:mx-0 italic">
+                      Locked until Stage 03. Includes infinite re-runs, and on-demand AI modeling support.
+                    </p>
+                  </div>
+                </SlideUp>
               </div>
-              <p className="mt-12 text-center text-xs text-zinc-400 font-medium italic">
-                Get started for free, then choose the depth of modeling your settlement requires. AI Advisory available as a focused add-on after Core access.
-              </p>
-           </div>
+            </div>
+
+            <SlideUp delay={0.9}>
+              <div className="mt-20 p-8 rounded-[2rem] bg-zinc-50/50 border border-zinc-100 text-center">
+                <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest leading-relaxed">
+                  Start with a <span className="text-[#111111]">Quick Review</span> or dive straight into <span className="text-[#111111]">Detailed Modeling</span>. <br />
+                  <span className="text-zinc-400">Our roadmap grows with your negotiation depth.</span>
+                </p>
+              </div>
+            </SlideUp>
+          </div>
         </section>
         <section className="py-24 bg-white border-t border-zinc-100">
           <div className="container">
             <SlideUp>
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#16A34A] bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 mb-6 inline-block">Simple, Transparent Pricing</span>
-                <h2 className="text-3xl md:text-5xl font-black tracking-tight">Choose your path to clarity</h2>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#16A34A] bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 mb-6 inline-block">Invest in certainty before you lose thousands.</span>
+                <h2 className="text-3xl md:text-5xl font-black tracking-tight">Know your bottom line</h2>
               </div>
             </SlideUp>
 
@@ -263,12 +421,11 @@ export default function LandingPage() {
                   </div>
                   <div className="space-y-4 mb-10 flex-1">
                     {[
-                      { text: "Child Support Estimate", included: true },
-                      { text: "State-Specific Formulas", included: true },
-                      { text: "Instant Results", included: true },
-                      { text: "Net Income Breakdown", included: false },
+                      { text: "Estimated Monthly Child Support Only", included: true },
+                      { text: "Estimated Post-Support Net Income", included: false },
+                      { text: "Estimated Leftover Cash Flow", included: false },
                       { text: "Interactive Dashboard", included: false },
-                      { text: "Reality Risk Score", included: false },
+                      { text: "Impact PDF Report", included: false },
                     ].map((f, i) => (
                       <div key={i} className={cn("flex items-center gap-3", !f.included && "opacity-40")}>
                         {f.included ? (
@@ -289,7 +446,7 @@ export default function LandingPage() {
               {/* ENTRY */}
               <SlideUp delay={0.2}>
                 <div className="p-8 rounded-[2rem] border border-zinc-200 bg-zinc-50/50 h-full flex flex-col relative overflow-hidden">
-                  <div className="absolute top-0 right-0 px-4 py-1 bg-[#16A34A] text-white text-[10px] font-black uppercase tracking-widest rounded-bl-xl">Best for Beginners</div>
+                  <div className="absolute top-0 right-0 px-4 py-1 bg-[#16A34A] text-white text-[10px] font-black uppercase tracking-widest rounded-bl-xl">Avoid Early Mistakes</div>
                   <h3 className="text-xl font-black uppercase tracking-tight mb-2">Quick Review</h3>
                   <div className="flex items-baseline gap-1 mb-6">
                     <span className="text-4xl font-black">$19</span>
@@ -297,12 +454,12 @@ export default function LandingPage() {
                   </div>
                   <div className="space-y-4 mb-10 flex-1">
                     {[
-                      { text: "Net Income Breakdown", included: true },
-                      { text: "Full Expense Profile", included: true },
-                      { text: "Liability Breakdown", included: true },
-                      { text: "Interative Dashboard", included: false },
-                      { text: "Reality Risk Score", included: false },
-                      { text: "Scenario Comparison", included: false },
+                      { text: "Estimated Monthly Child Support", included: true },
+                      { text: "Estimated Post-Support Net Income", included: true },
+                      { text: "Estimated Leftover After Expenses", included: true },
+                      { text: "Brief Impact Summary", included: true },
+                      { text: "Full Impact Dashboard", included: false },
+                      { text: "Detailed Scenario Comparison", included: false },
                     ].map((f, i) => (
                       <div key={i} className={cn("flex items-center gap-3", !f.included && "opacity-40")}>
                         {f.included ? (
@@ -322,20 +479,20 @@ export default function LandingPage() {
 
               {/* CORE */}
               <SlideUp delay={0.3}>
-                <div className="p-8 rounded-[2rem] border-2 border-[#111111] bg-[#111111] text-white h-full flex flex-col shadow-2xl shadow-black/20 text-white">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-2">Strategic Unlock</h3>
+                <div className="p-8 rounded-[2rem] border-2 border-[#111111] bg-[#111111] text-white h-full flex flex-col shadow-2xl shadow-black/20">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-2">Full Access</h3>
                   <div className="flex items-baseline gap-1 mb-6">
                     <span className="text-4xl font-black">$127</span>
                     <span className="text-zinc-500 text-sm font-bold uppercase tracking-widest">Full Access</span>
                   </div>
                   <div className="space-y-4 mb-10 flex-1">
                     {[
-                      { text: "Interactive Dashboard", included: true },
-                      { text: "Reality Risk Score", included: true },
-                      { text: "Full Financial Modeling", included: true },
-                      { text: "Scenario Comparison", included: true },
-                      { text: "AI Advisory Access", included: true },
-                      { text: "Unlimited Simulations", included: true },
+                      { text: "Professional Settlement Dashboard", included: true },
+                      { text: "Evidence-Based Scenario Comparison", included: true },
+                      { text: "Long-Term Sustainability Analysis", included: true },
+                      { text: "Decision-Grade Financial Modeling", included: true },
+                      { text: "Decision Support Access", included: true },
+                      { text: "Unlimited Simulation Cycles", included: true },
                     ].map((f, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -344,7 +501,7 @@ export default function LandingPage() {
                     ))}
                   </div>
                   <Button asChild className="w-full bg-white text-black hover:bg-zinc-50 rounded-xl h-12 font-black uppercase tracking-widest text-xs transition-colors">
-                    <Link href="/paywall">Get Full Access</Link>
+                    <Link href="/paywall">Secure My Financial Future</Link>
                   </Button>
                 </div>
               </SlideUp>
@@ -355,8 +512,8 @@ export default function LandingPage() {
                 <BrainCircuit className="w-8 h-8 text-[#111111]" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-black uppercase tracking-tight mb-1">Looking for ongoing AI support?</h4>
-                <p className="text-sm text-zinc-500">After unlocking **Core**, you can subscribe for **$19/month** to access our **AI Strategic Advisor**. Save unlimited scenarios, re-run simulations at any time, and get instant answers to your complex modeling questions.</p>
+                <h4 className="text-lg font-black uppercase tracking-tight mb-1">Looking for ongoing tactical support?</h4>
+                <p className="text-sm text-zinc-500">After unlocking **Full Access**, you can subscribe for **$19/month** to access our **Decision Support**. Re-run simulations as your situation changes and ensure you never sign away your financial future.</p>
               </div>
               <Button variant="outline" asChild className="border-[#111111] text-[#111111] hover:bg-zinc-100 rounded-xl px-6 h-12 font-black uppercase tracking-widest text-xs whitespace-nowrap">
                 <Link href="/paywall">Learn More</Link>
@@ -370,9 +527,9 @@ export default function LandingPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#EAB308]/10 blur-[120px] rounded-full pointer-events-none" />
           <div className="container relative z-10 flex flex-col items-center text-center">
             <Lock className="w-16 h-16 text-zinc-400 mb-8" />
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Private & Secure.</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">100% Private. 100% Anonymous.</h2>
             <p className="text-xl text-zinc-400 max-w-2xl mb-12">
-              Costly uses industry-standard encryption. We prioritze your anonymity and your data is never sold to third parties.
+              Costly is built for maximum discretion. No names, no tracking, and zero data sharing. Your financial survival plan stays between you and the tool.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 opacity-70">
               <div className="text-center">
@@ -399,11 +556,11 @@ export default function LandingPage() {
         <section className="py-32 bg-white text-center">
           <div className="container max-w-4xl">
             <SlideUp>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Ready to see your real numbers?</h2>
-              <p className="text-xl text-zinc-500 mb-10">Stop guessing. Take 5 minutes to get the financial clarity you need.</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Don't sign anything until you know your numbers.</h2>
+              <p className="text-xl text-zinc-500 mb-10">Take 60 seconds to see if your proposed settlement is actually sustainable.</p>
               <Button asChild size="lg" className="bg-[#111111] hover:bg-zinc-800 text-white rounded-full px-10 h-16 text-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all">
                 <Link href="/run">
-                  Run My Numbers Now
+                  Get My Instant Estimate
                 </Link>
               </Button>
             </SlideUp>
@@ -432,6 +589,7 @@ export default function LandingPage() {
             </div>
 
             <div className="flex gap-6 text-sm font-medium text-zinc-600">
+              <Link href="/california-child-support" className="hover:text-black">California Support</Link>
               <Link href="/privacy" className="hover:text-black">Privacy</Link>
               <Link href="/terms" className="hover:text-black">Terms</Link>
               <Link href="/contact" className="hover:text-black">Contact</Link>
@@ -443,7 +601,7 @@ export default function LandingPage() {
 
       <div className="sm:hidden fixed bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-sm border-t border-zinc-200 z-50 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)]">
         <Button asChild size="lg" className="w-full bg-[#111111] text-white rounded-full h-14 text-lg">
-          <Link href="/run">Preview My Numbers</Link>
+          <Link href="/run">Check My Monthly Cash Flow</Link>
         </Button>
       </div>
     </div>

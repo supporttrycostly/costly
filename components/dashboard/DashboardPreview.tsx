@@ -60,7 +60,7 @@ export function DashboardPreview({ className, isBlurred = true }: DashboardPrevi
         </div>
 
         {/* TOP METRICS ROW */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="p-6 rounded-3xl bg-zinc-50 border border-zinc-100 space-y-4">
             <ShieldCheck className="w-6 h-6 text-[#16A34A]" />
             <div className="space-y-2">
@@ -96,9 +96,9 @@ export function DashboardPreview({ className, isBlurred = true }: DashboardPrevi
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-2 gap-6">
-          <div className="h-32 bg-zinc-50 border border-zinc-100 rounded-3xl" />
-          <div className="h-32 bg-zinc-50 border border-zinc-100 rounded-3xl" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+           <div className="h-32 bg-zinc-50 border border-zinc-100 rounded-3xl" />
+           <div className="h-32 bg-zinc-50 border border-zinc-100 rounded-3xl" />
         </div>
       </div>
 
