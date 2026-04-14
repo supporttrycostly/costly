@@ -22,7 +22,11 @@ import {
   CheckCircle2,
   LockKeyhole,
   Info,
-  TrendingUp
+  TrendingUp,
+  Quote,
+  Gem,
+  CheckCircle,
+  HelpCircle
 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -105,64 +109,100 @@ function PaywallContent() {
 
   const tiers = [
     {
-      id: "SUBSCRIPTION",
-      name: "Strategic AI Advisor",
-      price: "19",
-      period: "/month",
-      description: "Your strategic partner for the 14-month divorce journey. AI guidance from discovery to settlement.",
+      id: "FREE",
+      stageNumber: "01",
+      stageTitle: "Just Starting Out",
+      stageKey: "Discovery",
+      name: "Free Preview",
+      price: "0",
+      period: "Forever free",
+      description: "Baseline financial overview for early-stage clarity.",
+      whoItsFor: "You just found out divorce is happening. You have no idea what your financial exposure looks like and you need a number — fast — before you panic further.",
+      exampleScenario: {
+        quote: "I need to know what I'm looking at",
+        context: "Man who just had the conversation. Searching at 11pm. Needs a number before he can sleep."
+      },
       features: [
-        { text: "24/7 Strategic AI Chat", included: true },
-        { text: "Complex Scenario Analysis", included: true },
-        { text: "Save unlimited Scenarios", included: true },
-        { text: "Draft Settlement Reports", included: true },
-        { text: "Deep Financial Insights", included: true },
-        { text: "Requires One-time Activation", included: true },
+        { text: "Net Income Breakdown", included: true },
+        { text: "Full Expense Profile", included: true },
+        { text: "Basic PDF Summary", included: true },
       ],
-      buttonText: isPro ? "Active" : "Secure AI Advisor",
-      disabled: isPro,
-      prerequisite: !isCore,
-      highlight: true,
-      badge: "The Hero Offer",
-      stage: "Active Journey Support"
+      buttonText: "Start Free Preview",
+      href: "/run",
+      disabled: false,
+      highlight: false
+    },
+    {
+      id: "ENTRY",
+      stageNumber: "02",
+      stageTitle: "Meeting My Lawyer Soon",
+      stageKey: "Preparation",
+      name: "Quick Review",
+      price: "19",
+      period: "One-time",
+      description: "Baseline financial overview for early-stage clarity.",
+      whoItsFor: "First attorney consultation is booked. You want to walk in prepared, not paying $400/hr to learn basics. You need your net income breakdown and full liability picture before that meeting.",
+      exampleScenario: {
+        quote: "My consultation is Thursday",
+        context: "Man who wants to show up knowing his numbers. Doesn't want his lawyer to be the first person to tell him what he owes."
+      },
+      features: [
+        { text: "Net Disposable Analysis", included: true },
+        { text: "Detailed PDF Report", included: true },
+        { text: "Verification Checklists", included: true },
+      ],
+      buttonText: isEntry ? "Active" : "Unlock Review",
+      disabled: isEntry || isCore,
+      highlight: false
     },
     {
       id: "CORE",
-      name: "Full Control",
+      stageNumber: "03",
+      stageTitle: "In the Middle of It",
+      stageKey: "Protection",
+      name: "Full Protection",
       price: "127",
       period: "One-time",
       description: "Complete financial control system with full interactive analysis.",
+      whoItsFor: "Active divorce. Negotiations are happening. You need to model every scenario — what if custody changes, income shifts, or she gets an aggressive lawyer. You can't afford to be surprised.",
+      exampleScenario: {
+        quote: "Her lawyer just proposed a split",
+        context: "Man who needs to know immediately what that change costs him monthly. Scenario modeling is the difference between winning and losing."
+      },
       features: [
         { text: "Reality Risk Score Engine", included: true },
         { text: "Full Financial Modeling", included: true },
         { text: "Interactive Workbench", included: true },
         { text: "Priority Support", included: true },
-        { text: "Lifetime Access", included: true },
-        { text: "Scenario Comparison", included: false },
-        { text: "AI Advisory Access", included: false },
       ],
       buttonText: isCore ? "Active" : isEntry ? "Complete Unlock" : "Unlock Everything",
       disabled: isCore,
-      highlight: false,
-      stage: "Strategic Foundation"
+      highlight: true,
+      badge: "Most Important"
     },
     {
-      id: "ENTRY",
-      name: "Quick Review",
+      id: "SUBSCRIPTION",
+      stageNumber: "04",
+      stageTitle: "Long Haul Support",
+      stageKey: "Ongoing Support",
+      name: "AI Advisor",
       price: "19",
-      period: "One-time",
-      description: "Baseline financial overview for early-stage clarity.",
+      period: "/month",
+      description: "Your strategic partner for the 14-month divorce journey.",
+      whoItsFor: "Divorce takes 14 months on average. Your situation changes constantly — income, custody, living arrangements. You need an AI advisor available 24/7 to re-run your numbers whenever something shifts.",
+      exampleScenario: {
+        quote: "I got a new job offer — how does this change everything?",
+        context: "Man 6 months into a divorce who needs instant answers without booking another attorney call every time his circumstances change."
+      },
       features: [
-        { text: "Net Income Breakdown", included: true },
-        { text: "Full Expense Profile", included: true },
-        { text: "Basic PDF Summary", included: true },
-        { text: "Interactive Modeling", included: false },
-        { text: "Goal Tracking", included: false },
-        { text: "AI Decision Support", included: false },
+        { text: "24/7 Strategic AI Chat", included: true },
+        { text: "Scenario Comparison", included: true },
+        { text: "Deep Financial Insights", included: true },
       ],
-      buttonText: isEntry ? "Active" : "Unlock Entry",
-      disabled: isEntry || isCore,
-      highlight: false,
-      stage: "Initial Assessment"
+      buttonText: isPro ? "Active" : "Secure AI Advisor",
+      disabled: isPro,
+      prerequisite: !isCore,
+      highlight: false
     }
   ];
 
@@ -238,27 +278,42 @@ function PaywallContent() {
         </DialogContent>
       </Dialog>
 
-      <main className="flex-1 container max-w-6xl mx-auto px-4 py-16">
+      <main className="flex-1 container max-w-7xl mx-auto px-4 py-24">
 
         {/* HEADER SECTION */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <FadeIn>
-            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-rose-50 border border-rose-100 mb-8 shadow-sm animate-bounce-slow">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-rose-600">Urgent Access Required</span>
-              </div>
-              <div className="w-px h-3 bg-rose-200" />
-              <div className="text-[11px] font-black tabular-nums text-rose-600">
-                OFFER EXPIRES IN: {timeLeft.hours.toString().padStart(2, '0')}:{timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
-              </div>
+            <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full border border-[#EAB308]/20 bg-[#EAB308]/5 mb-10">
+               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#EAB308]">Strategically Engineered for the 14-Month Settlement Journey</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8">
-              Strategic Insight for <br className="hidden md:block" /> Every Settlement Stage
+            
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.85]">
+              The <span className="text-[#EAB308]">Costly</span> <br /> Value Ladder
             </h1>
-            <p className="text-xl text-zinc-500 max-w-2xl mx-auto font-medium">
-               Your divorce will take <span className="text-[#111111] font-black">14 months on average</span>. Don't navigate it alone. Secure the tools you need for absolute financial clarity.
+            
+            <p className="text-xl text-zinc-500 max-w-2xl mx-auto font-medium leading-relaxed">
+              Four stages mapped to the real emotional journey of a divorcing man. <br className="hidden md:block" /> Each tier solves a specific fear at a specific moment.
             </p>
+
+            {/* STAGE NAVIGATION INDICATORS */}
+            <div className="mt-20 flex justify-center items-center gap-4 md:gap-12 overflow-x-auto pb-4 no-scrollbar">
+               {tiers.map((t, i) => (
+                 <div key={t.id} className="flex flex-col items-center gap-3 shrink-0">
+                    <div className={cn(
+                      "w-10 h-10 rounded-full flex items-center justify-center text-xs font-black border-2 transition-all",
+                      i === 0 ? "bg-[#EAB308] text-white border-[#EAB308]" : "bg-white text-zinc-300 border-zinc-100"
+                    )}>
+                      {t.stageNumber.replace(/^0/, '')}
+                    </div>
+                    <span className={cn(
+                      "text-[10px] font-black uppercase tracking-widest",
+                      i === 0 ? "text-[#111111]" : "text-zinc-300"
+                    )}>
+                      {t.stageKey}
+                    </span>
+                 </div>
+               ))}
+            </div>
           </FadeIn>
         </div>
 
@@ -343,87 +398,108 @@ function PaywallContent() {
           </div>
         </FadeIn>
 
-        {/* PRICING GRID */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-24">
+        {/* THE VALUE LADDER */}
+        <div className="space-y-6 mb-32">
+          {/* TABLE HEADER (Desktop) */}
+          <div className="hidden lg:grid grid-cols-[1.5fr_1fr_0.8fr_2fr_2fr] gap-8 px-12 py-6 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 border-b border-zinc-50">
+            <div>Stage</div>
+            <div>Tier</div>
+            <div>Price</div>
+            <div>Who it's for</div>
+            <div>Real-world example</div>
+          </div>
+
           {tiers.map((tier, idx) => (
-            <FadeIn key={tier.id} delay={idx * 0.1} className={cn(
-              "relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-500",
-              tier.highlight
-                ? "bg-[#111111] text-white border-[#111111] shadow-[0_32px_80px_rgba(0,0,0,0.1)] ring-8 ring-zinc-50 scale-[1.02] z-10"
-                : "bg-white border-zinc-100 hover:border-zinc-300 shadow-sm"
-            )}>
-              {tier.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#16A34A] text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl flex items-center gap-2 z-20">
-                  <Sparkles className="w-4 h-4" /> {tier.badge || "Hero Offer"}
-                </div>
-              )}
+            <FadeIn key={tier.id} delay={idx * 0.1}>
+              <div className={cn(
+                "relative group overflow-hidden transition-all duration-500",
+                tier.highlight 
+                  ? "bg-white ring-2 ring-[#16A34A] shadow-[0_40px_100px_rgba(0,0,0,0.1)] rounded-[3rem] z-20" 
+                  : "bg-white hover:bg-zinc-50/50 border border-zinc-100 rounded-[2.5rem]"
+              )}>
+                
+                {tier.highlight && (
+                   <div className="absolute top-0 right-12 px-6 py-2 bg-[#16A34A] text-white rounded-b-2xl text-[9px] font-black uppercase tracking-[0.2em] shadow-lg flex items-center gap-2">
+                     <Sparkles className="w-3.5 h-3.5" />
+                     {tier.badge}
+                   </div>
+                )}
 
-              <div className="mb-8">
-                <div className={cn("text-[9px] font-black uppercase tracking-[0.2em] mb-2 px-3 py-1 rounded-lg w-fit", tier.highlight ? "bg-white/10 text-emerald-400" : "bg-zinc-100 text-zinc-400")}>
-                  {tier.stage}
-                </div>
-                <h2 className={cn("text-3xl font-black mb-1", tier.highlight ? "text-white" : "text-[#111111]")}>{tier.name}</h2>
-                <p className={cn("text-[11px] font-bold leading-relaxed", tier.highlight ? "text-zinc-400" : "text-zinc-500")}>{tier.description}</p>
-              </div>
+                <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_0.8fr_2fr_2fr] items-center gap-8 p-8 lg:p-12">
+                  
+                  {/* STAGE INFO */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3">
+                       <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Stage {tier.stageNumber}</span>
+                    </div>
+                    <h3 className="text-2xl font-black tracking-tight leading-tight">{tier.stageTitle}</h3>
+                  </div>
 
-              <div className="mb-8 flex items-baseline gap-1">
-                <span className={cn("text-5xl font-black tracking-tight", tier.highlight ? "text-white" : "text-[#111111]")}>${tier.price}</span>
-                <span className={cn("text-[10px] font-black uppercase tracking-widest", tier.highlight ? "text-zinc-500" : "text-zinc-400")}>
-                  {tier.period}
-                </span>
-              </div>
-
-              <div className="flex-1 space-y-6 mb-10">
-                <ul className="space-y-4">
-                  {tier.features.map((feature, fidx) => (
-                    <li key={fidx} className={cn(
-                      "flex items-start gap-3 text-xs font-bold leading-tight",
-                      feature.included
-                        ? (tier.highlight ? "text-zinc-200" : "text-zinc-700")
-                        : "text-zinc-400/50"
+                  {/* TIER NAME */}
+                  <div>
+                    <span className={cn(
+                      "inline-flex px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest",
+                      tier.id === "FREE" ? "bg-zinc-100 text-zinc-500" :
+                      tier.id === "ENTRY" ? "bg-emerald-50 text-emerald-600" :
+                      tier.id === "CORE" ? "bg-[#111111] text-white" : "bg-emerald-500 text-white"
                     )}>
-                      {feature.included ? (
-                        <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
-                      ) : (
-                        <X className="w-4 h-4 text-red-500 shrink-0" />
-                      )}
-                      {feature.text}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                      {tier.name}
+                    </span>
+                  </div>
 
-              <div className="mt-auto">
-                {tier.prerequisite && !isCore ? (
-                  <div className="p-4 bg-zinc-50/50 border border-zinc-100/50 rounded-2xl mb-4 flex gap-3 items-start">
-                    <Info className="w-4 h-4 text-zinc-400 shrink-0" />
-                    <p className="text-[10px] font-bold text-zinc-400 leading-relaxed uppercase tracking-widest">
-                      Requires Full Access Unlock to Activate.
+                  {/* PRICE */}
+                  <div className="flex flex-col">
+                    <span className="text-4xl font-black tracking-tighter">${tier.price}</span>
+                    <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400">{tier.period}</span>
+                  </div>
+
+                  {/* WHO IT'S FOR */}
+                  <div className="lg:border-l lg:border-zinc-50 lg:pl-8">
+                    <p className="text-sm font-bold text-zinc-500 leading-relaxed max-w-sm">
+                      {tier.whoItsFor}
                     </p>
                   </div>
-                ) : null}
 
-                <button
-                  disabled={tier.disabled || !!isRedirecting || (tier.prerequisite && !isCore)}
-                  onClick={() => handleCheckout(tier.id)}
-                  className={cn(
-                    "w-full h-14 rounded-2xl flex items-center justify-center gap-3 font-black text-xs uppercase tracking-widest transition-all active:scale-[0.98] shadow-sm",
-                    tier.highlight
-                      ? "bg-white text-[#111111] hover:bg-zinc-100"
-                      : "bg-[#111111] text-white hover:bg-zinc-800",
-                    (tier.disabled || (tier.prerequisite && !isCore)) && "opacity-40 cursor-not-allowed grayscale"
-                  )}
-                >
-                  {isRedirecting === tier.id ? (
-                    <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      {tier.disabled ? <Shield className="w-4 h-4" /> : <CreditCard className="w-4 h-4" />}
-                      {tier.buttonText}
-                      {!tier.disabled && !(tier.prerequisite && !isCore) && <ArrowRight className="w-4 h-4 ml-1" />}
-                    </>
-                  )}
-                </button>
+                  {/* REAL WORLD EXAMPLE */}
+                  <div className="lg:border-l lg:border-zinc-50 lg:pl-8 relative">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <Quote className="w-5 h-5 text-[#EAB308] shrink-0" />
+                        <p className="text-sm font-black italic text-[#111111] leading-relaxed">
+                          "{tier.exampleScenario.quote}"
+                        </p>
+                      </div>
+                      <p className="text-[11px] text-zinc-400 font-bold leading-relaxed">
+                        — {tier.exampleScenario.context}
+                      </p>
+                    </div>
+
+                    {/* CTA BUTTON (Overlay/Bottom on Mobile) */}
+                    <div className="mt-8">
+                       <Button
+                         disabled={tier.disabled || !!isRedirecting || (tier.prerequisite && !isCore)}
+                         onClick={() => tier.id === "FREE" ? window.location.href = tier.href : handleCheckout(tier.id)}
+                         className={cn(
+                           "w-full h-14 rounded-2xl flex items-center justify-center gap-3 font-black text-[10px] uppercase tracking-widest transition-all active:scale-[0.98] shadow-sm",
+                           tier.id === "CORE" 
+                            ? "bg-[#111111] text-white hover:bg-zinc-800" 
+                            : tier.id === "FREE" ? "bg-white border border-zinc-200 text-[#111111] hover:bg-zinc-50" 
+                            : "bg-emerald-500 text-white hover:bg-emerald-600"
+                         )}
+                       >
+                         {isRedirecting === tier.id ? (
+                           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                         ) : (
+                           <>
+                             {tier.buttonText}
+                             <ArrowRight className="w-4 h-4 ml-1" />
+                           </>
+                         )}
+                       </Button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </FadeIn>
           ))}
