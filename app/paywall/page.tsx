@@ -478,7 +478,13 @@ function PaywallContent() {
                     <div className="mt-8">
                        <Button
                          disabled={tier.disabled || !!isRedirecting || (tier.prerequisite && !isCore)}
-                         onClick={() => tier.id === "FREE" ? window.location.href = tier.href : handleCheckout(tier.id)}
+                         onClick={() => {
+                           if (tier.id === "FREE" && tier.href) {
+                             window.location.href = tier.href;
+                             return;
+                           }
+                           handleCheckout(tier.id);
+                         }}
                          className={cn(
                            "w-full h-14 rounded-2xl flex items-center justify-center gap-3 font-black text-[10px] uppercase tracking-widest transition-all active:scale-[0.98] shadow-sm",
                            tier.id === "CORE" 
