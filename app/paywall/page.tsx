@@ -415,7 +415,6 @@ function PaywallContent() {
                   <div>
                     <span className={cn(
                       "inline-flex px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest",
-                      tier.id === "FREE" ? "bg-zinc-100 text-zinc-500" :
                       tier.id === "ENTRY" ? "bg-emerald-50 text-emerald-600" :
                       tier.id === "CORE" ? "bg-[#111111] text-white" : "bg-emerald-500 text-white"
                     )}>
@@ -454,18 +453,11 @@ function PaywallContent() {
                     <div className="mt-8">
                        <Button
                          disabled={tier.disabled || !!isRedirecting || (tier.prerequisite && !isCore)}
-                         onClick={() => {
-                           if (tier.id === "FREE" && tier.href) {
-                             window.location.href = tier.href;
-                             return;
-                           }
-                           handleCheckout(tier.id);
-                         }}
+                         onClick={() => handleCheckout(tier.id)}
                          className={cn(
                            "w-full h-14 rounded-2xl flex items-center justify-center gap-3 font-black text-[10px] uppercase tracking-widest transition-all active:scale-[0.98] shadow-sm",
                            tier.id === "CORE" 
                             ? "bg-[#111111] text-white hover:bg-zinc-800" 
-                            : tier.id === "FREE" ? "bg-white border border-zinc-200 text-[#111111] hover:bg-zinc-50" 
                             : "bg-emerald-500 text-white hover:bg-emerald-600"
                          )}
                        >
