@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { formatThousands, parseThousands } from "@/lib/formatters";
 import { 
   Select, 
   SelectContent, 
@@ -48,9 +49,9 @@ export function CalculatorForm() {
   const [showEstimate, setShowEstimate] = useState(false);
   const [result, setResult] = useState<import("@/lib/calculator").CalculationResult | null>(null);
 
-  // Local states for Annual Income display (Context stores Monthly)
-  const [incomeOwn, setIncomeOwn] = useState(data.incomeOwn ? data.incomeOwn * 12 : 0);
-  const [incomeSpouse, setIncomeSpouse] = useState(data.incomeSpouse ? data.incomeSpouse * 12 : 0);
+  // Local states for display formatting (Context stores raw Monthly Monthly)
+  const [incomeOwnDisplay, setIncomeOwnDisplay] = useState(formatThousands(data.incomeOwn ? data.incomeOwn * 12 : 0));
+  const [incomeSpouseDisplay, setIncomeSpouseDisplay] = useState(formatThousands(data.incomeSpouse ? data.incomeSpouse * 12 : 0));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,15 +76,19 @@ export function CalculatorForm() {
   };
 
   const handleIncomeOwnChange = (val: string) => {
-    const annual = Number(val);
-    setIncomeOwn(annual);
-    updateData({ incomeOwn: annual / 12 });
+    const rawValue = val.replace(/,/g, "");
+    if (isNaN(Number(rawValue)) && rawValue !== "") return;
+    
+    setIncomeOwnDisplay(formatThousands(rawValue));
+    updateData({ incomeOwn: Number(rawValue) / 12 });
   };
 
   const handleIncomeSpouseChange = (val: string) => {
-    const annual = Number(val);
-    setIncomeSpouse(annual);
-    updateData({ incomeSpouse: annual / 12 });
+    const rawValue = val.replace(/,/g, "");
+    if (isNaN(Number(rawValue)) && rawValue !== "") return;
+    
+    setIncomeSpouseDisplay(formatThousands(rawValue));
+    updateData({ incomeSpouse: Number(rawValue) / 12 });
   };
 
   const formatter = new Intl.NumberFormat("en-US", { 
@@ -236,18 +241,16 @@ export function CalculatorForm() {
                    <Label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Step 1: Your State</Label>
                    <MapPin className="w-3 h-3 text-zinc-300" />
                  </div>
-                 <Select value={data.state || ""} onValueChange={(val) => updateData({ state: val })}>
-                   <SelectTrigger className="w-full h-14 rounded-2xl bg-zinc-50/50 border-zinc-100 text-sm font-bold focus:ring-[#111111] focus:border-[#111111] transition-colors">
-                     <SelectValue placeholder="Select State" />
-                   </SelectTrigger>
-                   <SelectContent position="popper" align="start" className="w-(--radix-select-trigger-width) max-h-[300px] rounded-2xl border-zinc-100 bg-white/95 backdrop-blur-xl shadow-2xl z-[100]">
-                     {US_STATES.map((state) => (
-                       <SelectItem key={state.code} value={state.code} className="rounded-xl focus:bg-zinc-50 font-medium">
-                         {state.name}
-                       </SelectItem>
-                     ))}
-                   </SelectContent>
-                 </Select>
+                  <Select value={data.state || "CA"} onValueChange={(val) => updateData({ state: val })}>
+                    <SelectTrigger className="w-full h-14 rounded-2xl bg-zinc-50/50 border-zinc-100 text-sm font-black focus:ring-[#111111] focus:border-[#111111] transition-colors">
+                      <SelectValue placeholder="Select State" />
+                    </SelectTrigger>
+                    <SelectContent position="popper" align="start" className="w-(--radix-select-trigger-width) max-h-[300px] rounded-2xl border-zinc-100 bg-white/95 backdrop-blur-xl shadow-2xl z-[100]">
+                      <SelectItem value="CA" className="rounded-xl focus:bg-zinc-50 font-black text-[10px] uppercase tracking-widest">
+                        California (2026 Guidelines)
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
                </div>
 
                {/* Children Count */}
@@ -285,10 +288,10 @@ export function CalculatorForm() {
                 </div>
                 <Input 
                   id="incomeOwn"
-                  type="number"
-                  placeholder="0"
+                  type="text"
+                  placeholder="100,000"
                   className="pl-10 h-16 text-2xl font-black bg-zinc-50/50 border-zinc-100 rounded-2xl focus:ring-[#111111] focus:border-[#111111] transition-colors group-hover:bg-zinc-50"
-                  value={incomeOwn || ""}
+                  value={incomeOwnDisplay}
                   onChange={(e) => handleIncomeOwnChange(e.target.value)}
                   required
                 />
@@ -309,10 +312,10 @@ export function CalculatorForm() {
                 </div>
                 <Input 
                   id="incomeSpouse"
-                  type="number"
-                  placeholder="0"
+                  type="text"
+                  placeholder="85,000"
                   className="pl-10 h-16 text-2xl font-black bg-zinc-50/50 border-zinc-100 rounded-2xl focus:ring-[#111111] focus:border-[#111111] transition-colors group-hover:bg-zinc-50"
-                  value={incomeSpouse || ""}
+                  value={incomeSpouseDisplay}
                   onChange={(e) => handleIncomeSpouseChange(e.target.value)}
                   required
                 />
@@ -365,11 +368,11 @@ export function CalculatorForm() {
                     </div>
                     <Input 
                       id="assetsMarital"
-                      type="number"
-                      placeholder="0"
+                      type="text"
+                      placeholder="250,000"
                       className="pl-10 h-16 text-lg font-black bg-zinc-50/50 border-zinc-100 rounded-2xl focus:ring-[#111111] focus:border-[#111111] transition-colors group-hover:bg-zinc-50"
-                      value={data.assetsMarital || ""}
-                      onChange={(e) => updateData({ assetsMarital: Number(e.target.value) })}
+                      value={formatThousands(data.assetsMarital)}
+                      onChange={(e) => updateData({ assetsMarital: parseThousands(e.target.value) })}
                     />
                   </div>
                 </div>
@@ -386,11 +389,11 @@ export function CalculatorForm() {
                     </div>
                     <Input 
                       id="spousalSupport"
-                      type="number"
-                      placeholder="0"
+                      type="text"
+                      placeholder="2,500"
                       className="pl-10 h-16 text-lg font-black bg-zinc-50/50 border-zinc-100 rounded-2xl focus:ring-[#111111] focus:border-[#111111] transition-colors group-hover:bg-zinc-50"
-                      value={data.spousalSupport || ""}
-                      onChange={(e) => updateData({ spousalSupport: Number(e.target.value) })}
+                      value={formatThousands(data.spousalSupport)}
+                      onChange={(e) => updateData({ spousalSupport: parseThousands(e.target.value) })}
                     />
                   </div>
                 </div>

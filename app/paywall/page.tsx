@@ -109,32 +109,8 @@ function PaywallContent() {
 
   const tiers = [
     {
-      id: "FREE",
-      stageNumber: "01",
-      stageTitle: "Just Starting Out",
-      stageKey: "Discovery",
-      name: "Free Preview",
-      price: "0",
-      period: "Forever free",
-      description: "Baseline financial overview for early-stage clarity.",
-      whoItsFor: "You just found out divorce is happening. You have no idea what your financial exposure looks like and you need a number — fast — before you panic further.",
-      exampleScenario: {
-        quote: "I need to know what I'm looking at",
-        context: "Man who just had the conversation. Searching at 11pm. Needs a number before he can sleep."
-      },
-      features: [
-        { text: "Net Income Breakdown", included: true },
-        { text: "Full Expense Profile", included: true },
-        { text: "Basic PDF Summary", included: true },
-      ],
-      buttonText: "Start Free Preview",
-      href: "/run",
-      disabled: false,
-      highlight: false
-    },
-    {
       id: "ENTRY",
-      stageNumber: "02",
+      stageNumber: "01",
       stageTitle: "Meeting My Lawyer Soon",
       stageKey: "Preparation",
       name: "Quick Review",
@@ -157,7 +133,7 @@ function PaywallContent() {
     },
     {
       id: "CORE",
-      stageNumber: "03",
+      stageNumber: "02",
       stageTitle: "In the Middle of It",
       stageKey: "Protection",
       name: "Full Protection",
@@ -182,7 +158,7 @@ function PaywallContent() {
     },
     {
       id: "SUBSCRIPTION",
-      stageNumber: "04",
+      stageNumber: "03",
       stageTitle: "Long Haul Support",
       stageKey: "Ongoing Support",
       name: "AI Advisor",

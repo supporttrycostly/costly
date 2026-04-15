@@ -208,41 +208,90 @@ export default function LandingPage() {
               {/* column 2: PDF Preview */}
               <SlideUp delay={0.2}>
                 <div className="relative group">
-                  {/* Decorative background for PDF */}
-                  <div className="absolute -inset-4 bg-zinc-100 rounded-[3rem] -z-10 group-hover:bg-zinc-200 transition-colors" />
+                  {/* Decorative background for PDF - Deeper glow */}
+                  <div className="absolute -inset-10 bg-emerald-50/20 rounded-full blur-[100px] -z-10 group-hover:bg-emerald-100/30 transition-colors" />
                   
-                  <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-2xl p-8 md:p-12 relative overflow-hidden">
-                    <div className="flex items-center justify-between mb-8">
-                       <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-xl bg-[#111111] flex items-center justify-center text-white">
-                             <FileText className="w-6 h-6" />
+                  <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-[0_40px_100px_rgba(0,0,0,0.08)] p-6 md:p-10 relative overflow-hidden group-hover:shadow-[0_40px_120px_rgba(16,163,74,0.05)] transition-all duration-700">
+                    
+                    {/* CONFIDENTIAL STAMP MOCKUP */}
+                    <div className="absolute top-8 right-8 w-20 h-20 border-4 border-rose-500/10 rounded-full flex items-center justify-center -rotate-12 pointer-events-none opacity-40">
+                       <span className="text-[8px] font-black text-rose-500/20 uppercase tracking-[0.2em] text-center leading-none">Confidential<br/>Strategic<br/>Review</span>
+                    </div>
+
+                    <div className="flex items-center justify-between mb-8 relative z-10">
+                       <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-white shadow-xl shadow-black/10">
+                             <FileText className="w-6 h-6 text-emerald-400" />
                           </div>
                           <div>
-                             <p className="font-black text-sm uppercase leading-tight">Impact Roadmap</p>
-                             <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">12-Page PDF Analysis</p>
+                             <p className="font-black text-sm uppercase leading-tight tracking-tight">Impact Roadmap</p>
+                             <p className="text-[8px] text-zinc-400 font-black uppercase tracking-[0.3em] mt-1">Serial: CA-2026-X942</p>
                           </div>
                        </div>
-                       <Lock className="w-5 h-5 text-zinc-300" />
+                       <div className="p-2 rounded-xl bg-zinc-50 border border-zinc-100 shadow-sm">
+                          <Lock className="w-3.5 h-3.5 text-zinc-400" />
+                       </div>
                     </div>
 
-                    <div className="space-y-4">
-                       <div className="h-4 w-full bg-zinc-50 rounded-full" />
-                       <div className="h-4 w-3/4 bg-zinc-50 rounded-full" />
-                       <div className="h-20 w-full bg-zinc-50 rounded-2xl flex items-center justify-center">
-                          <span className="text-[10px] font-black text-zinc-300 uppercase tracking-[0.3em]">Quantitative Model</span>
+                    <div className="space-y-4 relative">
+                       {/* High Fidelity "Document" Mockup */}
+                       <div className="space-y-3 opacity-30 grayscale blur-[1px] relative">
+                          <div className="flex items-center gap-2">
+                             <div className="h-3 w-10 bg-zinc-200 rounded-md" />
+                             <div className="h-1.5 w-full bg-zinc-100 rounded-full" />
+                          </div>
+                          <div className="space-y-1.5">
+                             <div className="h-1.5 w-full bg-zinc-100 rounded-full" />
+                             <div className="h-1.5 w-5/6 bg-zinc-100 rounded-full" />
+                          </div>
                        </div>
-                       <div className="grid grid-cols-2 gap-4">
-                          <div className="h-12 bg-zinc-50 rounded-xl" />
-                          <div className="h-12 bg-zinc-50 rounded-xl" />
+
+                       {/* The Focus Point: A clear chart area that's then blurred */}
+                       <div className="relative h-32 md:h-40 w-full bg-zinc-50 rounded-[2rem] border border-zinc-100 flex flex-col items-center justify-center overflow-hidden">
+                          {/* Simulated Chart Logic */}
+                          <div className="absolute inset-0 p-6 flex items-end gap-2 md:gap-3 opacity-20">
+                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[40%]" />
+                             <div className="flex-1 bg-emerald-500 rounded-t-lg h-[85%] relative">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 whitespace-nowrap text-[7px] font-black uppercase tracking-widest text-[#111111]">Target</div>
+                             </div>
+                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[60%]" />
+                             <div className="flex-1 bg-rose-400 rounded-t-lg h-[70%] relative">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 whitespace-nowrap text-[7px] font-black uppercase tracking-widest text-rose-600 italic">Risk</div>
+                             </div>
+                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[50%]" />
+                          </div>
+
+                          <div className="absolute inset-0 bg-white/60 backdrop-blur-[6px] z-10" />
+                          
+                          <div className="relative z-20 flex flex-col items-center scale-90 md:scale-100">
+                             <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-100 shadow-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-500">
+                                <Lock className="w-5 h-5 text-[#16A34A]" />
+                             </div>
+                             <span className="text-[9px] font-black text-zinc-900 uppercase tracking-[0.4em]">Strategic Assessment</span>
+                             <div className="mt-1.5 px-2.5 py-0.5 rounded-full bg-[#111111]/5 border border-[#111111]/10">
+                                <span className="text-[6px] font-black text-[#111111] uppercase tracking-[0.2em]">California 2026 Model Filter</span>
+                             </div>
+                          </div>
                        </div>
-                       <div className="h-4 w-1/2 bg-zinc-50 rounded-full" />
+
+                       {/* Bottom Metadata */}
+                       <div className="flex justify-between items-center opacity-40 blur-[0.5px]">
+                          <div className="flex gap-1">
+                             <div className="w-5 h-5 rounded bg-zinc-100" />
+                             <div className="w-5 h-5 rounded bg-zinc-100" />
+                          </div>
+                          <div className="h-1.5 w-20 bg-zinc-100 rounded-full" />
+                       </div>
                     </div>
 
-                    <div className="mt-10 pt-8 border-t border-zinc-100 flex items-center justify-between">
-                       <p className="text-xs font-bold text-zinc-500 max-w-[180px]">Legal-grade documentation of your financial scenario.</p>
-                       <div className="px-4 py-2 bg-zinc-50 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-400 border border-zinc-100">
-                          PDF Preview
+                    <div className="mt-8 pt-6 border-t border-zinc-100 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+                       <div className="flex items-center gap-2.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                          <p className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Certified Analysis Output</p>
                        </div>
+                       <button className="px-5 py-2 bg-[#111111] rounded-full text-[8px] font-black uppercase tracking-[.3em] text-white shadow-2xl shadow-black/20 hover:scale-105 transition-all">
+                          Sample Report
+                       </button>
                     </div>
                   </div>
                 </div>

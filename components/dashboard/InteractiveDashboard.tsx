@@ -37,6 +37,7 @@ import { useSession } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
 import { requireCoreAccess, requireSubscription } from "@/lib/access";
 
+import { formatThousands, parseThousands } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
 import { runCalculationEngine, CalculationInput } from "@/lib/calculator";
 import { Button } from "@/components/ui/button";
@@ -273,11 +274,11 @@ export function InteractiveDashboard({
                         <div className="grid gap-6">
                            <div className="space-y-2">
                               <Label className="text-xs font-bold text-zinc-600">Income (Own)</Label>
-                              <Input type="number" value={inputs.incomeOwn || ""} onChange={(e) => updateField("incomeOwn", Number(e.target.value))} className="h-11 bg-zinc-50/50 rounded-xl" />
+                              <Input type="text" value={formatThousands(inputs.incomeOwn)} onChange={(e) => updateField("incomeOwn", parseThousands(e.target.value))} className="h-11 bg-zinc-50/50 rounded-xl" />
                            </div>
                            <div className="space-y-2">
                               <Label className="text-xs font-bold text-zinc-600">Income (Spouse)</Label>
-                              <Input type="number" value={inputs.incomeSpouse || ""} onChange={(e) => updateField("incomeSpouse", Number(e.target.value))} className="h-11 bg-zinc-50/50 rounded-xl" />
+                              <Input type="text" value={formatThousands(inputs.incomeSpouse)} onChange={(e) => updateField("incomeSpouse", parseThousands(e.target.value))} className="h-11 bg-zinc-50/50 rounded-xl" />
                            </div>
                            <div className="space-y-6 pt-4">
                               <div className="flex justify-between">
@@ -297,15 +298,15 @@ export function InteractiveDashboard({
                         <div className="grid gap-6">
                            <div className="space-y-2">
                               <Label className="text-xs font-bold text-zinc-600">Liquid Savings</Label>
-                              <Input type="number" value={inputs.savings || ""} onChange={(e) => updateField("savings", Number(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
+                              <Input type="text" value={formatThousands(inputs.savings)} onChange={(e) => updateField("savings", parseThousands(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
                            </div>
                            <div className="space-y-2">
                               <Label className="text-xs font-bold text-zinc-600">Retirement Accounts</Label>
-                              <Input type="number" value={inputs.retirement || ""} onChange={(e) => updateField("retirement", Number(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
+                              <Input type="text" value={formatThousands(inputs.retirement)} onChange={(e) => updateField("retirement", parseThousands(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
                            </div>
                            <div className="space-y-2">
                               <Label className="text-xs font-bold text-zinc-600">Home Equity (Est.)</Label>
-                              <Input type="number" value={inputs.homeEquity || ""} onChange={(e) => updateField("homeEquity", Number(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
+                              <Input type="text" value={formatThousands(inputs.homeEquity)} onChange={(e) => updateField("homeEquity", parseThousands(e.target.value))} className="h-11 bg-white border-[#EAB308]/20 rounded-xl" />
                            </div>
                         </div>
                      </div>
@@ -332,7 +333,7 @@ export function InteractiveDashboard({
                               <field.icon className="w-3 h-3" />
                               <Label className="text-[10px] font-bold uppercase tracking-tight">{field.label}</Label>
                            </div>
-                           <Input type="number" value={(inputs as any)[field.id] || ""} onChange={(e) => updateField(field.id as any, Number(e.target.value))} className="h-10 bg-zinc-50/50 rounded-xl text-sm" />
+                           <Input type="text" value={formatThousands((inputs as any)[field.id])} onChange={(e) => updateField(field.id as any, parseThousands(e.target.value))} className="h-10 bg-zinc-50/50 rounded-xl text-sm" />
                         </div>
                      ))}
                      <div className="space-y-2">
@@ -375,15 +376,15 @@ export function InteractiveDashboard({
                            <div className="grid md:grid-cols-3 gap-8">
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Stocks Allocation (%)</Label>
-                                 <Input type="number" value={inputs.assetSplit?.stocks || ""} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, stocks: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.assetSplit?.stocks)} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, stocks: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Bonds Allocation (%)</Label>
-                                 <Input type="number" value={inputs.assetSplit?.bonds || ""} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, bonds: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.assetSplit?.bonds)} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, bonds: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Cash Reserves (%)</Label>
-                                 <Input type="number" value={inputs.assetSplit?.cash || ""} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, cash: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.assetSplit?.cash)} onChange={e => updateField("assetSplit", { ...inputs.assetSplit, cash: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                            </div>
                         )}
@@ -391,11 +392,11 @@ export function InteractiveDashboard({
                            <div className="grid md:grid-cols-2 gap-8">
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Current Portfolio Balance</Label>
-                                 <Input type="number" value={inputs.retirementImpact?.currentBalance || ""} onChange={e => updateField("retirementImpact", { ...inputs.retirementImpact, currentBalance: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.retirementImpact?.currentBalance)} onChange={e => updateField("retirementImpact", { ...inputs.retirementImpact, currentBalance: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Monthly Post-Divorce Contribution</Label>
-                                 <Input type="number" value={inputs.retirementImpact?.monthlyContribution || ""} onChange={e => updateField("retirementImpact", { ...inputs.retirementImpact, monthlyContribution: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.retirementImpact?.monthlyContribution)} onChange={e => updateField("retirementImpact", { ...inputs.retirementImpact, monthlyContribution: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                            </div>
                         )}
@@ -412,11 +413,11 @@ export function InteractiveDashboard({
                            <div className="grid md:grid-cols-2 gap-8">
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">Assessed Home Value</Label>
-                                 <Input type="number" value={inputs.housingScenario?.homeValue || ""} onChange={e => updateField("housingScenario", { ...inputs.housingScenario, homeValue: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.housingScenario?.homeValue)} onChange={e => updateField("housingScenario", { ...inputs.housingScenario, homeValue: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                               <div className="space-y-2">
                                  <Label className="text-[10px] font-black uppercase text-zinc-500">New Mortgage/Rent Payment</Label>
-                                 <Input type="number" value={inputs.housingScenario?.mortgage || ""} onChange={e => updateField("housingScenario", { ...inputs.housingScenario, mortgage: Number(e.target.value) })} className="bg-white rounded-xl h-11" />
+                                 <Input type="text" value={formatThousands(inputs.housingScenario?.mortgage)} onChange={e => updateField("housingScenario", { ...inputs.housingScenario, mortgage: parseThousands(e.target.value) })} className="bg-white rounded-xl h-11" />
                               </div>
                            </div>
                         )}
