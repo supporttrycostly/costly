@@ -163,7 +163,7 @@ export function DashboardShell({
                     {activeTab === "estimate" && "Detailed Analysis"}
                     {activeTab === "analysis" && (isCore ? "Financial Model" : "Interactive Dashboard")}
                     {activeTab === "scenarios" && "Scenario Library"}
-                    {activeTab === "advisor" && "AI Advisor"}
+                    {activeTab === "advisor" && "AI Advisor™"}
                   </h1>
                   <p className="text-zinc-500 font-medium">
                     {isCore ? "Premium Access Active." : "Welcome back,"} <span className="text-[#111111] font-bold">{userName}</span>.
@@ -228,7 +228,7 @@ export function DashboardShell({
                   <p className="text-zinc-500 max-w-sm mb-8">
                     {!isCore
                       ? "This advanced analytics tab is reserved for Core members. Upgrade to unlock full interactive modeling."
-                      : "Premium features like Comparison, Scenario Library, and AI Advisor require an active subscription."}
+                      : "Premium features like Comparison, Scenario Library, and AI Advisor™ require an active subscription."}
                   </p>
                   <Link href="/paywall" className="bg-[#111111] text-white px-8 py-3 rounded-2xl font-black hover:bg-zinc-800 transition-all">
                     {!isCore ? "Upgrade to Core Unlock" : "View Subscription Plans"}

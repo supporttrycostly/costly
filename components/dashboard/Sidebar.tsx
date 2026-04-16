@@ -99,7 +99,7 @@ export function Sidebar({
     },
     {
       id: "advisor",
-      label: "AI Advisor",
+      label: "AI Advisor™",
       icon: Sparkles,
       locked: !isCore || !isSubscriptionActive
     },

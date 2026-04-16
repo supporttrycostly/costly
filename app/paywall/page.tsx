@@ -294,7 +294,7 @@ function PaywallContent() {
                 <div className="absolute top-[20%] left-[30%] p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-white shadow-xl max-w-[200px] animate-bounce-slow">
                   <div className="flex items-center gap-2 mb-1">
                     <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
-                    <span className="text-[9px] font-black uppercase tracking-widest">AI Advisor</span>
+                    <span className="text-[9px] font-black uppercase tracking-widest">AI Advisor™</span>
                   </div>
                   <p className="text-[10px] text-zinc-400 font-bold">Real-time strategic feedback on every scenario change.</p>
                 </div>

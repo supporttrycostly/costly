@@ -241,7 +241,7 @@ export function ProfileDrawer({
                     {isSubscriptionActive 
                       ? "Core Strategic Active" 
                       : isCore 
-                        ? "Advisor Pass Required" 
+                        ? "Advisor™ Pass Required" 
                         : "Entry Access Path"
                     }
                   </h4>
@@ -249,7 +249,7 @@ export function ProfileDrawer({
                     {isSubscriptionActive 
                       ? "Full Intelligence Active" 
                       : isCore 
-                        ? "Unlock AI Advisor & Scenarios" 
+                        ? "Unlock AI Advisor™ & Scenarios" 
                         : "Level Up for Full Intelligence"
                     }
                   </p>
@@ -260,7 +260,7 @@ export function ProfileDrawer({
                    <div className="space-y-2">
                       {[
                         { l: "Interactive Financial Modeling", active: isCore || isSubscriptionActive },
-                        { l: "AI Strategic Advisor Access", active: isSubscriptionActive },
+                        { l: "AI Strategic Advisor™ Access", active: isSubscriptionActive },
                         { l: "Scenario Persistence (Save/Load)", active: isSubscriptionActive },
                         { l: "Entry Risk Modeling", active: true },
                       ].map((f, i) => (
