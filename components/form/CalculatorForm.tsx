@@ -202,7 +202,8 @@ export function CalculatorForm() {
                       </Link>
                     </Button>
                     
-                    {!isPaid && (
+                    {/* REVISION: Social Proof commented out to match landing page removal */}
+                    {/*
                        <div className="flex flex-col items-center gap-3">
                          <div className="flex -space-x-2">
                            {[1,2,3,4].map(i => (
@@ -213,7 +214,7 @@ export function CalculatorForm() {
                            Join 4,200+ users modeling their future.
                          </p>
                        </div>
-                    )}
+                    */}
                   </div>
                 </div>
               </div>

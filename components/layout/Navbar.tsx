@@ -24,12 +24,19 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* CENTER: NAV LINKS (Desktop Only) */}
+        {/* CENTER: NAV LINKS (Desktop focus, Contact visible on mobile too) */}
         <div className="hidden lg:flex flex-1 justify-center gap-2">
           <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-4 transition-all">
             <Link href="/paywall">Pricing</Link>
           </Button>
           <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-4 transition-all">
+            <Link href="/contact">Contact</Link>
+          </Button>
+        </div>
+
+        {/* MOBILE CONTACT LINK (Visible only on smaller screens) */}
+        <div className="lg:hidden flex items-center">
+          <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black px-2 transition-all">
             <Link href="/contact">Contact</Link>
           </Button>
         </div>

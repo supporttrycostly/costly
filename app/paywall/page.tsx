@@ -588,15 +588,13 @@ function PaywallContent() {
 
       <footer className="py-16 border-t border-zinc-50 bg-white">
         <div className="container max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
             <Image 
               src="/costly-logo.png" 
               alt="Costly Logo" 
-              width={140} 
-              height={36} 
-              className="h-8 w-auto object-contain"
+              width={200} 
+              height={50} 
+              className="h-12 w-auto object-contain"
             />
-          </div>
           <div className="text-center md:text-right space-y-4">
             <div className="flex justify-center md:justify-end gap-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">
               <Link href="/privacy" className="hover:text-[#111111] transition-colors">Privacy</Link>
