@@ -260,7 +260,10 @@ function PaywallContent() {
       <main className="flex-1 container max-w-7xl mx-auto px-4 py-24">
 
 
-        {/* STRATEGIC PREVIEW SECTION - NEW */}
+        {/* REVISION 2: STRATEGIC PREVIEW SECTION — commented out per client request.
+             Page now leads directly with the Value Ladder. Screenshot visual added below the ladder.
+        */}
+        {/*
         <FadeIn delay={0.3} className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-4">Your Decision Dashboard</h2>
@@ -268,11 +271,8 @@ function PaywallContent() {
           </div>
 
           <div className="relative group max-w-5xl mx-auto cursor-default">
-            {/* The Blur/Reveal Effect */}
             <div className="relative rounded-[3rem] overflow-hidden border border-zinc-100 shadow-2xl transition-all duration-700 group-hover:shadow-[0_40px_100px_rgba(0,0,0,0.1)]">
               <DashboardPreview isBlurred={true} className="w-full transform transition-all duration-1000 group-hover:blur-sm group-hover:scale-100" />
-              
-              {/* Overlay Content */}
               <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-white/10 backdrop-blur-[2px] opacity-100 group-hover:opacity-0 transition-opacity duration-500">
                 <div className="p-10 rounded-[2.5rem] bg-white/90 backdrop-blur-md border border-white shadow-2xl text-center max-w-md">
                    <div className="w-16 h-16 rounded-2xl bg-[#111111] text-white flex items-center justify-center mx-auto mb-6 shadow-xl">
@@ -288,8 +288,6 @@ function PaywallContent() {
                    </div>
                 </div>
               </div>
-
-              {/* Feature Callouts (Visible on Hover) */}
               <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                 <div className="absolute top-[20%] left-[30%] p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-white shadow-xl max-w-[200px] animate-bounce-slow">
                   <div className="flex items-center gap-2 mb-1">
@@ -298,7 +296,6 @@ function PaywallContent() {
                   </div>
                   <p className="text-[10px] text-zinc-400 font-bold">Real-time strategic feedback on every scenario change.</p>
                 </div>
-
                 <div className="absolute bottom-[30%] right-[20%] p-4 bg-[#111111]/95 backdrop-blur-md rounded-2xl border border-zinc-800 shadow-xl max-w-[200px] animate-float">
                   <div className="flex items-center gap-2 mb-1 text-white">
                     <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
@@ -308,11 +305,10 @@ function PaywallContent() {
                 </div>
               </div>
             </div>
-            
-            {/* Background Glow */}
             <div className="absolute -inset-10 bg-emerald-50/50 rounded-full blur-[120px] -z-10 group-hover:bg-emerald-100/50 transition-colors duration-1000" />
           </div>
         </FadeIn>
+        */}
 
         {/* HEADER SECTION */}
         <div className="text-center mb-16 mt-20">
@@ -451,6 +447,114 @@ function PaywallContent() {
             </FadeIn>
           ))}
         </div>
+
+        {/* REVISION 2: Dashboard Screenshot Teaser — added below Value Ladder per client request */}
+        <FadeIn delay={0.2} className="mb-24">
+          <div className="relative group max-w-5xl mx-auto">
+            {/* Section label */}
+            <div className="text-center mb-10">
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2">What's waiting behind the lock</p>
+              <h3 className="text-2xl md:text-3xl font-black tracking-tight">Your Decision Dashboard</h3>
+            </div>
+
+            {/* Dashboard visual mockup card */}
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-[0_40px_100px_rgba(0,0,0,0.08)] bg-white">
+
+              {/* Top bar — mimics a browser/app chrome */}
+              <div className="flex items-center gap-2 px-6 py-4 border-b border-zinc-100 bg-zinc-50/80">
+                <div className="w-3 h-3 rounded-full bg-zinc-200" />
+                <div className="w-3 h-3 rounded-full bg-zinc-200" />
+                <div className="w-3 h-3 rounded-full bg-zinc-200" />
+                <div className="flex-1 mx-4 h-6 bg-zinc-100 rounded-lg flex items-center px-3">
+                  <span className="text-[8px] font-black text-zinc-400 uppercase tracking-widest">costly.app/dashboard</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="px-3 py-1 bg-emerald-50 border border-emerald-100 rounded-full">
+                    <span className="text-[7px] font-black text-emerald-600 uppercase tracking-widest">Secure</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dashboard layout mockup */}
+              <div className="p-6 md:p-8 grid md:grid-cols-3 gap-4">
+                {/* Left col — inputs */}
+                <div className="md:col-span-1 space-y-3">
+                  <div className="h-4 w-24 bg-zinc-100 rounded-full mb-4" />
+                  {[70, 90, 55, 80, 60].map((w, i) => (
+                    <div key={i} className="space-y-1.5">
+                      <div className={`h-2 w-${w === 70 ? '[70%]' : w === 90 ? '[90%]' : w === 55 ? '[55%]' : w === 80 ? '[80%]' : '[60%]'} bg-zinc-100 rounded-full`} style={{ width: `${w}%` }} />
+                      <div className="h-8 w-full bg-zinc-50 border border-zinc-100 rounded-xl" />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Right col — results */}
+                <div className="md:col-span-2 space-y-4">
+                  {/* Metric cards */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { label: "Child Support", color: "bg-rose-50 border-rose-100", bar: "bg-rose-200" },
+                      { label: "Net Income", color: "bg-emerald-50 border-emerald-100", bar: "bg-emerald-300" },
+                      { label: "Cash Flow", color: "bg-zinc-50 border-zinc-100", bar: "bg-zinc-200" },
+                    ].map((card, i) => (
+                      <div key={i} className={`p-3 rounded-2xl border ${card.color}`}>
+                        <div className={`h-2 w-12 ${card.bar} rounded-full mb-3`} />
+                        <div className="h-6 w-full bg-white/60 rounded-lg mb-1" />
+                        <div className={`h-1.5 w-8 ${card.bar} rounded-full opacity-50`} />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Reality Score bar */}
+                  <div className="p-4 rounded-2xl bg-zinc-900 text-white">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="h-2 w-24 bg-white/20 rounded-full" />
+                      <div className="px-2 py-0.5 bg-emerald-500/20 rounded-full">
+                        <div className="h-1.5 w-10 bg-emerald-400/40 rounded-full" />
+                      </div>
+                    </div>
+                    <div className="relative h-3 bg-white/10 rounded-full overflow-hidden">
+                      <div className="absolute left-0 top-0 h-full w-[68%] bg-gradient-to-r from-emerald-500 to-amber-400 rounded-full" />
+                    </div>
+                    <div className="mt-2 flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <div className="h-1.5 w-20 bg-white/20 rounded-full" />
+                    </div>
+                  </div>
+
+                  {/* Scenario rows */}
+                  <div className="space-y-2">
+                    {[1, 2].map((i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 bg-zinc-50 border border-zinc-100 rounded-xl">
+                        <div className="w-6 h-6 rounded-lg bg-zinc-200" />
+                        <div className="flex-1 space-y-1">
+                          <div className="h-1.5 w-3/4 bg-zinc-200 rounded-full" />
+                          <div className="h-1 w-1/2 bg-zinc-100 rounded-full" />
+                        </div>
+                        <div className="h-5 w-16 bg-zinc-200 rounded-lg" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Blur gradient at the bottom — teaser fade */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
+
+              {/* Centered lock badge */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+                <div className="flex items-center gap-3 px-6 py-3 bg-white border border-zinc-200 rounded-full shadow-xl">
+                  <LockKeyhole className="w-4 h-4 text-[#111111]" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#111111]">Unlock Full Dashboard</span>
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
+              </div>
+            </div>
+
+            {/* Background glow */}
+            <div className="absolute -inset-10 bg-emerald-50/40 rounded-full blur-[120px] -z-10" />
+          </div>
+        </FadeIn>
 
         {/* TRUST SECTION */}
         <section className="pt-20 border-t border-zinc-50 text-center">

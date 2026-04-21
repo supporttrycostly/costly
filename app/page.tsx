@@ -78,18 +78,19 @@ export default function LandingPage() {
           <SlideUp yOffset={20} delay={0.4}>
             <div className="mt-12 flex justify-center">
               <Link href="/california-child-support" className="inline-flex items-center gap-2 group cursor-pointer transition-all hover:opacity-100">
-                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 group-hover:text-[#111111] transition-colors italic">Specialized: California Guidelines 2026</span>
-                 <ArrowRight className="w-3 h-3 text-zinc-300 group-hover:text-[#111111] group-hover:translate-x-1 transition-all" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 group-hover:text-[#111111] transition-colors italic">Specialized: California Guidelines 2026</span>
+                <ArrowRight className="w-3 h-3 text-zinc-300 group-hover:text-[#111111] group-hover:translate-x-1 transition-all" />
               </Link>
             </div>
           </SlideUp>
         </section>
 
         {/* SOCIAL PROOF */}
-        <FadeIn delay={0.5}>
+        {/*<FadeIn delay={0.5}>
           <section className="border-y border-zinc-100 bg-zinc-50/50 py-10">
             <div className="container">
               <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
+                
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4].map((i) => (
@@ -105,6 +106,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="hidden md:block w-px h-12 bg-zinc-200"></div>
+               
 
                 <div className="text-left flex items-start gap-4">
                   <ShieldCheck className="w-10 h-10 text-[#16A34A] shrink-0" />
@@ -116,10 +118,10 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-        </FadeIn>
+        </FadeIn>*/}
 
         {/* HOW IT WORKS */}
-        <section className="py-24 bg-white">
+        <section className="py-12 bg-white">
           <div className="container">
             <SlideUp>
               <div className="text-center max-w-3xl mx-auto mb-16">
@@ -177,8 +179,8 @@ export default function LandingPage() {
                         <CheckCircle2 className="w-5 h-5" />
                       </div>
                       <div>
-                         <p className="font-black text-sm uppercase tracking-tight text-[#16A34A]">Sustainable</p>
-                         <p className="text-xs text-zinc-600 font-medium">Low financial risk. Your income covers your new lifestyle.</p>
+                        <p className="font-black text-sm uppercase tracking-tight text-[#16A34A]">Sustainable</p>
+                        <p className="text-xs text-zinc-600 font-medium">Low financial risk. Your income covers your new lifestyle.</p>
                       </div>
                     </div>
 
@@ -187,8 +189,8 @@ export default function LandingPage() {
                         <Info className="w-5 h-5" />
                       </div>
                       <div>
-                         <p className="font-black text-sm uppercase tracking-tight text-[#EAB308]">Financial Pressure</p>
-                         <p className="text-xs text-zinc-600 font-medium">Significant awareness needed. Your margins are tightening.</p>
+                        <p className="font-black text-sm uppercase tracking-tight text-[#EAB308]">Financial Pressure</p>
+                        <p className="text-xs text-zinc-600 font-medium">Significant awareness needed. Your margins are tightening.</p>
                       </div>
                     </div>
 
@@ -197,105 +199,130 @@ export default function LandingPage() {
                         <AlertTriangle className="w-5 h-5" />
                       </div>
                       <div>
-                         <p className="font-black text-sm uppercase tracking-tight text-[#DC2626]">Survival At Risk</p>
-                         <p className="text-xs text-zinc-600 font-medium">Urgent adjustment required. Settlement may be unsustainable.</p>
+                        <p className="font-black text-sm uppercase tracking-tight text-[#DC2626]">Survival At Risk</p>
+                        <p className="text-xs text-zinc-600 font-medium">Urgent adjustment required. Settlement may be unsustainable.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </SlideUp>
 
-              {/* column 2: PDF Preview */}
+              {/* column 2: PDF Preview — REVISION 3: Teaser partial PDF view */}
               <SlideUp delay={0.2}>
                 <div className="relative group">
-                  {/* Decorative background for PDF - Deeper glow */}
+                  {/* Decorative background glow */}
                   <div className="absolute -inset-10 bg-emerald-50/20 rounded-full blur-[100px] -z-10 group-hover:bg-emerald-100/30 transition-colors" />
-                  
-                  <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-[0_40px_100px_rgba(0,0,0,0.08)] p-6 md:p-10 relative overflow-hidden group-hover:shadow-[0_40px_120px_rgba(16,163,74,0.05)] transition-all duration-700">
-                    
-                    {/* CONFIDENTIAL STAMP MOCKUP */}
-                    <div className="absolute top-8 right-8 w-20 h-20 border-4 border-rose-500/10 rounded-full flex items-center justify-center -rotate-12 pointer-events-none opacity-40">
-                       <span className="text-[8px] font-black text-rose-500/20 uppercase tracking-[0.2em] text-center leading-none">Confidential<br/>Strategic<br/>Review</span>
-                    </div>
 
-                    <div className="flex items-center justify-between mb-8 relative z-10">
-                       <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-white shadow-xl shadow-black/10">
-                             <FileText className="w-6 h-6 text-emerald-400" />
+                  {/* PDF DOCUMENT CARD */}
+                  <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-[0_40px_100px_rgba(0,0,0,0.08)] relative overflow-hidden group-hover:shadow-[0_40px_120px_rgba(16,163,74,0.05)] transition-all duration-700">
+
+                    {/* === VISIBLE PORTION — Top half of the PDF === */}
+                    <div className="p-6 md:p-8">
+
+                      {/* Document Header */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-[#111111] flex items-center justify-center shadow-lg">
+                            <FileText className="w-5 h-5 text-emerald-400" />
                           </div>
                           <div>
-                             <p className="font-black text-sm uppercase leading-tight tracking-tight">Impact Roadmap</p>
-                             <p className="text-[8px] text-zinc-400 font-black uppercase tracking-[0.3em] mt-1">Serial: CA-2026-X942</p>
+                            <p className="font-black text-xs uppercase tracking-tight">Impact Roadmap</p>
+                            <p className="text-[8px] text-zinc-400 font-black uppercase tracking-[0.25em] mt-0.5">CA-2026-X942</p>
                           </div>
-                       </div>
-                       <div className="p-2 rounded-xl bg-zinc-50 border border-zinc-100 shadow-sm">
-                          <Lock className="w-3.5 h-3.5 text-zinc-400" />
-                       </div>
+                        </div>
+                        <div className="px-2 py-1 rounded-lg bg-emerald-50 border border-emerald-100">
+                          <span className="text-[7px] font-black text-emerald-600 uppercase tracking-widest">Confidential</span>
+                        </div>
+                      </div>
+
+                      {/* Section Title Row */}
+                      <div className="mb-4 pb-3 border-b border-zinc-100">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-1 h-4 bg-[#111111] rounded-full" />
+                          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111]">Financial Settlement Analysis</p>
+                        </div>
+                        <div className="h-1.5 w-3/4 bg-zinc-100 rounded-full ml-3" />
+                      </div>
+
+                      {/* Document Data Rows — visible, realistic */}
+                      <div className="space-y-2.5 mb-4">
+                        {[
+                          { label: "Gross Monthly Income", value: "$ ——", color: "text-zinc-700" },
+                          { label: "Est. Child Support Obligation", value: "$ ——", color: "text-[#DC2626]" },
+                          { label: "Net Post-Support Income", value: "$ ——", color: "text-zinc-700" },
+                        ].map((row, i) => (
+                          <div key={i} className="flex items-center justify-between py-2 px-3 rounded-xl bg-zinc-50/80 border border-zinc-100">
+                            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wide">{row.label}</span>
+                            <span className={`text-[9px] font-black ${row.color} tabular-nums`}>{row.value}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Reality Score Row — partially visible */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-zinc-50 border border-zinc-100 mb-1">
+                        <div className="w-6 h-6 rounded-full bg-zinc-200 flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-zinc-400" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="h-1.5 w-1/2 bg-zinc-200 rounded-full mb-1" />
+                          <div className="h-1 w-1/3 bg-zinc-100 rounded-full" />
+                        </div>
+                        <div className="h-5 w-12 bg-zinc-200 rounded-lg" />
+                      </div>
                     </div>
 
-                    <div className="space-y-4 relative">
-                       {/* High Fidelity "Document" Mockup */}
-                       <div className="space-y-3 opacity-30 grayscale blur-[1px] relative">
-                          <div className="flex items-center gap-2">
-                             <div className="h-3 w-10 bg-zinc-200 rounded-md" />
-                             <div className="h-1.5 w-full bg-zinc-100 rounded-full" />
-                          </div>
-                          <div className="space-y-1.5">
-                             <div className="h-1.5 w-full bg-zinc-100 rounded-full" />
-                             <div className="h-1.5 w-5/6 bg-zinc-100 rounded-full" />
-                          </div>
-                       </div>
+                    {/* === BLUR OVERLAY — Lower half fades into lock === */}
+                    <div className="relative">
+                      {/* Partially visible blurred rows below */}
+                      <div className="px-6 md:px-8 pb-4 space-y-2 opacity-40 blur-[3px] pointer-events-none select-none">
+                        <div className="flex items-center justify-between py-2 px-3 rounded-xl bg-zinc-50 border border-zinc-100">
+                          <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wide">Disposable Monthly Cash</span>
+                          <span className="text-[9px] font-black text-[#16A34A]">$ ——</span>
+                        </div>
+                        <div className="flex items-center justify-between py-2 px-3 rounded-xl bg-zinc-50 border border-zinc-100">
+                          <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wide">Sustainability Index Score</span>
+                          <span className="text-[9px] font-black text-[#EAB308]">——%</span>
+                        </div>
+                        <div className="h-8 w-full bg-zinc-50 rounded-xl border border-zinc-100" />
+                      </div>
 
-                       {/* The Focus Point: A clear chart area that's then blurred */}
-                       <div className="relative h-32 md:h-40 w-full bg-zinc-50 rounded-[2rem] border border-zinc-100 flex flex-col items-center justify-center overflow-hidden">
-                          {/* Simulated Chart Logic */}
-                          <div className="absolute inset-0 p-6 flex items-end gap-2 md:gap-3 opacity-20">
-                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[40%]" />
-                             <div className="flex-1 bg-emerald-500 rounded-t-lg h-[85%] relative">
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 whitespace-nowrap text-[7px] font-black uppercase tracking-widest text-[#111111]">Target</div>
-                             </div>
-                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[60%]" />
-                             <div className="flex-1 bg-rose-400 rounded-t-lg h-[70%] relative">
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 whitespace-nowrap text-[7px] font-black uppercase tracking-widest text-rose-600 italic">Risk</div>
-                             </div>
-                             <div className="flex-1 bg-zinc-300 rounded-t-lg h-[50%]" />
-                          </div>
+                      {/* White gradient fade overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none" />
 
-                          <div className="absolute inset-0 bg-white/60 backdrop-blur-[6px] z-10" />
-                          
-                          <div className="relative z-20 flex flex-col items-center scale-90 md:scale-100">
-                             <div className="w-12 h-12 rounded-2xl bg-white border border-zinc-100 shadow-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-500">
-                                <Lock className="w-5 h-5 text-[#16A34A]" />
-                             </div>
-                             <span className="text-[9px] font-black text-zinc-900 uppercase tracking-[0.4em]">Strategic Assessment</span>
-                             <div className="mt-1.5 px-2.5 py-0.5 rounded-full bg-[#111111]/5 border border-[#111111]/10">
-                                <span className="text-[6px] font-black text-[#111111] uppercase tracking-[0.2em]">California 2026 Model Filter</span>
-                             </div>
-                          </div>
-                       </div>
-
-                       {/* Bottom Metadata */}
-                       <div className="flex justify-between items-center opacity-40 blur-[0.5px]">
-                          <div className="flex gap-1">
-                             <div className="w-5 h-5 rounded bg-zinc-100" />
-                             <div className="w-5 h-5 rounded bg-zinc-100" />
-                          </div>
-                          <div className="h-1.5 w-20 bg-zinc-100 rounded-full" />
-                       </div>
+                      {/* Lock CTA in center */}
+                      <div className="relative z-10 flex flex-col items-center justify-center pb-8 pt-2">
+                        <div className="w-10 h-10 rounded-2xl bg-white border border-zinc-200 shadow-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
+                          <Lock className="w-4 h-4 text-[#16A34A]" />
+                        </div>
+                        <span className="text-[8px] font-black text-zinc-500 uppercase tracking-[0.35em]">Full report unlocked with plan</span>
+                      </div>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-zinc-100 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-                       <div className="flex items-center gap-2.5">
-                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                          <p className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Certified Analysis Output</p>
-                       </div>
-                       <button className="px-5 py-2 bg-[#111111] rounded-full text-[8px] font-black uppercase tracking-[.3em] text-white shadow-2xl shadow-black/20 hover:scale-105 transition-all">
-                          Sample Report
-                       </button>
+                    {/* Footer */}
+                    <div className="px-6 md:px-8 py-4 border-t border-zinc-100 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                        <p className="text-[8px] font-black uppercase text-zinc-400 tracking-widest">Certified Analysis Output</p>
+                      </div>
+                      <button className="px-4 py-1.5 bg-[#111111] rounded-full text-[8px] font-black uppercase tracking-[.25em] text-white shadow-lg hover:scale-105 transition-all">
+                        Sample Report
+                      </button>
                     </div>
                   </div>
                 </div>
               </SlideUp>
+
+              {/*
+                ORIGINAL PDF MOCKUP — commented out (Revision 3)
+                <SlideUp delay={0.2}>
+                  <div className="relative group">
+                    <div className="absolute -inset-10 bg-emerald-50/20 rounded-full blur-[100px] -z-10" />
+                    <div className="bg-white rounded-[2.5rem] border border-zinc-200 shadow-[0_40px_100px_rgba(0,0,0,0.08)] p-6 md:p-10 relative overflow-hidden">
+                      ... (original abstract lock/chart mockup)
+                    </div>
+                  </div>
+                </SlideUp>
+              */}
             </div>
           </div>
         </section>
@@ -369,12 +396,12 @@ export default function LandingPage() {
             <div className="relative">
               {/* Desktop Connection Line */}
               <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-zinc-100 -z-10">
-                <motion.div 
+                <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  className="h-full bg-emerald-500/30" 
+                  className="h-full bg-emerald-500/30"
                 />
               </div>
 
