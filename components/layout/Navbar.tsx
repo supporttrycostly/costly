@@ -52,22 +52,13 @@ export function Navbar() {
               <div className="w-24 h-9 bg-zinc-50 animate-pulse rounded-xl border border-zinc-100/50" />
             ) : status === "authenticated" ? (
               <div className="flex items-center gap-1 sm:gap-2">
-                {((session?.user as any)?.hasFullAccess) ? (
+                {(session?.user as any)?.hasFullAccess || (session?.user as any)?.entryPurchased ? (
                   <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-2 sm:px-4 transition-all">
                     <Link href="/dashboard">Dashboard</Link>
                   </Button>
-                ) : (session?.user as any)?.entryPurchased ? (
-                  <>
-                    <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-2 sm:px-4 transition-all whitespace-nowrap">
-                      <Link href="/results">Results</Link>
-                    </Button>
-                    <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-2 sm:px-4 transition-all">
-                      <Link href="/dashboard">Dashboard</Link>
-                    </Button>
-                  </>
                 ) : (
-                  <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-2 sm:px-4 transition-all">
-                    <Link href="/dashboard">Dashboard</Link>
+                  <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-2 sm:px-4 transition-all whitespace-nowrap">
+                    <Link href="/results">Results</Link>
                   </Button>
                 )}
               </div>
