@@ -12,7 +12,7 @@ export function Navbar() {
       <div className="container h-16 flex items-center">
         {/* LEFT: LOGO */}
         <div className="flex-1 flex justify-start">
-          <Link href="/" className="group flex items-center transition-all">
+          <Link href="/" className="group flex items-center transition-all" aria-label="Home">
             <Image
               src="/costly-logo.png"
               alt="Costly Logo"
@@ -24,7 +24,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* CENTER: NAV LINKS (Desktop focus, Contact visible on mobile too) */}
+        {/* CENTER: NAV LINKS (Desktop focus, Home/Contact visible on mobile too) */}
         <div className="hidden lg:flex flex-1 justify-center gap-2">
           <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black hover:bg-zinc-50 rounded-xl px-4 transition-all">
             <Link href="/paywall">Pricing</Link>
@@ -34,8 +34,11 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* MOBILE CONTACT LINK (Visible only on smaller screens) */}
-        <div className="lg:hidden flex items-center">
+        {/* MOBILE NAV LINKS (Visible only on smaller screens) */}
+        <div className="lg:hidden flex items-center gap-1">
+          <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black px-2 transition-all">
+            <Link href="/">Home</Link>
+          </Button>
           <Button variant="ghost" asChild className="text-zinc-500 font-bold hover:text-black px-2 transition-all">
             <Link href="/contact">Contact</Link>
           </Button>

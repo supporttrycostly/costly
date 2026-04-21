@@ -67,12 +67,23 @@ export default function ResultsPage() {
     return (
       <div className="flex flex-col min-h-screen bg-white text-[#111111] pt-16">
         <Navbar />
-        <div className="flex-1 flex items-center justify-center p-4 text-center">
-          <AlertCircle className="w-12 h-12 text-[#DC2626] mb-4 mx-auto" />
-          <p className="text-xl font-medium">{error || "Something went wrong."}</p>
-          <Button asChild className="mt-6">
-            <Link href="/run">Return to Form</Link>
-          </Button>
+        <div className="flex-1 flex items-center justify-center p-6 sm:p-12">
+          <div className="max-w-md w-full bg-zinc-50 border border-zinc-100 p-10 md:p-14 rounded-[2.5rem] text-center shadow-xl shadow-black/[0.02]">
+            <div className="w-20 h-20 rounded-[2rem] bg-white border border-zinc-100 shadow-sm flex items-center justify-center mx-auto mb-8">
+               <AlertCircle className="w-10 h-10 text-zinc-300" />
+            </div>
+            
+            <h2 className="text-2xl font-black tracking-tight mb-4">No Active Modeling Found</h2>
+            <p className="text-zinc-500 font-bold mb-10 leading-relaxed">
+              {error || "We couldn't find an active calculation session. Please return to the calculator to model your scenario."}
+            </p>
+
+            <Button asChild className="w-full h-16 bg-[#111111] text-white hover:bg-zinc-800 rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-black/10 transition-all active:scale-95">
+              <Link href="/run">
+                Return to Calculator
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     );

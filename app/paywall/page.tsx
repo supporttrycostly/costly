@@ -200,7 +200,17 @@ function PaywallContent() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#111111] pt-20">
+    <>
+      {/* GLOBAL LOADING OVERLAY — Prevent double-clicks during Stripe redirect */}
+      {isRedirecting && (
+        <div className="fixed inset-0 z-[100] bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center animate-in fade-in duration-300">
+           <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-zinc-100 flex flex-col items-center gap-4">
+              <div className="w-12 h-12 border-4 border-zinc-100 border-t-[#111111] rounded-full animate-spin" />
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">Securing Gateway...</p>
+           </div>
+        </div>
+      )}
+
       <Navbar />
 
       {/* ONBOARDING GUARDRAIL MODAL */}
@@ -608,7 +618,7 @@ function PaywallContent() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 

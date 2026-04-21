@@ -30,7 +30,8 @@ import {
   Sparkles, 
   MapPin, 
   Users2,
-  TrendingUp
+  TrendingUp,
+  HelpCircle
 } from "lucide-react";
 import { DashboardPreview } from "@/components/dashboard/DashboardPreview";
 
@@ -360,7 +361,15 @@ export function CalculatorForm() {
                 {/* Marital Assets */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between px-1">
-                    <Label htmlFor="assetsMarital" className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Total Marital Assets</Label>
+                    <Label htmlFor="assetsMarital" className="text-[10px] font-black uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
+                      Total Marital Assets
+                      <div className="group/tip relative">
+                        <HelpCircle className="w-3 h-3 text-zinc-300 cursor-help" />
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-3 bg-zinc-900 text-white text-[9px] font-bold rounded-xl w-40 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl leading-relaxed">
+                          Anchors your Reality Score by comparing monthly support against your total net worth.
+                        </div>
+                      </div>
+                    </Label>
                     <LayoutDashboard className="w-3 h-3 text-zinc-300" />
                   </div>
                   <div className="relative group">
@@ -381,7 +390,15 @@ export function CalculatorForm() {
                 {/* Spousal Support */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between px-1">
-                    <Label htmlFor="spousalSupport" className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Est. Maintenance</Label>
+                    <Label htmlFor="spousalSupport" className="text-[10px] font-black uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
+                      Est. Maintenance
+                      <div className="group/tip relative">
+                        <HelpCircle className="w-3 h-3 text-zinc-300 cursor-help" />
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-3 bg-zinc-900 text-white text-[9px] font-bold rounded-xl w-40 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none z-50 shadow-2xl leading-relaxed">
+                          Combined with child support to show your total monthly financial liability.
+                        </div>
+                      </div>
+                    </Label>
                     <TrendingUp className="w-3 h-3 text-zinc-300" />
                   </div>
                   <div className="relative group">
