@@ -24,6 +24,11 @@
 - **100% Anonymous**: We never ask for your name or Social Security Number.
 - **Encrypted Data**: 256-bit encryption ensures your data remains yours alone.
 
+
+## ✨ Product Showcase
+
+![Costly Dashboard Sample](/public/sample.png)
+
 ---
 
 ## 🛠️ Tech Stack
