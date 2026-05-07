@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
-import { sendSetPasswordEmail } from "@/lib/email"; // Reusing the same template per plan
+import { sendPasswordResetEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,8 +32,8 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      // 4. Send the Email
-      await sendSetPasswordEmail(user.email, resetToken);
+      // 4. Send the Email (Reset Mode)
+      await sendPasswordResetEmail(user.email, resetToken, "reset");
     }
 
     return NextResponse.json({ success: true, message: "If that email exists, we have sent a reset link to it." }, { status: 200 });

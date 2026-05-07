@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import crypto from "crypto";
-import { sendSetPasswordEmail } from "@/lib/email";
+import { sendPasswordResetEmail } from "@/lib/email";
 
 import type { AddonType as DbAddonType, ProductType as DbProductType } from "@/app/generated/prisma";
 import { prisma } from "@/lib/prisma";
@@ -164,7 +164,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session, 
         // AWAIT this for Vercel/Serverless environments to ensure the email is sent
         // before the lambda execution context is closed.
         try {
-            await sendSetPasswordEmail(customerEmail, resetToken);
+            await sendPasswordResetEmail(customerEmail, resetToken, "set");
         } catch (e) {
             console.error("Failed to send set password email during hook execution", e);
         }

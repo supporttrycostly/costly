@@ -6,19 +6,26 @@ interface EmailPayload {
   html: string;
 }
 
+// Support both standard SMTP and new EMAIL_ naming conventions for flexibility
+const SMTP_USER = process.env.EMAIL_USER || process.env.SMTP_USER;
+const SMTP_PASS = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
+const SMTP_PORT = Number(process.env.SMTP_PORT) || 587;
+const SMTP_FROM = process.env.SMTP_FROM || SMTP_USER;
+
 // Fallback utility for local development if no SMTP vars exist
-const isLocalMode = !process.env.SMTP_HOST || process.env.NODE_ENV !== "production";
+const isLocalMode = !SMTP_USER || process.env.NODE_ENV !== "production";
 
 let transporter: nodemailer.Transporter | null = null;
 
-if (process.env.SMTP_HOST) {
+if (SMTP_USER && SMTP_PASS) {
   transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
+    host: SMTP_HOST,
+    port: SMTP_PORT,
     secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: SMTP_USER,
+      pass: SMTP_PASS,
     },
     tls: {
       // Do not fail on invalid certs - common for some SMTP relays
@@ -34,7 +41,7 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
   if (transporter) {
     try {
       await transporter.sendMail({
-        from: process.env.SMTP_FROM,
+        from: SMTP_FROM,
         to,
         subject,
         html,
@@ -63,9 +70,21 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
   }
 }
 
-export async function sendSetPasswordEmail(email: string, token: string) {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+/**
+ * Sends a password-related email (either setting for the first time or resetting)
+ * Uses APP_URL environment variable for consistent linking.
+ */
+export async function sendPasswordResetEmail(email: string, token: string, mode: "set" | "reset" = "reset") {
+  // Use APP_URL as primary, fallback to NEXT_PUBLIC_APP_URL or localhost
+  const appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const resetLink = `${appUrl}/reset-password?token=${token}`;
+
+  const isSetMode = mode === "set";
+  const title = isSetMode ? "Set Your Password" : "Reset Your Password";
+  const description = isSetMode 
+    ? "Your account has been successfully created. Please set your secure password below to access your dashboard."
+    : "We received a request to reset your password. If you didn't make this request, you can safely ignore this email.";
+  const buttonText = isSetMode ? "Set Password" : "Reset Password";
 
   const html = `
 <div style="font-family: Inter, sans-serif; background:#111111; padding:40px; color:#ffffff;">
@@ -75,15 +94,15 @@ export async function sendSetPasswordEmail(email: string, token: string) {
       <img src="${appUrl}/costly-logo.png" alt="Costly Logo" style="height: 40px; width: auto;" />
     </div>
      
-    <h2 style="margin-bottom:10px; text-align: center;">Set Your Password</h2>
+    <h2 style="margin-bottom:10px; text-align: center;">${title}</h2>
     
     <p style="color:#444444; font-size:16px; text-align: center;">
-      Your account has been successfully created. Please set your secure password below to access your dashboard.
+      ${description}
     </p>
 
     <a href="${resetLink}" 
        style="display:block; margin:30px 0; background:#111111; color:#ffffff; padding:14px; text-align:center; border-radius:8px; text-decoration:none; font-weight:bold;">
-       Set Password
+       ${buttonText}
     </a>
 
     <p style="font-size:12px; color:#777777; text-align: center;">
@@ -96,7 +115,7 @@ export async function sendSetPasswordEmail(email: string, token: string) {
 
   await sendEmail({
     to: email,
-    subject: "Set Your Password – Costly",
+    subject: `${title} – Costly`,
     html,
   });
 }
