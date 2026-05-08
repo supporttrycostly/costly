@@ -1264,14 +1264,14 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     addons: number
-    scenarios: number
     payments: number
+    scenarios: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     addons?: boolean | UserCountOutputTypeCountAddonsArgs
-    scenarios?: boolean | UserCountOutputTypeCountScenariosArgs
     payments?: boolean | UserCountOutputTypeCountPaymentsArgs
+    scenarios?: boolean | UserCountOutputTypeCountScenariosArgs
   }
 
   // Custom InputTypes
@@ -1295,15 +1295,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountScenariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ScenarioWhereInput
+  export type UserCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PaymentWhereInput
+  export type UserCountOutputTypeCountScenariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ScenarioWhereInput
   }
 
 
@@ -1323,148 +1323,148 @@ export namespace Prisma {
 
   export type UserMinAggregateOutputType = {
     id: string | null
-    name: string | null
     email: string | null
     password: string | null
-    resetToken: string | null
-    resetTokenExpiry: Date | null
-    accessType: string | null
     hasFullAccess: boolean | null
     entryPurchased: boolean | null
-    canUseSubscription: boolean | null
-    hasAIAdvisor: boolean | null
-    subscriptionId: string | null
     subscriptionStatus: string | null
     stripeCustomerId: string | null
     stripeSubId: string | null
-    assetSplit: boolean | null
-    retirementImpact: boolean | null
-    vaDisability: boolean | null
-    housingScenario: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    name: string | null
+    accessType: string | null
+    assetSplit: boolean | null
+    housingScenario: boolean | null
+    resetToken: string | null
+    resetTokenExpiry: Date | null
+    retirementImpact: boolean | null
+    subscriptionId: string | null
+    vaDisability: boolean | null
+    canUseSubscription: boolean | null
+    hasAIAdvisor: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
-    name: string | null
     email: string | null
     password: string | null
-    resetToken: string | null
-    resetTokenExpiry: Date | null
-    accessType: string | null
     hasFullAccess: boolean | null
     entryPurchased: boolean | null
-    canUseSubscription: boolean | null
-    hasAIAdvisor: boolean | null
-    subscriptionId: string | null
     subscriptionStatus: string | null
     stripeCustomerId: string | null
     stripeSubId: string | null
-    assetSplit: boolean | null
-    retirementImpact: boolean | null
-    vaDisability: boolean | null
-    housingScenario: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    name: string | null
+    accessType: string | null
+    assetSplit: boolean | null
+    housingScenario: boolean | null
+    resetToken: string | null
+    resetTokenExpiry: Date | null
+    retirementImpact: boolean | null
+    subscriptionId: string | null
+    vaDisability: boolean | null
+    canUseSubscription: boolean | null
+    hasAIAdvisor: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
-    name: number
     email: number
     password: number
-    resetToken: number
-    resetTokenExpiry: number
-    accessType: number
     hasFullAccess: number
     entryPurchased: number
-    canUseSubscription: number
-    hasAIAdvisor: number
-    subscriptionId: number
     subscriptionStatus: number
     stripeCustomerId: number
     stripeSubId: number
-    assetSplit: number
-    retirementImpact: number
-    vaDisability: number
-    housingScenario: number
     createdAt: number
     updatedAt: number
+    name: number
+    accessType: number
+    assetSplit: number
+    housingScenario: number
+    resetToken: number
+    resetTokenExpiry: number
+    retirementImpact: number
+    subscriptionId: number
+    vaDisability: number
+    canUseSubscription: number
+    hasAIAdvisor: number
     _all: number
   }
 
 
   export type UserMinAggregateInputType = {
     id?: true
-    name?: true
     email?: true
     password?: true
-    resetToken?: true
-    resetTokenExpiry?: true
-    accessType?: true
     hasFullAccess?: true
     entryPurchased?: true
-    canUseSubscription?: true
-    hasAIAdvisor?: true
-    subscriptionId?: true
     subscriptionStatus?: true
     stripeCustomerId?: true
     stripeSubId?: true
-    assetSplit?: true
-    retirementImpact?: true
-    vaDisability?: true
-    housingScenario?: true
     createdAt?: true
     updatedAt?: true
+    name?: true
+    accessType?: true
+    assetSplit?: true
+    housingScenario?: true
+    resetToken?: true
+    resetTokenExpiry?: true
+    retirementImpact?: true
+    subscriptionId?: true
+    vaDisability?: true
+    canUseSubscription?: true
+    hasAIAdvisor?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
-    name?: true
     email?: true
     password?: true
-    resetToken?: true
-    resetTokenExpiry?: true
-    accessType?: true
     hasFullAccess?: true
     entryPurchased?: true
-    canUseSubscription?: true
-    hasAIAdvisor?: true
-    subscriptionId?: true
     subscriptionStatus?: true
     stripeCustomerId?: true
     stripeSubId?: true
-    assetSplit?: true
-    retirementImpact?: true
-    vaDisability?: true
-    housingScenario?: true
     createdAt?: true
     updatedAt?: true
+    name?: true
+    accessType?: true
+    assetSplit?: true
+    housingScenario?: true
+    resetToken?: true
+    resetTokenExpiry?: true
+    retirementImpact?: true
+    subscriptionId?: true
+    vaDisability?: true
+    canUseSubscription?: true
+    hasAIAdvisor?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
-    name?: true
     email?: true
     password?: true
-    resetToken?: true
-    resetTokenExpiry?: true
-    accessType?: true
     hasFullAccess?: true
     entryPurchased?: true
-    canUseSubscription?: true
-    hasAIAdvisor?: true
-    subscriptionId?: true
     subscriptionStatus?: true
     stripeCustomerId?: true
     stripeSubId?: true
-    assetSplit?: true
-    retirementImpact?: true
-    vaDisability?: true
-    housingScenario?: true
     createdAt?: true
     updatedAt?: true
+    name?: true
+    accessType?: true
+    assetSplit?: true
+    housingScenario?: true
+    resetToken?: true
+    resetTokenExpiry?: true
+    retirementImpact?: true
+    subscriptionId?: true
+    vaDisability?: true
+    canUseSubscription?: true
+    hasAIAdvisor?: true
     _all?: true
   }
 
@@ -1542,26 +1542,26 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: string
-    name: string | null
     email: string
     password: string | null
-    resetToken: string | null
-    resetTokenExpiry: Date | null
-    accessType: string
     hasFullAccess: boolean
     entryPurchased: boolean
-    canUseSubscription: boolean
-    hasAIAdvisor: boolean
-    subscriptionId: string | null
     subscriptionStatus: string | null
     stripeCustomerId: string | null
     stripeSubId: string | null
-    assetSplit: boolean
-    retirementImpact: boolean
-    vaDisability: boolean
-    housingScenario: boolean
     createdAt: Date
     updatedAt: Date
+    name: string | null
+    accessType: string
+    assetSplit: boolean
+    housingScenario: boolean
+    resetToken: string | null
+    resetTokenExpiry: Date | null
+    retirementImpact: boolean
+    subscriptionId: string | null
+    vaDisability: boolean
+    canUseSubscription: boolean
+    hasAIAdvisor: boolean
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1583,109 +1583,109 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
     password?: boolean
-    resetToken?: boolean
-    resetTokenExpiry?: boolean
-    accessType?: boolean
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: boolean
     subscriptionStatus?: boolean
     stripeCustomerId?: boolean
     stripeSubId?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    name?: boolean
+    accessType?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: boolean
+    resetTokenExpiry?: boolean
+    retirementImpact?: boolean
+    subscriptionId?: boolean
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: boolean | User$addonsArgs<ExtArgs>
-    scenarios?: boolean | User$scenariosArgs<ExtArgs>
     payments?: boolean | User$paymentsArgs<ExtArgs>
+    scenarios?: boolean | User$scenariosArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
     password?: boolean
-    resetToken?: boolean
-    resetTokenExpiry?: boolean
-    accessType?: boolean
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: boolean
     subscriptionStatus?: boolean
     stripeCustomerId?: boolean
     stripeSubId?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    name?: boolean
+    accessType?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: boolean
+    resetTokenExpiry?: boolean
+    retirementImpact?: boolean
+    subscriptionId?: boolean
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
     email?: boolean
     password?: boolean
-    resetToken?: boolean
-    resetTokenExpiry?: boolean
-    accessType?: boolean
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: boolean
     subscriptionStatus?: boolean
     stripeCustomerId?: boolean
     stripeSubId?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    name?: boolean
+    accessType?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: boolean
+    resetTokenExpiry?: boolean
+    retirementImpact?: boolean
+    subscriptionId?: boolean
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
-    name?: boolean
     email?: boolean
     password?: boolean
-    resetToken?: boolean
-    resetTokenExpiry?: boolean
-    accessType?: boolean
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: boolean
     subscriptionStatus?: boolean
     stripeCustomerId?: boolean
     stripeSubId?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    name?: boolean
+    accessType?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: boolean
+    resetTokenExpiry?: boolean
+    retirementImpact?: boolean
+    subscriptionId?: boolean
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "resetToken" | "resetTokenExpiry" | "accessType" | "hasFullAccess" | "entryPurchased" | "canUseSubscription" | "hasAIAdvisor" | "subscriptionId" | "subscriptionStatus" | "stripeCustomerId" | "stripeSubId" | "assetSplit" | "retirementImpact" | "vaDisability" | "housingScenario" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "hasFullAccess" | "entryPurchased" | "subscriptionStatus" | "stripeCustomerId" | "stripeSubId" | "createdAt" | "updatedAt" | "name" | "accessType" | "assetSplit" | "housingScenario" | "resetToken" | "resetTokenExpiry" | "retirementImpact" | "subscriptionId" | "vaDisability" | "canUseSubscription" | "hasAIAdvisor", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     addons?: boolean | User$addonsArgs<ExtArgs>
-    scenarios?: boolean | User$scenariosArgs<ExtArgs>
     payments?: boolean | User$paymentsArgs<ExtArgs>
+    scenarios?: boolean | User$scenariosArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1695,31 +1695,31 @@ export namespace Prisma {
     name: "User"
     objects: {
       addons: Prisma.$AddonPayload<ExtArgs>[]
-      scenarios: Prisma.$ScenarioPayload<ExtArgs>[]
       payments: Prisma.$PaymentPayload<ExtArgs>[]
+      scenarios: Prisma.$ScenarioPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string | null
       email: string
       password: string | null
-      resetToken: string | null
-      resetTokenExpiry: Date | null
-      accessType: string
       hasFullAccess: boolean
       entryPurchased: boolean
-      canUseSubscription: boolean
-      hasAIAdvisor: boolean
-      subscriptionId: string | null
       subscriptionStatus: string | null
       stripeCustomerId: string | null
       stripeSubId: string | null
-      assetSplit: boolean
-      retirementImpact: boolean
-      vaDisability: boolean
-      housingScenario: boolean
       createdAt: Date
       updatedAt: Date
+      name: string | null
+      accessType: string
+      assetSplit: boolean
+      housingScenario: boolean
+      resetToken: string | null
+      resetTokenExpiry: Date | null
+      retirementImpact: boolean
+      subscriptionId: string | null
+      vaDisability: boolean
+      canUseSubscription: boolean
+      hasAIAdvisor: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2115,8 +2115,8 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     addons<T extends User$addonsArgs<ExtArgs> = {}>(args?: Subset<T, User$addonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AddonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    scenarios<T extends User$scenariosArgs<ExtArgs> = {}>(args?: Subset<T, User$scenariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScenarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payments<T extends User$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    scenarios<T extends User$scenariosArgs<ExtArgs> = {}>(args?: Subset<T, User$scenariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScenarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2147,26 +2147,26 @@ export namespace Prisma {
    */
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly resetToken: FieldRef<"User", 'String'>
-    readonly resetTokenExpiry: FieldRef<"User", 'DateTime'>
-    readonly accessType: FieldRef<"User", 'String'>
     readonly hasFullAccess: FieldRef<"User", 'Boolean'>
     readonly entryPurchased: FieldRef<"User", 'Boolean'>
-    readonly canUseSubscription: FieldRef<"User", 'Boolean'>
-    readonly hasAIAdvisor: FieldRef<"User", 'Boolean'>
-    readonly subscriptionId: FieldRef<"User", 'String'>
     readonly subscriptionStatus: FieldRef<"User", 'String'>
     readonly stripeCustomerId: FieldRef<"User", 'String'>
     readonly stripeSubId: FieldRef<"User", 'String'>
-    readonly assetSplit: FieldRef<"User", 'Boolean'>
-    readonly retirementImpact: FieldRef<"User", 'Boolean'>
-    readonly vaDisability: FieldRef<"User", 'Boolean'>
-    readonly housingScenario: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly name: FieldRef<"User", 'String'>
+    readonly accessType: FieldRef<"User", 'String'>
+    readonly assetSplit: FieldRef<"User", 'Boolean'>
+    readonly housingScenario: FieldRef<"User", 'Boolean'>
+    readonly resetToken: FieldRef<"User", 'String'>
+    readonly resetTokenExpiry: FieldRef<"User", 'DateTime'>
+    readonly retirementImpact: FieldRef<"User", 'Boolean'>
+    readonly subscriptionId: FieldRef<"User", 'String'>
+    readonly vaDisability: FieldRef<"User", 'Boolean'>
+    readonly canUseSubscription: FieldRef<"User", 'Boolean'>
+    readonly hasAIAdvisor: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -2584,30 +2584,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.scenarios
-   */
-  export type User$scenariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Scenario
-     */
-    select?: ScenarioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Scenario
-     */
-    omit?: ScenarioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ScenarioInclude<ExtArgs> | null
-    where?: ScenarioWhereInput
-    orderBy?: ScenarioOrderByWithRelationInput | ScenarioOrderByWithRelationInput[]
-    cursor?: ScenarioWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ScenarioScalarFieldEnum | ScenarioScalarFieldEnum[]
-  }
-
-  /**
    * User.payments
    */
   export type User$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2629,6 +2605,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * User.scenarios
+   */
+  export type User$scenariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scenario
+     */
+    select?: ScenarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Scenario
+     */
+    omit?: ScenarioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ScenarioInclude<ExtArgs> | null
+    where?: ScenarioWhereInput
+    orderBy?: ScenarioOrderByWithRelationInput | ScenarioOrderByWithRelationInput[]
+    cursor?: ScenarioWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ScenarioScalarFieldEnum | ScenarioScalarFieldEnum[]
   }
 
   /**
@@ -2782,10 +2782,6 @@ export namespace Prisma {
     savings: number
     retirement: number
     homeEquity: number
-    assetSplit: number
-    retirementImpact: number
-    vaDisability: number
-    housingScenario: number
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -2795,6 +2791,10 @@ export namespace Prisma {
     isAutoGenerated: number
     createdAt: number
     updatedAt: number
+    assetSplit: number
+    housingScenario: number
+    retirementImpact: number
+    vaDisability: number
     _all: number
   }
 
@@ -2919,10 +2919,6 @@ export namespace Prisma {
     savings?: true
     retirement?: true
     homeEquity?: true
-    assetSplit?: true
-    retirementImpact?: true
-    vaDisability?: true
-    housingScenario?: true
     netIncome?: true
     monthlySupport?: true
     totalExpenses?: true
@@ -2932,6 +2928,10 @@ export namespace Prisma {
     isAutoGenerated?: true
     createdAt?: true
     updatedAt?: true
+    assetSplit?: true
+    housingScenario?: true
+    retirementImpact?: true
+    vaDisability?: true
     _all?: true
   }
 
@@ -3039,10 +3039,6 @@ export namespace Prisma {
     savings: number | null
     retirement: number | null
     homeEquity: number | null
-    assetSplit: JsonValue | null
-    retirementImpact: JsonValue | null
-    vaDisability: JsonValue | null
-    housingScenario: JsonValue | null
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -3052,6 +3048,10 @@ export namespace Prisma {
     isAutoGenerated: boolean
     createdAt: Date
     updatedAt: Date
+    assetSplit: JsonValue | null
+    housingScenario: JsonValue | null
+    retirementImpact: JsonValue | null
+    vaDisability: JsonValue | null
     _count: ScenarioCountAggregateOutputType | null
     _avg: ScenarioAvgAggregateOutputType | null
     _sum: ScenarioSumAggregateOutputType | null
@@ -3091,10 +3091,6 @@ export namespace Prisma {
     savings?: boolean
     retirement?: boolean
     homeEquity?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     netIncome?: boolean
     monthlySupport?: boolean
     totalExpenses?: boolean
@@ -3104,6 +3100,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    retirementImpact?: boolean
+    vaDisability?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["scenario"]>
 
@@ -3125,10 +3125,6 @@ export namespace Prisma {
     savings?: boolean
     retirement?: boolean
     homeEquity?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     netIncome?: boolean
     monthlySupport?: boolean
     totalExpenses?: boolean
@@ -3138,6 +3134,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    retirementImpact?: boolean
+    vaDisability?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["scenario"]>
 
@@ -3159,10 +3159,6 @@ export namespace Prisma {
     savings?: boolean
     retirement?: boolean
     homeEquity?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     netIncome?: boolean
     monthlySupport?: boolean
     totalExpenses?: boolean
@@ -3172,6 +3168,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    retirementImpact?: boolean
+    vaDisability?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["scenario"]>
 
@@ -3193,10 +3193,6 @@ export namespace Prisma {
     savings?: boolean
     retirement?: boolean
     homeEquity?: boolean
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     netIncome?: boolean
     monthlySupport?: boolean
     totalExpenses?: boolean
@@ -3206,9 +3202,13 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    assetSplit?: boolean
+    housingScenario?: boolean
+    retirementImpact?: boolean
+    vaDisability?: boolean
   }
 
-  export type ScenarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "userIncome" | "spouseIncome" | "childrenCount" | "custodyPercent" | "mortgage" | "childcare" | "school" | "activities" | "utilities" | "insurance" | "otherExpenses" | "savings" | "retirement" | "homeEquity" | "assetSplit" | "retirementImpact" | "vaDisability" | "housingScenario" | "netIncome" | "monthlySupport" | "totalExpenses" | "disposableIncome" | "realityScore" | "realityLevel" | "isAutoGenerated" | "createdAt" | "updatedAt", ExtArgs["result"]["scenario"]>
+  export type ScenarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "userIncome" | "spouseIncome" | "childrenCount" | "custodyPercent" | "mortgage" | "childcare" | "school" | "activities" | "utilities" | "insurance" | "otherExpenses" | "savings" | "retirement" | "homeEquity" | "netIncome" | "monthlySupport" | "totalExpenses" | "disposableIncome" | "realityScore" | "realityLevel" | "isAutoGenerated" | "createdAt" | "updatedAt" | "assetSplit" | "housingScenario" | "retirementImpact" | "vaDisability", ExtArgs["result"]["scenario"]>
   export type ScenarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -3242,10 +3242,6 @@ export namespace Prisma {
       savings: number | null
       retirement: number | null
       homeEquity: number | null
-      assetSplit: Prisma.JsonValue | null
-      retirementImpact: Prisma.JsonValue | null
-      vaDisability: Prisma.JsonValue | null
-      housingScenario: Prisma.JsonValue | null
       netIncome: number
       monthlySupport: number
       totalExpenses: number
@@ -3255,6 +3251,10 @@ export namespace Prisma {
       isAutoGenerated: boolean
       createdAt: Date
       updatedAt: Date
+      assetSplit: Prisma.JsonValue | null
+      housingScenario: Prisma.JsonValue | null
+      retirementImpact: Prisma.JsonValue | null
+      vaDisability: Prisma.JsonValue | null
     }, ExtArgs["result"]["scenario"]>
     composites: {}
   }
@@ -3696,10 +3696,6 @@ export namespace Prisma {
     readonly savings: FieldRef<"Scenario", 'Float'>
     readonly retirement: FieldRef<"Scenario", 'Float'>
     readonly homeEquity: FieldRef<"Scenario", 'Float'>
-    readonly assetSplit: FieldRef<"Scenario", 'Json'>
-    readonly retirementImpact: FieldRef<"Scenario", 'Json'>
-    readonly vaDisability: FieldRef<"Scenario", 'Json'>
-    readonly housingScenario: FieldRef<"Scenario", 'Json'>
     readonly netIncome: FieldRef<"Scenario", 'Float'>
     readonly monthlySupport: FieldRef<"Scenario", 'Float'>
     readonly totalExpenses: FieldRef<"Scenario", 'Float'>
@@ -3709,6 +3705,10 @@ export namespace Prisma {
     readonly isAutoGenerated: FieldRef<"Scenario", 'Boolean'>
     readonly createdAt: FieldRef<"Scenario", 'DateTime'>
     readonly updatedAt: FieldRef<"Scenario", 'DateTime'>
+    readonly assetSplit: FieldRef<"Scenario", 'Json'>
+    readonly housingScenario: FieldRef<"Scenario", 'Json'>
+    readonly retirementImpact: FieldRef<"Scenario", 'Json'>
+    readonly vaDisability: FieldRef<"Scenario", 'Json'>
   }
     
 
@@ -5214,37 +5214,37 @@ export namespace Prisma {
   export type PaymentMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    stripeSessionId: string | null
-    stripePaymentId: string | null
-    stripePriceId: string | null
     amount: number | null
     currency: string | null
     productType: $Enums.ProductType | null
     createdAt: Date | null
+    stripePaymentId: string | null
+    stripePriceId: string | null
+    stripeSessionId: string | null
   }
 
   export type PaymentMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    stripeSessionId: string | null
-    stripePaymentId: string | null
-    stripePriceId: string | null
     amount: number | null
     currency: string | null
     productType: $Enums.ProductType | null
     createdAt: Date | null
+    stripePaymentId: string | null
+    stripePriceId: string | null
+    stripeSessionId: string | null
   }
 
   export type PaymentCountAggregateOutputType = {
     id: number
     userId: number
-    stripeSessionId: number
-    stripePaymentId: number
-    stripePriceId: number
     amount: number
     currency: number
     productType: number
     createdAt: number
+    stripePaymentId: number
+    stripePriceId: number
+    stripeSessionId: number
     _all: number
   }
 
@@ -5260,37 +5260,37 @@ export namespace Prisma {
   export type PaymentMinAggregateInputType = {
     id?: true
     userId?: true
-    stripeSessionId?: true
-    stripePaymentId?: true
-    stripePriceId?: true
     amount?: true
     currency?: true
     productType?: true
     createdAt?: true
+    stripePaymentId?: true
+    stripePriceId?: true
+    stripeSessionId?: true
   }
 
   export type PaymentMaxAggregateInputType = {
     id?: true
     userId?: true
-    stripeSessionId?: true
-    stripePaymentId?: true
-    stripePriceId?: true
     amount?: true
     currency?: true
     productType?: true
     createdAt?: true
+    stripePaymentId?: true
+    stripePriceId?: true
+    stripeSessionId?: true
   }
 
   export type PaymentCountAggregateInputType = {
     id?: true
     userId?: true
-    stripeSessionId?: true
-    stripePaymentId?: true
-    stripePriceId?: true
     amount?: true
     currency?: true
     productType?: true
     createdAt?: true
+    stripePaymentId?: true
+    stripePriceId?: true
+    stripeSessionId?: true
     _all?: true
   }
 
@@ -5383,13 +5383,13 @@ export namespace Prisma {
   export type PaymentGroupByOutputType = {
     id: string
     userId: string
-    stripeSessionId: string
-    stripePaymentId: string | null
-    stripePriceId: string | null
     amount: number
     currency: string
     productType: $Enums.ProductType
     createdAt: Date
+    stripePaymentId: string | null
+    stripePriceId: string | null
+    stripeSessionId: string
     _count: PaymentCountAggregateOutputType | null
     _avg: PaymentAvgAggregateOutputType | null
     _sum: PaymentSumAggregateOutputType | null
@@ -5414,55 +5414,55 @@ export namespace Prisma {
   export type PaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    stripeSessionId?: boolean
-    stripePaymentId?: boolean
-    stripePriceId?: boolean
     amount?: boolean
     currency?: boolean
     productType?: boolean
     createdAt?: boolean
+    stripePaymentId?: boolean
+    stripePriceId?: boolean
+    stripeSessionId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    stripeSessionId?: boolean
-    stripePaymentId?: boolean
-    stripePriceId?: boolean
     amount?: boolean
     currency?: boolean
     productType?: boolean
     createdAt?: boolean
+    stripePaymentId?: boolean
+    stripePriceId?: boolean
+    stripeSessionId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    stripeSessionId?: boolean
-    stripePaymentId?: boolean
-    stripePriceId?: boolean
     amount?: boolean
     currency?: boolean
     productType?: boolean
     createdAt?: boolean
+    stripePaymentId?: boolean
+    stripePriceId?: boolean
+    stripeSessionId?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectScalar = {
     id?: boolean
     userId?: boolean
-    stripeSessionId?: boolean
-    stripePaymentId?: boolean
-    stripePriceId?: boolean
     amount?: boolean
     currency?: boolean
     productType?: boolean
     createdAt?: boolean
+    stripePaymentId?: boolean
+    stripePriceId?: boolean
+    stripeSessionId?: boolean
   }
 
-  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "stripeSessionId" | "stripePaymentId" | "stripePriceId" | "amount" | "currency" | "productType" | "createdAt", ExtArgs["result"]["payment"]>
+  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "amount" | "currency" | "productType" | "createdAt" | "stripePaymentId" | "stripePriceId" | "stripeSessionId", ExtArgs["result"]["payment"]>
   export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -5481,13 +5481,13 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      stripeSessionId: string
-      stripePaymentId: string | null
-      stripePriceId: string | null
       amount: number
       currency: string
       productType: $Enums.ProductType
       createdAt: Date
+      stripePaymentId: string | null
+      stripePriceId: string | null
+      stripeSessionId: string
     }, ExtArgs["result"]["payment"]>
     composites: {}
   }
@@ -5914,13 +5914,13 @@ export namespace Prisma {
   interface PaymentFieldRefs {
     readonly id: FieldRef<"Payment", 'String'>
     readonly userId: FieldRef<"Payment", 'String'>
-    readonly stripeSessionId: FieldRef<"Payment", 'String'>
-    readonly stripePaymentId: FieldRef<"Payment", 'String'>
-    readonly stripePriceId: FieldRef<"Payment", 'String'>
     readonly amount: FieldRef<"Payment", 'Int'>
     readonly currency: FieldRef<"Payment", 'String'>
     readonly productType: FieldRef<"Payment", 'ProductType'>
     readonly createdAt: FieldRef<"Payment", 'DateTime'>
+    readonly stripePaymentId: FieldRef<"Payment", 'String'>
+    readonly stripePriceId: FieldRef<"Payment", 'String'>
+    readonly stripeSessionId: FieldRef<"Payment", 'String'>
   }
     
 
@@ -7356,26 +7356,26 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
-    name: 'name',
     email: 'email',
     password: 'password',
-    resetToken: 'resetToken',
-    resetTokenExpiry: 'resetTokenExpiry',
-    accessType: 'accessType',
     hasFullAccess: 'hasFullAccess',
     entryPurchased: 'entryPurchased',
-    canUseSubscription: 'canUseSubscription',
-    hasAIAdvisor: 'hasAIAdvisor',
-    subscriptionId: 'subscriptionId',
     subscriptionStatus: 'subscriptionStatus',
     stripeCustomerId: 'stripeCustomerId',
     stripeSubId: 'stripeSubId',
-    assetSplit: 'assetSplit',
-    retirementImpact: 'retirementImpact',
-    vaDisability: 'vaDisability',
-    housingScenario: 'housingScenario',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    name: 'name',
+    accessType: 'accessType',
+    assetSplit: 'assetSplit',
+    housingScenario: 'housingScenario',
+    resetToken: 'resetToken',
+    resetTokenExpiry: 'resetTokenExpiry',
+    retirementImpact: 'retirementImpact',
+    subscriptionId: 'subscriptionId',
+    vaDisability: 'vaDisability',
+    canUseSubscription: 'canUseSubscription',
+    hasAIAdvisor: 'hasAIAdvisor'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -7399,10 +7399,6 @@ export namespace Prisma {
     savings: 'savings',
     retirement: 'retirement',
     homeEquity: 'homeEquity',
-    assetSplit: 'assetSplit',
-    retirementImpact: 'retirementImpact',
-    vaDisability: 'vaDisability',
-    housingScenario: 'housingScenario',
     netIncome: 'netIncome',
     monthlySupport: 'monthlySupport',
     totalExpenses: 'totalExpenses',
@@ -7411,7 +7407,11 @@ export namespace Prisma {
     realityLevel: 'realityLevel',
     isAutoGenerated: 'isAutoGenerated',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    assetSplit: 'assetSplit',
+    housingScenario: 'housingScenario',
+    retirementImpact: 'retirementImpact',
+    vaDisability: 'vaDisability'
   };
 
   export type ScenarioScalarFieldEnum = (typeof ScenarioScalarFieldEnum)[keyof typeof ScenarioScalarFieldEnum]
@@ -7431,13 +7431,13 @@ export namespace Prisma {
   export const PaymentScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    stripeSessionId: 'stripeSessionId',
-    stripePaymentId: 'stripePaymentId',
-    stripePriceId: 'stripePriceId',
     amount: 'amount',
     currency: 'currency',
     productType: 'productType',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    stripePaymentId: 'stripePaymentId',
+    stripePriceId: 'stripePriceId',
+    stripeSessionId: 'stripeSessionId'
   };
 
   export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
@@ -7515,6 +7515,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -7525,13 +7532,6 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7613,56 +7613,56 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
     email?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
-    resetToken?: StringNullableFilter<"User"> | string | null
-    resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
-    accessType?: StringFilter<"User"> | string
     hasFullAccess?: BoolFilter<"User"> | boolean
     entryPurchased?: BoolFilter<"User"> | boolean
-    canUseSubscription?: BoolFilter<"User"> | boolean
-    hasAIAdvisor?: BoolFilter<"User"> | boolean
-    subscriptionId?: StringNullableFilter<"User"> | string | null
     subscriptionStatus?: StringNullableFilter<"User"> | string | null
     stripeCustomerId?: StringNullableFilter<"User"> | string | null
     stripeSubId?: StringNullableFilter<"User"> | string | null
-    assetSplit?: BoolFilter<"User"> | boolean
-    retirementImpact?: BoolFilter<"User"> | boolean
-    vaDisability?: BoolFilter<"User"> | boolean
-    housingScenario?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    name?: StringNullableFilter<"User"> | string | null
+    accessType?: StringFilter<"User"> | string
+    assetSplit?: BoolFilter<"User"> | boolean
+    housingScenario?: BoolFilter<"User"> | boolean
+    resetToken?: StringNullableFilter<"User"> | string | null
+    resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
+    retirementImpact?: BoolFilter<"User"> | boolean
+    subscriptionId?: StringNullableFilter<"User"> | string | null
+    vaDisability?: BoolFilter<"User"> | boolean
+    canUseSubscription?: BoolFilter<"User"> | boolean
+    hasAIAdvisor?: BoolFilter<"User"> | boolean
     addons?: AddonListRelationFilter
-    scenarios?: ScenarioListRelationFilter
     payments?: PaymentListRelationFilter
+    scenarios?: ScenarioListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
     email?: SortOrder
     password?: SortOrderInput | SortOrder
-    resetToken?: SortOrderInput | SortOrder
-    resetTokenExpiry?: SortOrderInput | SortOrder
-    accessType?: SortOrder
     hasFullAccess?: SortOrder
     entryPurchased?: SortOrder
-    canUseSubscription?: SortOrder
-    hasAIAdvisor?: SortOrder
-    subscriptionId?: SortOrderInput | SortOrder
     subscriptionStatus?: SortOrderInput | SortOrder
     stripeCustomerId?: SortOrderInput | SortOrder
     stripeSubId?: SortOrderInput | SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    name?: SortOrderInput | SortOrder
+    accessType?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    resetToken?: SortOrderInput | SortOrder
+    resetTokenExpiry?: SortOrderInput | SortOrder
+    retirementImpact?: SortOrder
+    subscriptionId?: SortOrderInput | SortOrder
+    vaDisability?: SortOrder
+    canUseSubscription?: SortOrder
+    hasAIAdvisor?: SortOrder
     addons?: AddonOrderByRelationAggregateInput
-    scenarios?: ScenarioOrderByRelationAggregateInput
     payments?: PaymentOrderByRelationAggregateInput
+    scenarios?: ScenarioOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7672,51 +7672,51 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    resetToken?: StringNullableFilter<"User"> | string | null
-    resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
-    accessType?: StringFilter<"User"> | string
     hasFullAccess?: BoolFilter<"User"> | boolean
     entryPurchased?: BoolFilter<"User"> | boolean
-    canUseSubscription?: BoolFilter<"User"> | boolean
-    hasAIAdvisor?: BoolFilter<"User"> | boolean
-    subscriptionId?: StringNullableFilter<"User"> | string | null
     subscriptionStatus?: StringNullableFilter<"User"> | string | null
     stripeSubId?: StringNullableFilter<"User"> | string | null
-    assetSplit?: BoolFilter<"User"> | boolean
-    retirementImpact?: BoolFilter<"User"> | boolean
-    vaDisability?: BoolFilter<"User"> | boolean
-    housingScenario?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    name?: StringNullableFilter<"User"> | string | null
+    accessType?: StringFilter<"User"> | string
+    assetSplit?: BoolFilter<"User"> | boolean
+    housingScenario?: BoolFilter<"User"> | boolean
+    resetToken?: StringNullableFilter<"User"> | string | null
+    resetTokenExpiry?: DateTimeNullableFilter<"User"> | Date | string | null
+    retirementImpact?: BoolFilter<"User"> | boolean
+    subscriptionId?: StringNullableFilter<"User"> | string | null
+    vaDisability?: BoolFilter<"User"> | boolean
+    canUseSubscription?: BoolFilter<"User"> | boolean
+    hasAIAdvisor?: BoolFilter<"User"> | boolean
     addons?: AddonListRelationFilter
-    scenarios?: ScenarioListRelationFilter
     payments?: PaymentListRelationFilter
+    scenarios?: ScenarioListRelationFilter
   }, "id" | "email" | "stripeCustomerId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
     email?: SortOrder
     password?: SortOrderInput | SortOrder
-    resetToken?: SortOrderInput | SortOrder
-    resetTokenExpiry?: SortOrderInput | SortOrder
-    accessType?: SortOrder
     hasFullAccess?: SortOrder
     entryPurchased?: SortOrder
-    canUseSubscription?: SortOrder
-    hasAIAdvisor?: SortOrder
-    subscriptionId?: SortOrderInput | SortOrder
     subscriptionStatus?: SortOrderInput | SortOrder
     stripeCustomerId?: SortOrderInput | SortOrder
     stripeSubId?: SortOrderInput | SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    name?: SortOrderInput | SortOrder
+    accessType?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    resetToken?: SortOrderInput | SortOrder
+    resetTokenExpiry?: SortOrderInput | SortOrder
+    retirementImpact?: SortOrder
+    subscriptionId?: SortOrderInput | SortOrder
+    vaDisability?: SortOrder
+    canUseSubscription?: SortOrder
+    hasAIAdvisor?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -7727,26 +7727,26 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
-    resetToken?: StringNullableWithAggregatesFilter<"User"> | string | null
-    resetTokenExpiry?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    accessType?: StringWithAggregatesFilter<"User"> | string
     hasFullAccess?: BoolWithAggregatesFilter<"User"> | boolean
     entryPurchased?: BoolWithAggregatesFilter<"User"> | boolean
-    canUseSubscription?: BoolWithAggregatesFilter<"User"> | boolean
-    hasAIAdvisor?: BoolWithAggregatesFilter<"User"> | boolean
-    subscriptionId?: StringNullableWithAggregatesFilter<"User"> | string | null
     subscriptionStatus?: StringNullableWithAggregatesFilter<"User"> | string | null
     stripeCustomerId?: StringNullableWithAggregatesFilter<"User"> | string | null
     stripeSubId?: StringNullableWithAggregatesFilter<"User"> | string | null
-    assetSplit?: BoolWithAggregatesFilter<"User"> | boolean
-    retirementImpact?: BoolWithAggregatesFilter<"User"> | boolean
-    vaDisability?: BoolWithAggregatesFilter<"User"> | boolean
-    housingScenario?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    accessType?: StringWithAggregatesFilter<"User"> | string
+    assetSplit?: BoolWithAggregatesFilter<"User"> | boolean
+    housingScenario?: BoolWithAggregatesFilter<"User"> | boolean
+    resetToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    resetTokenExpiry?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    retirementImpact?: BoolWithAggregatesFilter<"User"> | boolean
+    subscriptionId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    vaDisability?: BoolWithAggregatesFilter<"User"> | boolean
+    canUseSubscription?: BoolWithAggregatesFilter<"User"> | boolean
+    hasAIAdvisor?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type ScenarioWhereInput = {
@@ -7770,10 +7770,6 @@ export namespace Prisma {
     savings?: FloatNullableFilter<"Scenario"> | number | null
     retirement?: FloatNullableFilter<"Scenario"> | number | null
     homeEquity?: FloatNullableFilter<"Scenario"> | number | null
-    assetSplit?: JsonNullableFilter<"Scenario">
-    retirementImpact?: JsonNullableFilter<"Scenario">
-    vaDisability?: JsonNullableFilter<"Scenario">
-    housingScenario?: JsonNullableFilter<"Scenario">
     netIncome?: FloatFilter<"Scenario"> | number
     monthlySupport?: FloatFilter<"Scenario"> | number
     totalExpenses?: FloatFilter<"Scenario"> | number
@@ -7783,6 +7779,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFilter<"Scenario"> | boolean
     createdAt?: DateTimeFilter<"Scenario"> | Date | string
     updatedAt?: DateTimeFilter<"Scenario"> | Date | string
+    assetSplit?: JsonNullableFilter<"Scenario">
+    housingScenario?: JsonNullableFilter<"Scenario">
+    retirementImpact?: JsonNullableFilter<"Scenario">
+    vaDisability?: JsonNullableFilter<"Scenario">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -7804,10 +7804,6 @@ export namespace Prisma {
     savings?: SortOrderInput | SortOrder
     retirement?: SortOrderInput | SortOrder
     homeEquity?: SortOrderInput | SortOrder
-    assetSplit?: SortOrderInput | SortOrder
-    retirementImpact?: SortOrderInput | SortOrder
-    vaDisability?: SortOrderInput | SortOrder
-    housingScenario?: SortOrderInput | SortOrder
     netIncome?: SortOrder
     monthlySupport?: SortOrder
     totalExpenses?: SortOrder
@@ -7817,6 +7813,10 @@ export namespace Prisma {
     isAutoGenerated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    assetSplit?: SortOrderInput | SortOrder
+    housingScenario?: SortOrderInput | SortOrder
+    retirementImpact?: SortOrderInput | SortOrder
+    vaDisability?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -7841,10 +7841,6 @@ export namespace Prisma {
     savings?: FloatNullableFilter<"Scenario"> | number | null
     retirement?: FloatNullableFilter<"Scenario"> | number | null
     homeEquity?: FloatNullableFilter<"Scenario"> | number | null
-    assetSplit?: JsonNullableFilter<"Scenario">
-    retirementImpact?: JsonNullableFilter<"Scenario">
-    vaDisability?: JsonNullableFilter<"Scenario">
-    housingScenario?: JsonNullableFilter<"Scenario">
     netIncome?: FloatFilter<"Scenario"> | number
     monthlySupport?: FloatFilter<"Scenario"> | number
     totalExpenses?: FloatFilter<"Scenario"> | number
@@ -7854,6 +7850,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFilter<"Scenario"> | boolean
     createdAt?: DateTimeFilter<"Scenario"> | Date | string
     updatedAt?: DateTimeFilter<"Scenario"> | Date | string
+    assetSplit?: JsonNullableFilter<"Scenario">
+    housingScenario?: JsonNullableFilter<"Scenario">
+    retirementImpact?: JsonNullableFilter<"Scenario">
+    vaDisability?: JsonNullableFilter<"Scenario">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -7875,10 +7875,6 @@ export namespace Prisma {
     savings?: SortOrderInput | SortOrder
     retirement?: SortOrderInput | SortOrder
     homeEquity?: SortOrderInput | SortOrder
-    assetSplit?: SortOrderInput | SortOrder
-    retirementImpact?: SortOrderInput | SortOrder
-    vaDisability?: SortOrderInput | SortOrder
-    housingScenario?: SortOrderInput | SortOrder
     netIncome?: SortOrder
     monthlySupport?: SortOrder
     totalExpenses?: SortOrder
@@ -7888,6 +7884,10 @@ export namespace Prisma {
     isAutoGenerated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    assetSplit?: SortOrderInput | SortOrder
+    housingScenario?: SortOrderInput | SortOrder
+    retirementImpact?: SortOrderInput | SortOrder
+    vaDisability?: SortOrderInput | SortOrder
     _count?: ScenarioCountOrderByAggregateInput
     _avg?: ScenarioAvgOrderByAggregateInput
     _max?: ScenarioMaxOrderByAggregateInput
@@ -7916,10 +7916,6 @@ export namespace Prisma {
     savings?: FloatNullableWithAggregatesFilter<"Scenario"> | number | null
     retirement?: FloatNullableWithAggregatesFilter<"Scenario"> | number | null
     homeEquity?: FloatNullableWithAggregatesFilter<"Scenario"> | number | null
-    assetSplit?: JsonNullableWithAggregatesFilter<"Scenario">
-    retirementImpact?: JsonNullableWithAggregatesFilter<"Scenario">
-    vaDisability?: JsonNullableWithAggregatesFilter<"Scenario">
-    housingScenario?: JsonNullableWithAggregatesFilter<"Scenario">
     netIncome?: FloatWithAggregatesFilter<"Scenario"> | number
     monthlySupport?: FloatWithAggregatesFilter<"Scenario"> | number
     totalExpenses?: FloatWithAggregatesFilter<"Scenario"> | number
@@ -7929,6 +7925,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolWithAggregatesFilter<"Scenario"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Scenario"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Scenario"> | Date | string
+    assetSplit?: JsonNullableWithAggregatesFilter<"Scenario">
+    housingScenario?: JsonNullableWithAggregatesFilter<"Scenario">
+    retirementImpact?: JsonNullableWithAggregatesFilter<"Scenario">
+    vaDisability?: JsonNullableWithAggregatesFilter<"Scenario">
   }
 
   export type AddonWhereInput = {
@@ -7992,26 +7992,26 @@ export namespace Prisma {
     NOT?: PaymentWhereInput | PaymentWhereInput[]
     id?: StringFilter<"Payment"> | string
     userId?: StringFilter<"Payment"> | string
-    stripeSessionId?: StringFilter<"Payment"> | string
-    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
-    stripePriceId?: StringNullableFilter<"Payment"> | string | null
     amount?: IntFilter<"Payment"> | number
     currency?: StringFilter<"Payment"> | string
     productType?: EnumProductTypeFilter<"Payment"> | $Enums.ProductType
     createdAt?: DateTimeFilter<"Payment"> | Date | string
+    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
+    stripePriceId?: StringNullableFilter<"Payment"> | string | null
+    stripeSessionId?: StringFilter<"Payment"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type PaymentOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    stripeSessionId?: SortOrder
-    stripePaymentId?: SortOrderInput | SortOrder
-    stripePriceId?: SortOrderInput | SortOrder
     amount?: SortOrder
     currency?: SortOrder
     productType?: SortOrder
     createdAt?: SortOrder
+    stripePaymentId?: SortOrderInput | SortOrder
+    stripePriceId?: SortOrderInput | SortOrder
+    stripeSessionId?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -8022,25 +8022,25 @@ export namespace Prisma {
     OR?: PaymentWhereInput[]
     NOT?: PaymentWhereInput | PaymentWhereInput[]
     userId?: StringFilter<"Payment"> | string
-    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
-    stripePriceId?: StringNullableFilter<"Payment"> | string | null
     amount?: IntFilter<"Payment"> | number
     currency?: StringFilter<"Payment"> | string
     productType?: EnumProductTypeFilter<"Payment"> | $Enums.ProductType
     createdAt?: DateTimeFilter<"Payment"> | Date | string
+    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
+    stripePriceId?: StringNullableFilter<"Payment"> | string | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id" | "stripeSessionId">
 
   export type PaymentOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    stripeSessionId?: SortOrder
-    stripePaymentId?: SortOrderInput | SortOrder
-    stripePriceId?: SortOrderInput | SortOrder
     amount?: SortOrder
     currency?: SortOrder
     productType?: SortOrder
     createdAt?: SortOrder
+    stripePaymentId?: SortOrderInput | SortOrder
+    stripePriceId?: SortOrderInput | SortOrder
+    stripeSessionId?: SortOrder
     _count?: PaymentCountOrderByAggregateInput
     _avg?: PaymentAvgOrderByAggregateInput
     _max?: PaymentMaxOrderByAggregateInput
@@ -8054,13 +8054,13 @@ export namespace Prisma {
     NOT?: PaymentScalarWhereWithAggregatesInput | PaymentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Payment"> | string
     userId?: StringWithAggregatesFilter<"Payment"> | string
-    stripeSessionId?: StringWithAggregatesFilter<"Payment"> | string
-    stripePaymentId?: StringNullableWithAggregatesFilter<"Payment"> | string | null
-    stripePriceId?: StringNullableWithAggregatesFilter<"Payment"> | string | null
     amount?: IntWithAggregatesFilter<"Payment"> | number
     currency?: StringWithAggregatesFilter<"Payment"> | string
     productType?: EnumProductTypeWithAggregatesFilter<"Payment"> | $Enums.ProductType
     createdAt?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+    stripePaymentId?: StringNullableWithAggregatesFilter<"Payment"> | string | null
+    stripePriceId?: StringNullableWithAggregatesFilter<"Payment"> | string | null
+    stripeSessionId?: StringWithAggregatesFilter<"Payment"> | string
   }
 
   export type StripeEventWhereInput = {
@@ -8117,182 +8117,182 @@ export namespace Prisma {
 
   export type UserCreateInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonCreateNestedManyWithoutUserInput
-    scenarios?: ScenarioCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
+    scenarios?: ScenarioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonUncheckedCreateNestedManyWithoutUserInput
-    scenarios?: ScenarioUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    scenarios?: ScenarioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUpdateManyWithoutUserNestedInput
-    scenarios?: ScenarioUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
+    scenarios?: ScenarioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUncheckedUpdateManyWithoutUserNestedInput
-    scenarios?: ScenarioUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    scenarios?: ScenarioUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ScenarioCreateInput = {
@@ -8312,10 +8312,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -8325,6 +8321,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
     user: UserCreateNestedOneWithoutScenariosInput
   }
 
@@ -8346,10 +8346,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -8359,6 +8355,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUpdateInput = {
@@ -8378,10 +8378,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -8391,6 +8387,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
     user?: UserUpdateOneRequiredWithoutScenariosNestedInput
   }
 
@@ -8412,10 +8412,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -8425,6 +8421,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioCreateManyInput = {
@@ -8445,10 +8445,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -8458,6 +8454,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUpdateManyMutationInput = {
@@ -8477,10 +8477,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -8490,6 +8486,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUncheckedUpdateManyInput = {
@@ -8510,10 +8510,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -8523,6 +8519,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AddonCreateInput = {
@@ -8582,85 +8582,85 @@ export namespace Prisma {
 
   export type PaymentCreateInput = {
     id?: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
     amount: number
     currency?: string
     productType: $Enums.ProductType
     createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
     user: UserCreateNestedOneWithoutPaymentsInput
   }
 
   export type PaymentUncheckedCreateInput = {
     id?: string
     userId: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
     amount: number
     currency?: string
     productType: $Enums.ProductType
     createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
   }
 
   export type PaymentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
   export type PaymentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentCreateManyInput = {
     id?: string
     userId: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
     amount: number
     currency?: string
     productType: $Enums.ProductType
     createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
   }
 
   export type PaymentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StripeEventCreateInput = {
@@ -8749,17 +8749,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -8776,22 +8765,33 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type AddonListRelationFilter = {
     every?: AddonWhereInput
     some?: AddonWhereInput
     none?: AddonWhereInput
   }
 
-  export type ScenarioListRelationFilter = {
-    every?: ScenarioWhereInput
-    some?: ScenarioWhereInput
-    none?: ScenarioWhereInput
-  }
-
   export type PaymentListRelationFilter = {
     every?: PaymentWhereInput
     some?: PaymentWhereInput
     none?: PaymentWhereInput
+  }
+
+  export type ScenarioListRelationFilter = {
+    every?: ScenarioWhereInput
+    some?: ScenarioWhereInput
+    none?: ScenarioWhereInput
   }
 
   export type SortOrderInput = {
@@ -8803,84 +8803,84 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ScenarioOrderByRelationAggregateInput = {
+  export type PaymentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type PaymentOrderByRelationAggregateInput = {
+  export type ScenarioOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    resetToken?: SortOrder
-    resetTokenExpiry?: SortOrder
-    accessType?: SortOrder
     hasFullAccess?: SortOrder
     entryPurchased?: SortOrder
-    canUseSubscription?: SortOrder
-    hasAIAdvisor?: SortOrder
-    subscriptionId?: SortOrder
     subscriptionStatus?: SortOrder
     stripeCustomerId?: SortOrder
     stripeSubId?: SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    name?: SortOrder
+    accessType?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpiry?: SortOrder
+    retirementImpact?: SortOrder
+    subscriptionId?: SortOrder
+    vaDisability?: SortOrder
+    canUseSubscription?: SortOrder
+    hasAIAdvisor?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    resetToken?: SortOrder
-    resetTokenExpiry?: SortOrder
-    accessType?: SortOrder
     hasFullAccess?: SortOrder
     entryPurchased?: SortOrder
-    canUseSubscription?: SortOrder
-    hasAIAdvisor?: SortOrder
-    subscriptionId?: SortOrder
     subscriptionStatus?: SortOrder
     stripeCustomerId?: SortOrder
     stripeSubId?: SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    name?: SortOrder
+    accessType?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpiry?: SortOrder
+    retirementImpact?: SortOrder
+    subscriptionId?: SortOrder
+    vaDisability?: SortOrder
+    canUseSubscription?: SortOrder
+    hasAIAdvisor?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    resetToken?: SortOrder
-    resetTokenExpiry?: SortOrder
-    accessType?: SortOrder
     hasFullAccess?: SortOrder
     entryPurchased?: SortOrder
-    canUseSubscription?: SortOrder
-    hasAIAdvisor?: SortOrder
-    subscriptionId?: SortOrder
     subscriptionStatus?: SortOrder
     stripeCustomerId?: SortOrder
     stripeSubId?: SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    name?: SortOrder
+    accessType?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    resetToken?: SortOrder
+    resetTokenExpiry?: SortOrder
+    retirementImpact?: SortOrder
+    subscriptionId?: SortOrder
+    vaDisability?: SortOrder
+    canUseSubscription?: SortOrder
+    hasAIAdvisor?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -8919,20 +8919,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -8953,6 +8939,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -9034,10 +9034,6 @@ export namespace Prisma {
     savings?: SortOrder
     retirement?: SortOrder
     homeEquity?: SortOrder
-    assetSplit?: SortOrder
-    retirementImpact?: SortOrder
-    vaDisability?: SortOrder
-    housingScenario?: SortOrder
     netIncome?: SortOrder
     monthlySupport?: SortOrder
     totalExpenses?: SortOrder
@@ -9047,6 +9043,10 @@ export namespace Prisma {
     isAutoGenerated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    assetSplit?: SortOrder
+    housingScenario?: SortOrder
+    retirementImpact?: SortOrder
+    vaDisability?: SortOrder
   }
 
   export type ScenarioAvgOrderByAggregateInput = {
@@ -9276,13 +9276,13 @@ export namespace Prisma {
   export type PaymentCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    stripeSessionId?: SortOrder
-    stripePaymentId?: SortOrder
-    stripePriceId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     productType?: SortOrder
     createdAt?: SortOrder
+    stripePaymentId?: SortOrder
+    stripePriceId?: SortOrder
+    stripeSessionId?: SortOrder
   }
 
   export type PaymentAvgOrderByAggregateInput = {
@@ -9292,25 +9292,25 @@ export namespace Prisma {
   export type PaymentMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    stripeSessionId?: SortOrder
-    stripePaymentId?: SortOrder
-    stripePriceId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     productType?: SortOrder
     createdAt?: SortOrder
+    stripePaymentId?: SortOrder
+    stripePriceId?: SortOrder
+    stripeSessionId?: SortOrder
   }
 
   export type PaymentMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    stripeSessionId?: SortOrder
-    stripePaymentId?: SortOrder
-    stripePriceId?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     productType?: SortOrder
     createdAt?: SortOrder
+    stripePaymentId?: SortOrder
+    stripePriceId?: SortOrder
+    stripeSessionId?: SortOrder
   }
 
   export type PaymentSumOrderByAggregateInput = {
@@ -9358,18 +9358,18 @@ export namespace Prisma {
     connect?: AddonWhereUniqueInput | AddonWhereUniqueInput[]
   }
 
-  export type ScenarioCreateNestedManyWithoutUserInput = {
-    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
-    createMany?: ScenarioCreateManyUserInputEnvelope
-    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-  }
-
   export type PaymentCreateNestedManyWithoutUserInput = {
     create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
     createMany?: PaymentCreateManyUserInputEnvelope
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type ScenarioCreateNestedManyWithoutUserInput = {
+    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
+    createMany?: ScenarioCreateManyUserInputEnvelope
+    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
   }
 
   export type AddonUncheckedCreateNestedManyWithoutUserInput = {
@@ -9379,18 +9379,18 @@ export namespace Prisma {
     connect?: AddonWhereUniqueInput | AddonWhereUniqueInput[]
   }
 
-  export type ScenarioUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
-    createMany?: ScenarioCreateManyUserInputEnvelope
-    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-  }
-
   export type PaymentUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
     createMany?: PaymentCreateManyUserInputEnvelope
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type ScenarioUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
+    createMany?: ScenarioCreateManyUserInputEnvelope
+    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -9401,16 +9401,16 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type AddonUpdateManyWithoutUserNestedInput = {
@@ -9427,20 +9427,6 @@ export namespace Prisma {
     deleteMany?: AddonScalarWhereInput | AddonScalarWhereInput[]
   }
 
-  export type ScenarioUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
-    upsert?: ScenarioUpsertWithWhereUniqueWithoutUserInput | ScenarioUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ScenarioCreateManyUserInputEnvelope
-    set?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    disconnect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    delete?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    update?: ScenarioUpdateWithWhereUniqueWithoutUserInput | ScenarioUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ScenarioUpdateManyWithWhereWithoutUserInput | ScenarioUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ScenarioScalarWhereInput | ScenarioScalarWhereInput[]
-  }
-
   export type PaymentUpdateManyWithoutUserNestedInput = {
     create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
@@ -9453,6 +9439,20 @@ export namespace Prisma {
     update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type ScenarioUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
+    upsert?: ScenarioUpsertWithWhereUniqueWithoutUserInput | ScenarioUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ScenarioCreateManyUserInputEnvelope
+    set?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    disconnect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    delete?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    update?: ScenarioUpdateWithWhereUniqueWithoutUserInput | ScenarioUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ScenarioUpdateManyWithWhereWithoutUserInput | ScenarioUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ScenarioScalarWhereInput | ScenarioScalarWhereInput[]
   }
 
   export type AddonUncheckedUpdateManyWithoutUserNestedInput = {
@@ -9469,20 +9469,6 @@ export namespace Prisma {
     deleteMany?: AddonScalarWhereInput | AddonScalarWhereInput[]
   }
 
-  export type ScenarioUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
-    upsert?: ScenarioUpsertWithWhereUniqueWithoutUserInput | ScenarioUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ScenarioCreateManyUserInputEnvelope
-    set?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    disconnect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    delete?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
-    update?: ScenarioUpdateWithWhereUniqueWithoutUserInput | ScenarioUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ScenarioUpdateManyWithWhereWithoutUserInput | ScenarioUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ScenarioScalarWhereInput | ScenarioScalarWhereInput[]
-  }
-
   export type PaymentUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
@@ -9495,6 +9481,20 @@ export namespace Prisma {
     update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type ScenarioUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ScenarioCreateWithoutUserInput, ScenarioUncheckedCreateWithoutUserInput> | ScenarioCreateWithoutUserInput[] | ScenarioUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ScenarioCreateOrConnectWithoutUserInput | ScenarioCreateOrConnectWithoutUserInput[]
+    upsert?: ScenarioUpsertWithWhereUniqueWithoutUserInput | ScenarioUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ScenarioCreateManyUserInputEnvelope
+    set?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    disconnect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    delete?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    connect?: ScenarioWhereUniqueInput | ScenarioWhereUniqueInput[]
+    update?: ScenarioUpdateWithWhereUniqueWithoutUserInput | ScenarioUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ScenarioUpdateManyWithWhereWithoutUserInput | ScenarioUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ScenarioScalarWhereInput | ScenarioScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutScenariosInput = {
@@ -9599,17 +9599,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -9624,6 +9613,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -9682,20 +9682,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -9716,6 +9702,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -9869,6 +9869,38 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PaymentCreateWithoutUserInput = {
+    id?: string
+    amount: number
+    currency?: string
+    productType: $Enums.ProductType
+    createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
+  }
+
+  export type PaymentUncheckedCreateWithoutUserInput = {
+    id?: string
+    amount: number
+    currency?: string
+    productType: $Enums.ProductType
+    createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
+  }
+
+  export type PaymentCreateOrConnectWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentCreateManyUserInputEnvelope = {
+    data: PaymentCreateManyUserInput | PaymentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ScenarioCreateWithoutUserInput = {
     id?: string
     name?: string
@@ -9886,10 +9918,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -9899,6 +9927,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUncheckedCreateWithoutUserInput = {
@@ -9918,10 +9950,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -9931,6 +9959,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioCreateOrConnectWithoutUserInput = {
@@ -9940,38 +9972,6 @@ export namespace Prisma {
 
   export type ScenarioCreateManyUserInputEnvelope = {
     data: ScenarioCreateManyUserInput | ScenarioCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type PaymentCreateWithoutUserInput = {
-    id?: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
-    amount: number
-    currency?: string
-    productType: $Enums.ProductType
-    createdAt?: Date | string
-  }
-
-  export type PaymentUncheckedCreateWithoutUserInput = {
-    id?: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
-    amount: number
-    currency?: string
-    productType: $Enums.ProductType
-    createdAt?: Date | string
-  }
-
-  export type PaymentCreateOrConnectWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
-  }
-
-  export type PaymentCreateManyUserInputEnvelope = {
-    data: PaymentCreateManyUserInput | PaymentCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -10000,6 +10000,37 @@ export namespace Prisma {
     type?: EnumAddonTypeFilter<"Addon"> | $Enums.AddonType
     isActive?: BoolFilter<"Addon"> | boolean
     createdAt?: DateTimeFilter<"Addon"> | Date | string
+  }
+
+  export type PaymentUpsertWithWhereUniqueWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    update: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
+    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentUpdateWithWhereUniqueWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    data: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PaymentUpdateManyWithWhereWithoutUserInput = {
+    where: PaymentScalarWhereInput
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PaymentScalarWhereInput = {
+    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    OR?: PaymentScalarWhereInput[]
+    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    id?: StringFilter<"Payment"> | string
+    userId?: StringFilter<"Payment"> | string
+    amount?: IntFilter<"Payment"> | number
+    currency?: StringFilter<"Payment"> | string
+    productType?: EnumProductTypeFilter<"Payment"> | $Enums.ProductType
+    createdAt?: DateTimeFilter<"Payment"> | Date | string
+    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
+    stripePriceId?: StringNullableFilter<"Payment"> | string | null
+    stripeSessionId?: StringFilter<"Payment"> | string
   }
 
   export type ScenarioUpsertWithWhereUniqueWithoutUserInput = {
@@ -10039,10 +10070,6 @@ export namespace Prisma {
     savings?: FloatNullableFilter<"Scenario"> | number | null
     retirement?: FloatNullableFilter<"Scenario"> | number | null
     homeEquity?: FloatNullableFilter<"Scenario"> | number | null
-    assetSplit?: JsonNullableFilter<"Scenario">
-    retirementImpact?: JsonNullableFilter<"Scenario">
-    vaDisability?: JsonNullableFilter<"Scenario">
-    housingScenario?: JsonNullableFilter<"Scenario">
     netIncome?: FloatFilter<"Scenario"> | number
     monthlySupport?: FloatFilter<"Scenario"> | number
     totalExpenses?: FloatFilter<"Scenario"> | number
@@ -10052,87 +10079,60 @@ export namespace Prisma {
     isAutoGenerated?: BoolFilter<"Scenario"> | boolean
     createdAt?: DateTimeFilter<"Scenario"> | Date | string
     updatedAt?: DateTimeFilter<"Scenario"> | Date | string
-  }
-
-  export type PaymentUpsertWithWhereUniqueWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    update: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
-    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
-  }
-
-  export type PaymentUpdateWithWhereUniqueWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    data: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
-  }
-
-  export type PaymentUpdateManyWithWhereWithoutUserInput = {
-    where: PaymentScalarWhereInput
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type PaymentScalarWhereInput = {
-    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    OR?: PaymentScalarWhereInput[]
-    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    id?: StringFilter<"Payment"> | string
-    userId?: StringFilter<"Payment"> | string
-    stripeSessionId?: StringFilter<"Payment"> | string
-    stripePaymentId?: StringNullableFilter<"Payment"> | string | null
-    stripePriceId?: StringNullableFilter<"Payment"> | string | null
-    amount?: IntFilter<"Payment"> | number
-    currency?: StringFilter<"Payment"> | string
-    productType?: EnumProductTypeFilter<"Payment"> | $Enums.ProductType
-    createdAt?: DateTimeFilter<"Payment"> | Date | string
+    assetSplit?: JsonNullableFilter<"Scenario">
+    housingScenario?: JsonNullableFilter<"Scenario">
+    retirementImpact?: JsonNullableFilter<"Scenario">
+    vaDisability?: JsonNullableFilter<"Scenario">
   }
 
   export type UserCreateWithoutScenariosInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutScenariosInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10155,106 +10155,106 @@ export namespace Prisma {
 
   export type UserUpdateWithoutScenariosInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutScenariosInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAddonsInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    scenarios?: ScenarioCreateNestedManyWithoutUserInput
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     payments?: PaymentCreateNestedManyWithoutUserInput
+    scenarios?: ScenarioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAddonsInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    scenarios?: ScenarioUncheckedCreateNestedManyWithoutUserInput
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    scenarios?: ScenarioUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAddonsInput = {
@@ -10275,104 +10275,104 @@ export namespace Prisma {
 
   export type UserUpdateWithoutAddonsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    scenarios?: ScenarioUpdateManyWithoutUserNestedInput
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     payments?: PaymentUpdateManyWithoutUserNestedInput
+    scenarios?: ScenarioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAddonsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    scenarios?: ScenarioUncheckedUpdateManyWithoutUserNestedInput
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    scenarios?: ScenarioUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutPaymentsInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonCreateNestedManyWithoutUserInput
     scenarios?: ScenarioCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPaymentsInput = {
     id?: string
-    name?: string | null
     email: string
     password?: string | null
-    resetToken?: string | null
-    resetTokenExpiry?: Date | string | null
-    accessType?: string
     hasFullAccess?: boolean
     entryPurchased?: boolean
-    canUseSubscription?: boolean
-    hasAIAdvisor?: boolean
-    subscriptionId?: string | null
     subscriptionStatus?: string | null
     stripeCustomerId?: string | null
     stripeSubId?: string | null
-    assetSplit?: boolean
-    retirementImpact?: boolean
-    vaDisability?: boolean
-    housingScenario?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    name?: string | null
+    accessType?: string
+    assetSplit?: boolean
+    housingScenario?: boolean
+    resetToken?: string | null
+    resetTokenExpiry?: Date | string | null
+    retirementImpact?: boolean
+    subscriptionId?: string | null
+    vaDisability?: boolean
+    canUseSubscription?: boolean
+    hasAIAdvisor?: boolean
     addons?: AddonUncheckedCreateNestedManyWithoutUserInput
     scenarios?: ScenarioUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10395,52 +10395,52 @@ export namespace Prisma {
 
   export type UserUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUpdateManyWithoutUserNestedInput
     scenarios?: ScenarioUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
-    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    accessType?: StringFieldUpdateOperationsInput | string
     hasFullAccess?: BoolFieldUpdateOperationsInput | boolean
     entryPurchased?: BoolFieldUpdateOperationsInput | boolean
-    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
-    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
-    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     subscriptionStatus?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeSubId?: NullableStringFieldUpdateOperationsInput | string | null
-    assetSplit?: BoolFieldUpdateOperationsInput | boolean
-    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
-    vaDisability?: BoolFieldUpdateOperationsInput | boolean
-    housingScenario?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    accessType?: StringFieldUpdateOperationsInput | string
+    assetSplit?: BoolFieldUpdateOperationsInput | boolean
+    housingScenario?: BoolFieldUpdateOperationsInput | boolean
+    resetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    resetTokenExpiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    retirementImpact?: BoolFieldUpdateOperationsInput | boolean
+    subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
+    vaDisability?: BoolFieldUpdateOperationsInput | boolean
+    canUseSubscription?: BoolFieldUpdateOperationsInput | boolean
+    hasAIAdvisor?: BoolFieldUpdateOperationsInput | boolean
     addons?: AddonUncheckedUpdateManyWithoutUserNestedInput
     scenarios?: ScenarioUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -10450,6 +10450,17 @@ export namespace Prisma {
     type: $Enums.AddonType
     isActive?: boolean
     createdAt?: Date | string
+  }
+
+  export type PaymentCreateManyUserInput = {
+    id?: string
+    amount: number
+    currency?: string
+    productType: $Enums.ProductType
+    createdAt?: Date | string
+    stripePaymentId?: string | null
+    stripePriceId?: string | null
+    stripeSessionId: string
   }
 
   export type ScenarioCreateManyUserInput = {
@@ -10469,10 +10480,6 @@ export namespace Prisma {
     savings?: number | null
     retirement?: number | null
     homeEquity?: number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome: number
     monthlySupport: number
     totalExpenses: number
@@ -10482,17 +10489,10 @@ export namespace Prisma {
     isAutoGenerated?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type PaymentCreateManyUserInput = {
-    id?: string
-    stripeSessionId: string
-    stripePaymentId?: string | null
-    stripePriceId?: string | null
-    amount: number
-    currency?: string
-    productType: $Enums.ProductType
-    createdAt?: Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AddonUpdateWithoutUserInput = {
@@ -10516,6 +10516,39 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type PaymentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PaymentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
+    stripeSessionId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ScenarioUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -10533,10 +10566,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -10546,6 +10575,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUncheckedUpdateWithoutUserInput = {
@@ -10565,10 +10598,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -10578,6 +10607,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ScenarioUncheckedUpdateManyWithoutUserInput = {
@@ -10597,10 +10630,6 @@ export namespace Prisma {
     savings?: NullableFloatFieldUpdateOperationsInput | number | null
     retirement?: NullableFloatFieldUpdateOperationsInput | number | null
     homeEquity?: NullableFloatFieldUpdateOperationsInput | number | null
-    assetSplit?: NullableJsonNullValueInput | InputJsonValue
-    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
-    vaDisability?: NullableJsonNullValueInput | InputJsonValue
-    housingScenario?: NullableJsonNullValueInput | InputJsonValue
     netIncome?: FloatFieldUpdateOperationsInput | number
     monthlySupport?: FloatFieldUpdateOperationsInput | number
     totalExpenses?: FloatFieldUpdateOperationsInput | number
@@ -10610,39 +10639,10 @@ export namespace Prisma {
     isAutoGenerated?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: IntFieldUpdateOperationsInput | number
-    currency?: StringFieldUpdateOperationsInput | string
-    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: IntFieldUpdateOperationsInput | number
-    currency?: StringFieldUpdateOperationsInput | string
-    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    stripeSessionId?: StringFieldUpdateOperationsInput | string
-    stripePaymentId?: NullableStringFieldUpdateOperationsInput | string | null
-    stripePriceId?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: IntFieldUpdateOperationsInput | number
-    currency?: StringFieldUpdateOperationsInput | string
-    productType?: EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assetSplit?: NullableJsonNullValueInput | InputJsonValue
+    housingScenario?: NullableJsonNullValueInput | InputJsonValue
+    retirementImpact?: NullableJsonNullValueInput | InputJsonValue
+    vaDisability?: NullableJsonNullValueInput | InputJsonValue
   }
 
 

@@ -6,7 +6,13 @@ interface EmailPayload {
   html: string;
 }
 
-// Support both standard SMTP and new EMAIL_ naming conventions for flexibility
+/**
+ * CONFIGURATION STRATEGY:
+ * To support multiple independent deployments (e.g. personal vs client), we strictly
+ * prioritize runtime environment variables (APP_URL, EMAIL_USER).
+ * We avoid falling back to NEXT_PUBLIC_ variables in the backend to prevent build-time leakage.
+ */
+
 const SMTP_USER = process.env.EMAIL_USER || process.env.SMTP_USER;
 const SMTP_PASS = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
 const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
@@ -28,16 +34,18 @@ if (SMTP_USER && SMTP_PASS) {
       pass: SMTP_PASS,
     },
     tls: {
-      // Do not fail on invalid certs - common for some SMTP relays
       rejectUnauthorized: false,
     },
-    // Serverless optimization: connection timeout
     connectionTimeout: 10000, 
     greetingTimeout: 10000,
   });
 }
 
 export async function sendEmail({ to, subject, html }: EmailPayload) {
+  // Debug info to identify deployment environment in logs
+  const maskedUser = SMTP_USER ? `${SMTP_USER.substring(0, 3)}***@${SMTP_USER.split('@')[1]}` : "NONE";
+  console.log(`[EmailService] Attempting to send email. Sender: ${maskedUser}`);
+
   if (transporter) {
     try {
       await transporter.sendMail({
@@ -46,9 +54,9 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
         subject,
         html,
       });
-      console.log(`Email sent successfully to ${to}`);
+      console.log(`[EmailService] Email sent successfully to ${to}`);
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("[EmailService] Error sending email:", error);
       throw error;
     }
   } else if (isLocalMode) {
@@ -56,28 +64,33 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
     console.log(`[LOCAL DEV MOCK] EMAIL INTERCEPTED`);
     console.log(`TO: ${to}`);
     console.log(`SUBJECT: ${subject}`);
-    console.log(`Extracting Link for you to click manually:`);
-    // Extract the reset link from the HTML using a simple regex mapping for ease of life
     const linkMatch = html.match(/href="([^"]+)"/);
     if (linkMatch && linkMatch[1]) {
       console.log(`🔗 CLICK HERE: ${linkMatch[1]}`);
-    } else {
-      console.log(`(Email sent successfully without standard href)`);
     }
     console.log("=======================================================\n");
   } else {
-    console.error("Production email failed because no SMTP configuration exists.");
+    console.error("[EmailService] CRITICAL: Production email failed - No SMTP configuration exists.");
   }
 }
 
 /**
- * Sends a password-related email (either setting for the first time or resetting)
- * Uses APP_URL environment variable for consistent linking.
+ * Sends a password-related email.
+ * Uses APP_URL strictly to ensure links point to the correct deployment domain.
  */
 export async function sendPasswordResetEmail(email: string, token: string, mode: "set" | "reset" = "reset") {
-  // Use APP_URL as primary, fallback to NEXT_PUBLIC_APP_URL or localhost
-  const appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const resetLink = `${appUrl}/reset-password?token=${token}`;
+  // Use APP_URL strictly. Only fallback to localhost in dev.
+  // DO NOT fallback to NEXT_PUBLIC_ variables here as they may be hardcoded at build time.
+  const appUrl = process.env.APP_URL || (process.env.NODE_ENV === "production" ? undefined : "http://localhost:3000");
+  
+  if (!appUrl && process.env.NODE_ENV === "production") {
+    console.error("[EmailService] CRITICAL: APP_URL is not defined in production environment variables!");
+    // We continue with a placeholder or throw error based on preference. 
+    // Here we use a generic placeholder to prevent crashing but log loudly.
+  }
+
+  const finalAppUrl = appUrl || "https://check-your-env-vars.com";
+  const resetLink = `${finalAppUrl}/reset-password?token=${token}`;
 
   const isSetMode = mode === "set";
   const title = isSetMode ? "Set Your Password" : "Reset Your Password";
@@ -86,12 +99,14 @@ export async function sendPasswordResetEmail(email: string, token: string, mode:
     : "We received a request to reset your password. If you didn't make this request, you can safely ignore this email.";
   const buttonText = isSetMode ? "Set Password" : "Reset Password";
 
+  console.log(`[EmailService] Generating reset link for domain: ${finalAppUrl}`);
+
   const html = `
 <div style="font-family: Inter, sans-serif; background:#111111; padding:40px; color:#ffffff;">
   <div style="max-width:500px; margin:auto; background:#ffffff; color:#111111; padding:30px; border-radius:12px;">
     
     <div style="text-align: center; margin-bottom: 30px;">
-      <img src="${appUrl}/costly-logo.png" alt="Costly Logo" style="height: 40px; width: auto;" />
+      <img src="${finalAppUrl}/costly-logo.png" alt="Costly Logo" style="height: 40px; width: auto;" />
     </div>
      
     <h2 style="margin-bottom:10px; text-align: center;">${title}</h2>
