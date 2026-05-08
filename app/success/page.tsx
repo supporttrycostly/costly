@@ -13,14 +13,14 @@ function SuccessContent() {
   const productType = searchParams.get("productType") || "PLAN";
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-[#111111] flex flex-col items-center justify-center p-6 sm:p-12 relative overflow-hidden">
+    <div className="min-h-screen bg-zinc-50 text-[#111111] flex flex-col items-center justify-center py-24 px-6 sm:px-12 relative overflow-auto">
       {/* High-Fidelity Background Elements */}
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#16A34A]/5 rounded-full blur-[120px] pointer-events-none animate-pulse" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#16A34A]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-xl">
+      <div className="relative z-10 w-full max-w-xl my-auto">
         {/* PREMIUM LIGHT CARD CONTAINER */}
-        <div className="bg-white border border-zinc-100 p-8 md:p-12 rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.06)] flex flex-col items-center text-center animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="bg-white border border-zinc-100 p-10 md:p-16 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.07)] flex flex-col items-center text-center animate-in fade-in slide-in-from-bottom-8 duration-700">
           
           {/* LOGO */}
           <div className="mb-14">
