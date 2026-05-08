@@ -56,22 +56,30 @@ function SuccessContent() {
           
           <div className="w-full space-y-8">
             {isNew && (
-              <div className="p-8 rounded-[2rem] bg-zinc-50 border border-zinc-100 text-left relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#16A34A]/5 rounded-full blur-3xl -mr-16 -mt-16" />
-                <div className="flex items-start gap-4 relative z-10">
-                  <div className="p-3 rounded-2xl bg-[#16A34A] text-white shadow-lg shadow-[#16A34A]/20">
-                    <Mail className="w-5 h-5" />
+              <div className="p-10 rounded-[2.5rem] bg-zinc-50 border border-zinc-100 text-left relative overflow-hidden group shadow-sm">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#16A34A]/5 rounded-full blur-3xl -mr-24 -mt-24" />
+                <div className="flex flex-col sm:flex-row items-start gap-6 relative z-10">
+                  <div className="p-4 rounded-2xl bg-[#16A34A] text-white shadow-lg shadow-[#16A34A]/20 shrink-0">
+                    <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-black uppercase tracking-widest text-[#16A34A] mb-2">Next Steps for Access</p>
-                    <p className="text-[13px] text-zinc-600 leading-relaxed font-bold">
-                      1. We've sent an activation link to your email.<br />
-                      2. <span className="text-[#111111] underline decoration-[#16A34A] underline-offset-4 decoration-2">Set your secure password</span> via that link.<br />
-                      3. Login to your new account to access your dashboard.
-                    </p>
-                    <p className="mt-3 text-[11px] text-zinc-400 font-bold uppercase tracking-wider">
-                      Please check your <span className="text-[#111111]">spam folder</span> if needed.
-                    </p>
+                    <p className="text-xs font-black uppercase tracking-widest text-[#16A34A] mb-3">Next Steps for Access</p>
+                    <div className="space-y-4">
+                      <p className="text-base md:text-lg text-[#111111] leading-relaxed font-bold">
+                        1. We've sent an activation link to your email.
+                      </p>
+                      <p className="text-base md:text-lg text-[#111111] leading-relaxed font-bold">
+                        2. <span className="underline decoration-[#16A34A] underline-offset-4 decoration-2">Set your secure password</span> via that link.
+                      </p>
+                      <p className="text-base md:text-lg text-[#111111] leading-relaxed font-bold">
+                        3. Login to access your dashboard.
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-zinc-200/50">
+                      <p className="text-[11px] text-zinc-400 font-bold uppercase tracking-wider">
+                        Can't find it? Check your <span className="text-[#111111]">spam folder</span>.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
