@@ -98,6 +98,16 @@ export async function POST(req: NextRequest) {
  */
 async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session, eventId: string) {
   const metadata = session.metadata ?? {};
+  const originUrl = metadata.originUrl;
+
+  // STRICT ISOLATION GUARD:
+  // If sharing one Stripe account across multiple deployments (Personal, Client, Local),
+  // each deployment will receive every webhook. We only process if it belongs to US.
+  if (originUrl && originUrl !== process.env.APP_URL) {
+     console.log(`[Webhook] Skipping event intended for ${originUrl} (Current: ${process.env.APP_URL})`);
+     return; // Return from handleCheckoutSessionCompleted but the outer loop will handle response
+  }
+
   const productType = metadata.productType as DbProductType;
   const addOnType = metadata.addOnType as DbAddonType;
   let userId = metadata.userId as string | undefined;

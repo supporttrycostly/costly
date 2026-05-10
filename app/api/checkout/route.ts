@@ -92,6 +92,7 @@ export async function POST(req: NextRequest) {
       metadata: {
         productType,
         addOnType: addOnType || "",
+        originUrl: process.env.APP_URL || "http://localhost:3000",
         ...(user && { userId: user.id }),
       },
       // Allow customers to manage their billing in Stripe for Subscriptions

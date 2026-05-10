@@ -13,58 +13,56 @@ interface EmailPayload {
  * We avoid falling back to NEXT_PUBLIC_ variables in the backend to prevent build-time leakage.
  */
 
-console.log("[EmailService] ENV Check:", {
-  EMAIL_USER: process.env.EMAIL_USER ? "DEFINED" : "MISSING",
-  SMTP_USER: process.env.SMTP_USER ? "DEFINED" : "MISSING"
-});
+/**
+ * DYNAMIC CONFIGURATION: 
+ * We fetch environment variables at runtime to ensure that different 
+ * deployments (Local, Personal Vercel, Client Vercel) never mix credentials.
+ */
+function getTransporter() {
+  const user = process.env.EMAIL_USER || process.env.SMTP_USER;
+  const pass = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+  const host = process.env.SMTP_HOST || "smtp.gmail.com";
+  const port = Number(process.env.SMTP_PORT) || 587;
+  const from = process.env.SMTP_FROM || user;
 
-const SMTP_USER = process.env.EMAIL_USER || process.env.SMTP_USER;
-const SMTP_PASS = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
-const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
-const SMTP_PORT = Number(process.env.SMTP_PORT) || 587;
-const SMTP_FROM = process.env.SMTP_FROM || SMTP_USER;
+  if (!user || !pass) {
+    return { transporter: null, from: null, isLocal: process.env.NODE_ENV !== "production" };
+  }
 
-// Fallback utility for local development if no SMTP vars exist
-const isLocalMode = !SMTP_USER || process.env.NODE_ENV !== "production";
-
-let transporter: nodemailer.Transporter | null = null;
-
-if (SMTP_USER && SMTP_PASS) {
-  transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: SMTP_PORT,
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
-    auth: {
-      user: SMTP_USER,
-      pass: SMTP_PASS,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure: process.env.SMTP_SECURE === "true",
+    auth: { user, pass },
+    tls: { rejectUnauthorized: false },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
   });
+
+  return { transporter, from, isLocal: false, user };
 }
 
 export async function sendEmail({ to, subject, html }: EmailPayload) {
-  // Debug info to identify deployment environment in logs
-  const maskedUser = SMTP_USER ? `${SMTP_USER.substring(0, 3)}***@${SMTP_USER.split('@')[1]}` : "NONE";
-  console.log(`[EmailService] Attempting to send email. Sender: ${maskedUser} | From: ${SMTP_FROM}`);
+  const { transporter, from, isLocal, user } = getTransporter();
 
-  if (transporter) {
+  // STRICTURE: Identify exactly which account is being used in the logs
+  const maskedUser = user ? `${user.substring(0, 3)}***@${user.split('@')[1]}` : "NONE";
+  console.log(`[EmailService] DEPLOYMENT IDENTIFIED. Using account: ${maskedUser}`);
+
+  if (transporter && from) {
     try {
       await transporter.sendMail({
-        from: SMTP_FROM,
+        from,
         to,
         subject,
         html,
       });
-      console.log(`[EmailService] Email sent successfully to ${to}`);
+      console.log(`[EmailService] SUCCESS: Email sent from ${from} to ${to}`);
     } catch (error) {
-      console.error("[EmailService] Error sending email:", error);
+      console.error("[EmailService] SMTP ERROR:", error);
       throw error;
     }
-  } else if (isLocalMode) {
+  } else if (isLocal) {
     console.log("\n=======================================================");
     console.log(`[LOCAL DEV MOCK] EMAIL INTERCEPTED`);
     console.log(`TO: ${to}`);
@@ -75,7 +73,7 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
     }
     console.log("=======================================================\n");
   } else {
-    console.error("[EmailService] CRITICAL: Production email failed - No SMTP configuration exists.");
+    console.error("[EmailService] CRITICAL ERROR: No SMTP credentials found for this deployment.");
   }
 }
 
@@ -84,22 +82,18 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
  * Uses APP_URL strictly to ensure links point to the correct deployment domain.
  */
 export async function sendPasswordResetEmail(email: string, token: string, mode: "set" | "reset" = "reset") {
-  // DIAGNOSTIC LOG: See exactly why the domain is failing
-  console.log("[EmailService] Generating reset email link:", {
-    envAppUrl: process.env.APP_URL,
-    envNextPublicAppUrl: process.env.NEXT_PUBLIC_APP_URL,
-    nodeEnv: process.env.NODE_ENV
-  });
+  // Use APP_URL strictly. Only fallback to localhost in dev.
+  // DO NOT fallback to NEXT_PUBLIC_ variables here as they may be hardcoded at build time.
+  const appUrl = process.env.APP_URL || (process.env.NODE_ENV === "production" ? undefined : "http://localhost:3000");
 
-  // Simplified logic: Prioritize APP_URL, then NEXT_PUBLIC_APP_URL, then localhost
-  let appUrl = process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-
-  // Clean trailing slashes
-  if (appUrl.endsWith('/')) {
-    appUrl = appUrl.slice(0, -1);
+  if (!appUrl && process.env.NODE_ENV === "production") {
+    console.error("[EmailService] CRITICAL: APP_URL is not defined in production environment variables!");
+    // We continue with a placeholder or throw error based on preference. 
+    // Here we use a generic placeholder to prevent crashing but log loudly.
   }
 
-  const resetLink = `${appUrl}/reset-password?token=${token}`;
+  const finalAppUrl = appUrl || "https://check-your-env-vars.com";
+  const resetLink = `${finalAppUrl}/reset-password?token=${token}`;
 
   const isSetMode = mode === "set";
   const title = isSetMode ? "Set Your Password" : "Reset Your Password";
@@ -108,14 +102,14 @@ export async function sendPasswordResetEmail(email: string, token: string, mode:
     : "We received a request to reset your password. If you didn't make this request, you can safely ignore this email.";
   const buttonText = isSetMode ? "Set Password" : "Reset Password";
 
-  console.log(`[EmailService] Final link generated: ${resetLink}`);
+  console.log(`[EmailService] Generating reset link for domain: ${finalAppUrl}`);
 
   const html = `
 <div style="font-family: Inter, sans-serif; background:#111111; padding:40px; color:#ffffff;">
   <div style="max-width:500px; margin:auto; background:#ffffff; color:#111111; padding:30px; border-radius:12px;">
     
     <div style="text-align: center; margin-bottom: 30px;">
-      <img src="${appUrl}/costly-logo.png" alt="Costly Logo" style="height: 40px; width: auto;" />
+      <img src="${finalAppUrl}/costly-logo.png" alt="Costly Logo" style="height: 40px; width: auto;" />
     </div>
      
     <h2 style="margin-bottom:10px; text-align: center;">${title}</h2>
