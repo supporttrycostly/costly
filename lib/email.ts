@@ -13,56 +13,58 @@ interface EmailPayload {
  * We avoid falling back to NEXT_PUBLIC_ variables in the backend to prevent build-time leakage.
  */
 
-/**
- * DYNAMIC CONFIGURATION: 
- * We fetch environment variables at runtime to ensure that different 
- * deployments (Local, Personal Vercel, Client Vercel) never mix credentials.
- */
-function getTransporter() {
-  const user = process.env.EMAIL_USER || process.env.SMTP_USER;
-  const pass = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
-  const host = process.env.SMTP_HOST || "smtp.gmail.com";
-  const port = Number(process.env.SMTP_PORT) || 587;
-  const from = process.env.SMTP_FROM || user;
+console.log("[EmailService] ENV Check:", { 
+  EMAIL_USER: process.env.EMAIL_USER ? "DEFINED" : "MISSING", 
+  SMTP_USER: process.env.SMTP_USER ? "DEFINED" : "MISSING" 
+});
 
-  if (!user || !pass) {
-    return { transporter: null, from: null, isLocal: process.env.NODE_ENV !== "production" };
-  }
+const SMTP_USER = process.env.EMAIL_USER || process.env.SMTP_USER;
+const SMTP_PASS = process.env.EMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
+const SMTP_PORT = Number(process.env.SMTP_PORT) || 587;
+const SMTP_FROM = process.env.SMTP_FROM || SMTP_USER;
 
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: process.env.SMTP_SECURE === "true",
-    auth: { user, pass },
-    tls: { rejectUnauthorized: false },
+// Fallback utility for local development if no SMTP vars exist
+const isLocalMode = !SMTP_USER || process.env.NODE_ENV !== "production";
+
+let transporter: nodemailer.Transporter | null = null;
+
+if (SMTP_USER && SMTP_PASS) {
+  transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
   });
-
-  return { transporter, from, isLocal: false, user };
 }
 
 export async function sendEmail({ to, subject, html }: EmailPayload) {
-  const { transporter, from, isLocal, user } = getTransporter();
+  // Debug info to identify deployment environment in logs
+  const maskedUser = SMTP_USER ? `${SMTP_USER.substring(0, 3)}***@${SMTP_USER.split('@')[1]}` : "NONE";
+  console.log(`[EmailService] Attempting to send email. Sender: ${maskedUser} | From: ${SMTP_FROM}`);
 
-  // STRICTURE: Identify exactly which account is being used in the logs
-  const maskedUser = user ? `${user.substring(0, 3)}***@${user.split('@')[1]}` : "NONE";
-  console.log(`[EmailService] DEPLOYMENT IDENTIFIED. Using account: ${maskedUser}`);
-
-  if (transporter && from) {
+  if (transporter) {
     try {
       await transporter.sendMail({
-        from,
+        from: SMTP_FROM,
         to,
         subject,
         html,
       });
-      console.log(`[EmailService] SUCCESS: Email sent from ${from} to ${to}`);
+      console.log(`[EmailService] Email sent successfully to ${to}`);
     } catch (error) {
-      console.error("[EmailService] SMTP ERROR:", error);
+      console.error("[EmailService] Error sending email:", error);
       throw error;
     }
-  } else if (isLocal) {
+  } else if (isLocalMode) {
     console.log("\n=======================================================");
     console.log(`[LOCAL DEV MOCK] EMAIL INTERCEPTED`);
     console.log(`TO: ${to}`);
@@ -73,7 +75,7 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
     }
     console.log("=======================================================\n");
   } else {
-    console.error("[EmailService] CRITICAL ERROR: No SMTP credentials found for this deployment.");
+    console.error("[EmailService] CRITICAL: Production email failed - No SMTP configuration exists.");
   }
 }
 
