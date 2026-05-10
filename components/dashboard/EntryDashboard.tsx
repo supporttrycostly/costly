@@ -271,23 +271,56 @@ export function EntryDashboard({ userName, isCore }: { userName: string; isCore:
 
            <div className="grid sm:grid-cols-2 gap-4 relative z-20">
               {[
-                 { id: "asset", label: "Asset Split modeling", icon: PieChart },
-                 { id: "retirement", label: "Retirement Analysis", icon: Wallet },
-                 { id: "va", label: "VA Disability Adjustment", icon: ShieldCheck },
-                 { id: "housing", label: "Housing Impact Scenarios", icon: Home }
+                 { 
+                    id: "asset", 
+                    label: "Asset Split Simulator", 
+                    icon: PieChart, 
+                    price: 39,
+                    description: "Estimate how property, savings, debt, and major assets may impact your financial picture."
+                 },
+                 { 
+                    id: "retirement", 
+                    label: "Retirement Impact", 
+                    icon: Wallet, 
+                    price: 29,
+                    description: "Estimate how divorce may affect retirement accounts and long-term planning."
+                 },
+                 { 
+                    id: "va", 
+                    label: "VA Disability Consideration", 
+                    icon: ShieldCheck, 
+                    price: 29,
+                    description: "Factor VA disability income considerations into your post-divorce financial scenario."
+                 },
+                 { 
+                    id: "housing", 
+                    label: "Housing Scenario", 
+                    icon: Home, 
+                    price: 29,
+                    description: "Compare rent, mortgage, and affordability after support obligations."
+                 }
               ].map((addon) => (
-                 <div key={addon.id} className="p-5 rounded-2xl border border-zinc-100 bg-zinc-50/50 flex flex-col items-center text-center gap-3 group/item transition-all hover:bg-white hover:shadow-xl">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-zinc-300 group-hover/item:text-[#16A34A] transition-colors">
+                 <div key={addon.id} className="p-6 rounded-2xl border border-zinc-100 bg-zinc-50/50 flex flex-col items-center text-center gap-4 group/item transition-all hover:bg-white hover:shadow-xl hover:border-zinc-200">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-zinc-300 group-hover/item:text-[#111111] transition-colors">
                        <addon.icon className="w-5 h-5" />
                     </div>
-                    <p className="text-[10px] font-black uppercase tracking-tight text-zinc-500">{addon.label}</p>
-                    <Button
-                       onClick={() => handleCheckout("CORE")}
-                       variant="outline"
-                       className="h-8 rounded-full text-[9px] font-black uppercase tracking-widest px-4 border-zinc-200 hover:bg-[#111111] hover:text-white transition-all cursor-pointer"
-                    >
-                       Upgrade for Access
-                    </Button>
+                    <div className="space-y-1">
+                       <h5 className="text-[11px] font-black uppercase tracking-tight text-[#111111] leading-tight">{addon.label}</h5>
+                       <p className="text-[10px] text-zinc-500 font-medium leading-relaxed">
+                          {addon.description}
+                       </p>
+                    </div>
+                    <div className="mt-auto w-full pt-2">
+                       <p className="text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-3">
+                          Available for ${addon.price}
+                       </p>
+                       <Button
+                          onClick={() => handleCheckout("CORE")}
+                          className="w-full h-10 rounded-xl bg-zinc-100 text-zinc-400 group-hover/item:bg-[#111111] group-hover/item:text-white font-black uppercase tracking-widest text-[9px] transition-all"
+                       >
+                          Unlock with Core
+                       </Button>
+                    </div>
                  </div>
               ))}
            </div>

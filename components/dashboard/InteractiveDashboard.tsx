@@ -104,10 +104,34 @@ export function InteractiveDashboard({
       userAddons?.some((a) => a.type === type && a.isActive);
 
    const allAddons = [
-      { id: "assetSplit", label: "Asset Split", key: "ASSET_SPLIT", price: 39 },
-      { id: "retirementImpact", label: "Retirement", key: "RETIREMENT", price: 29 },
-      { id: "vaDisability", label: "VA Disability", key: "VA_DISABILITY", price: 29 },
-      { id: "housingScenario", label: "Housing Impact", key: "HOUSING", price: 29 },
+      { 
+         id: "assetSplit", 
+         label: "Asset Split Simulator", 
+         key: "ASSET_SPLIT", 
+         price: 39,
+         description: "Estimate how property, savings, debt, and major assets may impact your divorce financial picture."
+      },
+      { 
+         id: "retirementImpact", 
+         label: "Retirement Impact", 
+         key: "RETIREMENT", 
+         price: 29,
+         description: "Estimate how divorce may affect retirement accounts and long-term financial planning."
+      },
+      { 
+         id: "vaDisability", 
+         label: "VA Disability Consideration", 
+         key: "VA_DISABILITY", 
+         price: 29,
+         description: "Factor VA disability income considerations into your support and post-divorce financial scenario."
+      },
+      { 
+         id: "housingScenario", 
+         label: "Housing Scenario", 
+         key: "HOUSING", 
+         price: 29,
+         description: "Compare rent, mortgage, and affordability after support obligations."
+      },
    ];
 
    const purchasedAddons = allAddons.filter(a => hasAddonAccess(a.key));
@@ -426,22 +450,31 @@ export function InteractiveDashboard({
 
                   {/* UNLOCK GRID (Filter out purchased) */}
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                     {availableAddons.map((addon) => (
-                        <div key={addon.id} className="p-6 rounded-2xl border border-zinc-100 bg-zinc-50/30 flex flex-col items-center text-center gap-3 relative overflow-hidden group">
-                           <p className="text-xs font-bold text-zinc-600">{addon.label}</p>
-                           <p className="text-[14px] font-black text-zinc-900 uppercase tracking-widest">${addon.price}</p>
-                           <Button
-                              onClick={() => handleCheckout(isCore ? "ADDON" : "CORE", isCore ? addon.key : undefined)}
-                              disabled={!!isRedirecting}
-                              variant="outline"
-                              className="h-9 rounded-full text-[10px] font-black uppercase tracking-widest px-6 border-zinc-200 hover:bg-[#111111] hover:text-white transition-all min-w-[120px]"
-                           >
-                              {isRedirecting === (isCore ? "ADDON" + addon.key : "CORE") ? (
-                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                              ) : (
-                                isCore ? "Unlock Access" : "Upgrade Core"
-                              )}
-                           </Button>
+                     {availableAddons.map((addon: any) => (
+                        <div key={addon.id} className="p-6 rounded-2xl border border-zinc-100 bg-zinc-50/30 flex flex-col items-center text-center gap-4 relative overflow-hidden group hover:bg-white hover:shadow-xl hover:border-zinc-200 transition-all duration-300">
+                           <div className="space-y-1">
+                              <h5 className="text-sm font-black text-zinc-900 leading-tight">{addon.label}</h5>
+                              <p className="text-[11px] text-zinc-500 font-medium leading-relaxed px-2">
+                                 {addon.description}
+                              </p>
+                           </div>
+                           
+                           <div className="mt-auto pt-2 space-y-3 w-full">
+                              <p className="text-[10px] font-black text-[#111111] uppercase tracking-widest">
+                                 Unlock for ${addon.price} one-time
+                              </p>
+                              <Button
+                                 onClick={() => handleCheckout(isCore ? "ADDON" : "CORE", isCore ? addon.key : undefined)}
+                                 disabled={!!isRedirecting}
+                                 className="w-full h-11 rounded-xl bg-[#111111] text-white font-black uppercase tracking-widest text-[9px] shadow-lg shadow-black/5 hover:bg-zinc-800 transition-all active:scale-[0.98]"
+                              >
+                                 {isRedirecting === (isCore ? "ADDON" + addon.key : "CORE") ? (
+                                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                 ) : (
+                                    isCore ? "Secure Access" : "Upgrade Core First"
+                                 )}
+                              </Button>
+                           </div>
                         </div>
                      ))}
                      {availableAddons.length === 0 && purchasedAddons.length > 0 && (
